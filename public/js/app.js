@@ -45817,7 +45817,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -45896,6 +45896,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45908,6 +45909,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     },
     data: function data() {
         return {
+            IconClass: 'fa fa-cloud-upload',
+            ShowIcon: false,
+            labelButton: 'Ingresar',
+
             dataLogin: {
                 name: '',
                 password: ''
@@ -45922,6 +45927,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         login: function login() {
             var _this = this;
 
+            this.ShowIcon = true;
+            this.IconClass = 'fa fa-circle-o-notch fa-spin';
+            this.labelButton = 'Accediendo';
             var url = "/api/login";
             axios.post(url, this.dataLogin).then(function (response) {
                 if (typeof response.data.errors != "undefined") {
@@ -45933,14 +45941,20 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                         }
                     }
                     toastr.error(resultado);
+                    _this.ShowIcon = false;
+                    _this.IconClass = 'fa fa-cloud-upload';
+                    _this.labelButton = 'Ingresar';
                     return;
                 }
-                console.log("loggin :", response.data);
+
                 _this.$store.dispatch('SAVE_TOKEN', { user: response.data }).then(function (response) {
                     //this.$store.dispatch('LOAD_PERFIL_USER')
                 }, function (error) {
                     console.error("Fallo no definido");
                 });
+                _this.ShowIcon = false;
+                _this.IconClass = 'fa fa-cloud-upload';
+                _this.labelButton = 'Ingresar';
                 _this.$router.push({ name: 'Dashboard' });
                 toastr.success('Ingreso exitoso');
             }).catch(function (error) {
@@ -45968,82 +45982,91 @@ var render = function() {
         _vm._v("Inicio de Sesión al Sistema")
       ]),
       _vm._v(" "),
-      _c("form", { attrs: { action: "../../index2.html", method: "post" } }, [
-        _c("div", { staticClass: "form-group has-feedback" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.dataLogin.name,
-                expression: "dataLogin.name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Usuario" },
-            domProps: { value: _vm.dataLogin.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.dataLogin, "name", $event.target.value)
-              }
+      _c(
+        "form",
+        {
+          attrs: { role: "form", method: "POST" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
             }
-          }),
-          _vm._v(" "),
-          _c("span", {
-            staticClass: "glyphicon glyphicon-envelope form-control-feedback"
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group has-feedback" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.dataLogin.password,
-                expression: "dataLogin.password"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "password", placeholder: "Password" },
-            domProps: { value: _vm.dataLogin.password },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group has-feedback" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.dataLogin.name,
+                  expression: "dataLogin.name"
                 }
-                _vm.$set(_vm.dataLogin, "password", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("span", {
-            staticClass: "glyphicon glyphicon-lock form-control-feedback"
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-xs-4" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger btn-block btn-flat",
-                attrs: { type: "submit" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.login($event)
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Usuario" },
+              domProps: { value: _vm.dataLogin.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
+                  _vm.$set(_vm.dataLogin, "name", $event.target.value)
                 }
-              },
-              [_vm._v("Ingresar")]
-            )
+              }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "glyphicon glyphicon-envelope form-control-feedback"
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group has-feedback" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.dataLogin.password,
+                  expression: "dataLogin.password"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "password", placeholder: "Password" },
+              domProps: { value: _vm.dataLogin.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.dataLogin, "password", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "glyphicon glyphicon-lock form-control-feedback"
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-xs-5" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger btn-block btn-flat",
+                  attrs: { type: "submit", disabled: _vm.ShowIcon }
+                },
+                [
+                  _c("i", { class: [_vm.IconClass] }),
+                  _vm._v(" " + _vm._s(_vm.labelButton))
+                ]
+              )
+            ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
   ])
 }

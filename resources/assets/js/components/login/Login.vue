@@ -8,7 +8,7 @@
         <div class="login-box-body">
             <p class="login-box-msg">Inicio de Sesión al Sistema</p>
 
-            <form action="../../index2.html" method="post">
+            <form role="form" method="POST" v-on:submit.prevent="login">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" v-model="dataLogin.name" placeholder="Usuario">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -18,8 +18,9 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-danger btn-block btn-flat" @click.prevent="login">Ingresar</button>
+                <div class="col-xs-5">
+<!--                     <button type="submit" class="btn btn-danger btn-block btn-flat" @click.prevent="login">Ingresar</button>
+ -->                    <button type="submit" class="btn btn-danger btn-block btn-flat" :disabled="ShowIcon"><i :class="[IconClass]"></i> {{ labelButton }}</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -42,6 +43,10 @@ export default {
     },     
     data() {
         return {
+            IconClass : 'fa fa-cloud-upload',
+            ShowIcon : false,
+            labelButton: 'Ingresar', 
+                        
             dataLogin: {
                 name: '',
                 password: '',
@@ -55,6 +60,9 @@ export default {
     },           
     methods: {
         login() {
+            this.ShowIcon = true
+            this.IconClass = 'fa fa-circle-o-notch fa-spin'
+            this.labelButton = 'Accediendo'              
             var url = "/api/login";    
             axios.post(url, this.dataLogin).then(response => {
                 if(typeof(response.data.errors) != "undefined"){
@@ -66,14 +74,20 @@ export default {
                     }
                     }
                     toastr.error(resultado);
+                    this.ShowIcon = false
+                    this.IconClass = 'fa fa-cloud-upload'
+                    this.labelButton = 'Ingresar'                       
                     return;
                 }
-                console.log("loggin :",response.data)
+
                 this.$store.dispatch('SAVE_TOKEN', { user : response.data } ).then(response => {
                     //this.$store.dispatch('LOAD_PERFIL_USER')
                 }, error => {
                     console.error("Fallo no definido")
                 });
+                this.ShowIcon = false
+                this.IconClass = 'fa fa-cloud-upload'
+                this.labelButton = 'Ingresar'                   
                 this.$router.push({ name: 'Dashboard' })
                 toastr.success('Ingreso exitoso')
             }).catch(error => {
