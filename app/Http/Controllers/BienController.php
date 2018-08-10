@@ -137,7 +137,7 @@ class BienController extends Controller
             /*-- Validacion de la imagen --*/
             if($request->get('image')){
                 $imageData = $request->get('image');
-                $fileName = str_replace(":", "-", Carbon::now()->format(DateTime::ISO8601)) . '.' . explode('/', explode(':', substr($imageData, 0, strpos($imageData, ';')))[1])[1];
+                $fileName = str_replace("+","-",str_replace(":", "-", Carbon::now()->format(DateTime::ISO8601))) . '.' . explode('/', explode(':', substr($imageData, 0, strpos($imageData, ';')))[1])[1];
                 Image::make($request->get('image'))->save(public_path('images/').$fileName);
             }        
 
@@ -210,7 +210,79 @@ class BienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();    
+
+        try {
+            $rules = ['clase_id'            => 'required',
+                    'descripcion'           => 'required',
+                    'ubicacion_id'          => 'required',
+                    'empleado_id'           => 'required',
+                    'encargado_id'          => 'required',
+                    'modelo'                => 'required',
+                    'marca'                 => 'required',
+                    'numero_serie'          => 'required',
+                    'conservacion'          => 'required',
+                    'tipoingreso_id'        => 'required',
+                    'cuenta_id'             => 'required',
+                    'dias_mantenimiento'    => 'required'
+                    ];
+
+            if($request->has('fecha_registro')){
+                $rules = array_add($rules, 'fecha_registro', 'date_format:d/m/Y');
+            }       
+
+            if($request->has('fecha_compra')){
+                $rules = array_add($rules, 'fecha_compra', 'date_format:d/m/Y');
+            } 
+
+/*             if($request->get('image')){
+                $rules = array_add($rules, 'image', 'mimes:jpeg,jpg,png');
+            }   */
+
+            $messages = ['fecha_registro.date_format' => 'Formato de fecha invalido',
+                        'fecha_compra.date_format' => 'Formato de fecha invalido'
+                        ];            
+
+            $validator = Validator::make($request->all(), $rules, $messages);
+            if ($validator->fails()) {
+                return response()->json(['errors'=>$validator->errors()]);
+            }
+
+            /*-- Validacion de la imagen --*/
+            if($request->get('image')){
+                $imageData = $request->get('image');
+                $fileName = str_replace("+","-",str_replace(":", "-", Carbon::now()->format(DateTime::ISO8601))) . '.' . explode('/', explode(':', substr($imageData, 0, strpos($imageData, ';')))[1])[1];
+                Image::make($request->get('image'))->save(public_path('images/').$fileName);
+            }        
+
+            $bien = Bien::find($id);
+            $bien->fill($request->all());  
+
+            if(isset($fileName)){
+                $bien->foto = $fileName;
+            }          
+            $fecr = explode("/", $bien->fecha_registro);          
+            $bien->fecha_registro = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+
+            $fecc = explode("/", $bien->fecha_compra);          
+            $bien->fecha_compra = empty($bien->fecha_compra) ? null : Carbon::create($fecc[2],$fecc[1],$fecc[0]);
+
+            $bien->descripcion = Str::upper($bien->descripcion);
+            $bien->marca = Str::upper($bien->marca);
+            $bien->modelo = Str::upper($bien->modelo);
+            $bien->numero_serie = Str::upper($bien->numero_serie);  
+            $bien->caracteristicas = Str::upper($bien->caracteristicas);                       
+            $bien->save();
+
+            DB::commit();        
+            return;
+        }
+        catch(Exception $e){
+            DB::rollback();
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
     }
 
     /**
@@ -221,6 +293,14 @@ class BienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $bien = Bien::findOrFail($id);
+            $bien->activo = false;
+            $bien->save();            
+        } catch (Exception $e) {
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
     }
 }

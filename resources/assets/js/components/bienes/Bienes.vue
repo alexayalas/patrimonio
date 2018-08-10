@@ -35,15 +35,15 @@
                         :ofText="textof"
                         styleClass="table condensed table-bordered table-striped">
                             <template slot="table-row" slot-scope="props">
-                                <td class="enlace" @click.prevent="onClickFn(props.row,props.index)">{{ props.row.codigo_barra }}</td>
-                                <td class="enlace" @click.prevent="onClickFn(props.row,props.index)">{{ props.row.descripcion }}</td>
-                                <td class="enlace" @click.prevent="onClickFn(props.row,props.index)">{{ props.row.marca}}</td>
-                                <td class="enlace" @click.prevent="onClickFn(props.row,props.index)">{{ props.row.modelo }}</td>
+                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.codigo_barra }}</td>
+                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.descripcion }}</td>
+                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.marca}}</td>
+                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.modelo }}</td>
                                 <td>{{ props.row.numero_serie }}</td>
-                                <td>{{ props.row.fecha_compra }}</td>
+                                <td>{{ props.formattedRow.fecha_compra }}</td>
                                 <td>{{ props.row.ubicacion.nombre_ubicacion }}</td>
                                 <td class="center">
-                                    <button title="ELIMINAR BIEN" @click.prevent="processDelete(props.row)"><i class="material-icons md-18">delete_forever</i></button>
+                                    <button title="ELIMINAR BIEN" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
                                     <button title="IMPRIMIR CODIGO DE BARRAS" @click.prevent="processImprimir(props.row)"><i class="material-icons md-18">print</i></button>
                                 </td>
                             </template>                              
@@ -65,7 +65,7 @@
                         <div class="box box-danger">
                             <div class="box-body modal-main modal-item">
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Sede </label>
+                                    <label for="" class="control-label">Sede <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_sedes"
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>                                
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Area </label>
+                                    <label for="" class="control-label">Area <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="areasBy"
@@ -97,7 +97,7 @@
                                     </div>
                                 </div>  
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Ubicación </label>
+                                    <label for="" class="control-label">Ubicación <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="ubicacionesBy"
@@ -113,7 +113,7 @@
                                     </div>
                                 </div> 
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Responsable del Area </label>
+                                    <label for="" class="control-label">Responsable del Area <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_responsables"
@@ -133,7 +133,7 @@
                         <div class="box box-danger">    
                             <div class="box-body modal-main modal-item">
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Clase </label>
+                                    <label for="" class="control-label">Clase <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_clases"
@@ -158,7 +158,7 @@
                                     </div>
                                 </div><!-- /.form-group -->
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Responsable del Bien </label>
+                                    <label for="" class="control-label">Responsable del Bien <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_responsables"
@@ -212,27 +212,34 @@
                                     </div>
                                 </div><!-- /.form-group -->  
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Medidas <span class="asterisk">*</span></label>
+                                    <label for="" class="control-label">Medidas </label>
                                     <div class="row">
                                         <div class="col-sm-11">
-                                            <input type="text" class="form-control input-sm mayusculas" name="medidas" v-model="dataBien.medidas" required>
+                                            <input type="text" class="form-control input-sm mayusculas" name="medidas" v-model="dataBien.medidas">
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->  
                                 <div class="form-group ml-5 mb-0">
-                                    <label for="" class="control-label">Caracteristicas <span class="asterisk">*</span></label>
+                                    <label for="" class="control-label">Caracteristicas </label>
                                     <div class="row">
                                         <div class="col-sm-11">
-                                            <textarea rows="6" cols="20" class="form-control input-sm mayusculas" name="caracteristicas" v-model="dataBien.caracteristicas" required></textarea>
+                                            <textarea rows="6" cols="20" class="form-control input-sm mayusculas" name="caracteristicas" v-model="dataBien.caracteristicas"></textarea>
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->  
-                                <div class="form-group ml-20 pl-20 mb-0 pb-0">
+                                <div class="form-group ml-20 pl-20 mb-0 pb-0" v-if="dataBien.foto == null || !edition">
                                     <label class="col-sm-12">Foto </label>
                                     <div class="form-group mb-0">
                                         <file-upload @cargaImagen="getImagen" @removeImage="getClear"></file-upload>
                                     </div><!-- /.form-group -->
-                                </div>                                                             
+                                </div>  
+                                <div class="form-group ml-20 pl-20 mb-0 pb-0" v-if="dataBien.foto != null && edition">
+                                    <label class="col-sm-12">Foto </label>
+                                    <img :src="'/images/'+ dataBien.foto" height="128" width="128" alt="">
+                                    <div class="row ml-20 mt-10">
+                                        <button type="button" class="btn btn-danger" @click="eliminaFoto">Borrar Foto</button>
+                                    </div>
+                                </div>                                                                                           
                             </div>                                                                              
                         </div>                                                                                                                                                                                                                                                                                                                                                              
                     </div>                  
@@ -240,7 +247,7 @@
                         <div class="box box-danger"> 
                             <div class="box-body modal-main modal-item">
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Tipo Ingreso </label>
+                                    <label for="" class="control-label">Tipo Ingreso <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_tipoingresos"
@@ -352,7 +359,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Estado conservación </label>
+                                    <label for="" class="control-label">Estado conservación <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_estados"
@@ -368,7 +375,7 @@
                                     </div>
                                 </div>                                                                                     
                                 <div class="form-group ml-5">
-                                    <label for="" class="control-label">Cuenta </label>
+                                    <label for="" class="control-label">Cuenta <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_cuentas"
@@ -431,39 +438,37 @@
                     <div class="col-md-12 pt-20 mb-10 mt-0 pr-20 separator">
                         <div class="pull-right pr-10">
                             <button type="button" class="btn btn-danger active" @click="$modal.hide('bien')"><i class="fa fa-reply-all"></i> Cancelar</button>
-                            <button type="submit" class="btn btn-primary active"><i class="fa fa-cloud-upload"></i> Grabar</button>
+                            <button type="submit" class="btn btn-success active" :disabled="ShowIcon"><i :class="[IconClass]"></i> {{ labelButton }}</button>
                         </div>
                     </div><!-- /.form-footer -->
                 </form>
             </div>
         <!-- /. form de registro de pacientes -->
         </modal> 
-        <modal name="imprimir" width="40%" height="auto" :scrollable="false" :clickToClose="false">
+        <modal name="imprimir" width="30%" height="auto" :scrollable="false" :clickToClose="false">
             <div id="printMe" class="form-group ml-5">
-                <h2>{{ showBien.nombre_empresa }} - {{ showBien.nombre_sede }}</h2>
-                <barcode :value="showBien.codigo_barra">
+                <h2 class="titulo">{{ showBien.nombre_empresa }} - {{ showBien.nombre_sede }}</h2>
+                <barcode :value="showBien.codigo_barra" width="2" height="75" fontSize="10">
                     Show this if the rendering fails.
                 </barcode> 
                 <div class="todo">
                     <div class="mitad">
-                        <div class="todo">
-                            <label for="">
-                                {{ showBien.nombre_bien}}
-                            </label>
-                        </div>
-                        <div class="todo">
-                            <label for="">
-                                {{ showBien.nombre_ubicacion}}
-                            </label>
-                        </div>                        
-                    </div>
-                    <div class="mitad">
-                        <table>
+                        <table class="descripcion">
                             <tr>
-                                <th>INV</th>
+                                <th>{{ showBien.nombre_bien }}</th>
                             </tr>
                             <tr>
-                                <td>2018</td>
+                                <td>{{ showBien.nombre_ubicacion}}</td>      
+                            </tr>
+                        </table>                       
+                    </div>
+                    <div class="mitad">
+                        <table class="conborde">
+                            <tr class="conborde">
+                                <th class="conborde">INV</th>
+                            </tr>
+                            <tr class="conborde">
+                                <td class="conborde">2018</td>
                             </tr>
                         </table>
                     </div>
@@ -487,18 +492,18 @@ import VueBarcode from 'vue-barcode'
 import { Printd } from 'printd'
 export default {
     name:'bienes',
-    mounted() {     
+    created() {
         this.$store.dispatch('LOAD_EMPRESAS_LIST') 
         this.$store.dispatch('LOAD_AREAS_LIST')           
-        this.$store.dispatch('LOAD_BIENES_LIST')  
-        this.$store.dispatch('LOAD_GRUPOS_LIST')   
-        this.$store.dispatch('LOAD_CLASES_LIST')                 
+        this.$store.dispatch('LOAD_BIENES_LIST')               
         this.$store.dispatch('LOAD_DATA_INIT_LIST') 
-        this.$store.dispatch('LOAD_COMBO_AREAS_LIST')   
-        this.$store.dispatch('LOAD_COMBO_EMPRESAS_LIST')                          
+    },
+    mounted() {     
+                        
     },        
     data() {
         return {
+            edition: false,
             searchText: '', // If value is falsy, reset searchText & searchItem
 
             codsed: '',
@@ -559,6 +564,9 @@ export default {
                 {
                 label: 'fecha_compra',
                 field: 'fecha_compra',
+                type: 'date',
+                inputFormat : 'YYYY-MM-DD',
+                outputFormat: 'DD/MM/YYYY',                
                 width:'10%',                
                 },
                 {
@@ -654,12 +662,15 @@ export default {
         }, 
         Imprimir: function(){
             const cssText = `
+            .titulo {
+                font-size: 15px;
+            }
+
             table {
-                font-size: 185%;
+                font-size: 100%;
                 font-family: sans-serif;
                 border-spacing: 0;
                 border-collapse: collapse;
-                border:1px solid black;
             }
 
             .todo {
@@ -671,9 +682,15 @@ export default {
                 display: inline-block;
             }
 
-            table, th, td {
+            .conborde {
                 border: 1px solid black;
-            }            
+            }
+
+            .detalle {
+                font-family: sans-serif;
+                font-size:10px !important;
+            } 
+         
             `
 
             const d = new Printd()
@@ -683,6 +700,7 @@ export default {
         },
         LoadForm: function(){  
             //this.item_emp = {}   
+            this.edition = false 
             this.codsed = '' 
             this.codare = ''
             this.codubi = ''
@@ -716,7 +734,7 @@ export default {
                 modelo:'',
                 marca:'',
                 numero_serie:'',
-                medidad:'',
+                medidas:'',
                 caracteristicas:'',
                 conservacion:'',
                 en_uso:'Si',
@@ -755,7 +773,6 @@ export default {
             this.IconClass = 'fa fa-circle-o-notch fa-spin'
             this.labelButton = 'Procesando'        
             axios.post(url, this.dataBien).then(response => {
-                console.log("respuesta: ",response.data[0])
                 if(typeof(response.data.errors) != "undefined"){
                     this.errors = response.data.errors;
                     var resultado = "";
@@ -771,8 +788,6 @@ export default {
                     return;
                 }
 
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
-
                 this.$store.dispatch('LOAD_BIENES_LIST')    
                 this.errors = [];
                 this.ShowIcon = false
@@ -780,7 +795,6 @@ export default {
                 this.labelButton = 'Grabar Datos'              
                 this.$modal.hide('bien');
                 this.processImprimir(response.data[0])
-                //this.$modal.show('imprimir');
                 toastr.success('Nuevo Registro creado con exito');
             }).catch(error => {
                 this.errors = error.response.data.status;
@@ -824,18 +838,66 @@ export default {
             });
         },
         processEdit(bie){
+            this.edition = true
+            this.$emit('getClear') 
+/*             this.$store.dispatch('LOAD_DATA_INIT_LIST')   */  
             var databie = []
             databie = _.clone(bie)
-            //dataempr.access = dataempr.access == 1 ? true : false
-            //-->this.item_emp = this.combo_empresas.find((cemp) => cemp.value == dataarea.empresa_id)
-/*             this.item_emp = this.combo_empresas.find(emp => emp.value == ubi.area.empresa_id)
-            this.codemp = ubi.area.empresa_id
-            this.item_are = this.areasBy.find(are => are.value == ubi.area_id)
-            this.dataUbicacion = {
-                id:dataubic.id,
-                nombre_ubicacion:dataubic.nombre_ubicacion,
-                area_id:dataubic.area_id         
-            }  */           
+           
+            this.item_sed = this.combo_sedes.find(sed => sed.value == databie.ubicacion.area.sede_id) 
+            this.codsed = databie.ubicacion.area.sede_id
+            this.codare = databie.ubicacion.area_id 
+            this.item_are = this.areasBy.find(are => are.value == this.codare)  
+            this.item_ubi = this.ubicacionesBy.find(ubi => ubi.value == databie.ubicacion_id) 
+
+            this.item_res_are = this.combo_responsables.find(res => res.value == databie.empleado_id)
+            this.item_cla = this.combo_clases.find(cla => cla.value == databie.clase_id) 
+            this.item_res_bie = this.combo_responsables.find(res => res.value == databie.encargado_id)  
+            this.item_tip_ing = this.combo_tipoingresos.find(tip => tip.value == databie.tipoingreso_id) 
+            this.item_cue = this.combo_cuentas.find(cue => cue.value == databie.cuenta_id)  
+            this.item_est = this.combo_estados.find(est => est.text == databie.conservacion)
+            if(databie.documento_id != null){
+                this.item_tip_doc = this.combo_documentos.find(doc => doc.value == databie.documento_id)  
+            }
+            if(databie.proveedor_id != null){
+                this.item_pro = this.combo_proveedores.find(pro => pro.value == databie.proveedor_id)
+            }            
+            if(databie.garantia_id != null){
+                this.item_gar = this.combo_garantias.find(gar => gar.value == databie.garantia_id)
+            }
+   
+            this.dataBien = {
+                id:databie.id,
+                codigo_barra:databie.codigo_barra,
+                codBar39:databie.codBar39,
+                clase_id:databie.clase_id,
+                descripcion:databie.descripcion,
+                ubicacion_id:databie.ubicacion_id,
+                empleado_id:databie.empleado_id,
+                encargado_id:databie.encargado_id,
+                modelo:databie.modelo,
+                marca:databie.marca,
+                numero_serie:databie.numero_serie,
+                medidas:databie.medidas,
+                caracteristicas:databie.caracteristicas,
+                conservacion:databie.conservacion,
+                en_uso:databie.en_uso,
+                fecha_compra: this.formatFecha(databie.fecha_compra),
+                tipoingreso_id:databie.tipoingreso_id,
+                documento_id:databie.documento_id,
+                numero_documento:databie.numero_documento,
+                costo:databie.costo,
+                proveedor_id:databie.proveedor_id,
+                depresiable:databie.depresiable,
+                cuenta_id:databie.cuenta_id,
+                dias_mantenimiento:databie.dias_mantenimiento,
+                fecha_registro: this.formatFecha(databie.fecha_registro),
+                serie_documento:databie.serie_documento,
+                garantia_id:databie.garantia_id,
+                dias_garantia:databie.dias_garantia,
+                foto:databie.foto
+            }, 
+
             this.$modal.show('bien')        
         },
         processDelete(id){
@@ -864,7 +926,6 @@ export default {
             });
         },   
         processImprimir(row){
-            console.log("row: ",row)
             var databie = []
             databie = _.clone(row)
             
@@ -986,7 +1047,16 @@ export default {
         resetGar () {
             this.item_gar = {}
             this.dataBien.garantia_id = ''   
-        },                                                                                                 
+        },    
+        formatFecha : function(fec) {
+            if(fec == null) {return null}
+            var f = fec.split('-')
+            var newf = f[2]+'-'+f[1]+'-'+f[0]
+            return newf
+        },
+        eliminaFoto() {
+            this.dataBien.foto = null
+        }                                                                                             
     },
        
   
@@ -1053,12 +1123,15 @@ export default {
         border: 1px solid gray;
     }
 
+            .titulo {
+                font-size: 15px;
+            }
+
             table {
-                font-size: 185%;
+                font-size: 100%;
                 font-family: sans-serif;
                 border-spacing: 0;
                 border-collapse: collapse;
-                border:1px solid black;
             }
 
             .todo {
@@ -1070,7 +1143,13 @@ export default {
                 display: inline-block;
             }
 
-            table, th, td {
+            .conborde {
                 border: 1px solid black;
-            }   
+            }
+
+            .detalle {
+                font-family: sans-serif;
+                font-size:10px !important;
+            } 
+
 </style>

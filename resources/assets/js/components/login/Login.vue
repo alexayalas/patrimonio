@@ -1,11 +1,12 @@
 <template>
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+<!--             <a href="#" class="text-danger"><b>VillaSalud</b></a> -->
+            <img src="/images/logotipoeslogan.png" alt="">
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Inicio de Sesión al Sistema</p>
 
             <form action="../../index2.html" method="post">
             <div class="form-group has-feedback">
@@ -18,7 +19,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat" @click.prevent="login">Ingresar</button>
+                    <button type="submit" class="btn btn-danger btn-block btn-flat" @click.prevent="login">Ingresar</button>
                 </div>
                 <!-- /.col -->
             </div>

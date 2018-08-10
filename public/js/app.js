@@ -45817,7 +45817,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -45864,6 +45864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(1);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
 //
 //
 //
@@ -45964,7 +45965,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "login-box-body" }, [
       _c("p", { staticClass: "login-box-msg" }, [
-        _vm._v("Sign in to start your session")
+        _vm._v("Inicio de Sesión al Sistema")
       ]),
       _vm._v(" "),
       _c("form", { attrs: { action: "../../index2.html", method: "post" } }, [
@@ -46029,7 +46030,7 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-primary btn-block btn-flat",
+                staticClass: "btn btn-danger btn-block btn-flat",
                 attrs: { type: "submit" },
                 on: {
                   click: function($event) {
@@ -46052,10 +46053,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "login-logo" }, [
-      _c("a", { attrs: { href: "../../index2.html" } }, [
-        _c("b", [_vm._v("Admin")]),
-        _vm._v("LTE")
-      ])
+      _c("img", { attrs: { src: "/images/logotipoeslogan.png", alt: "" } })
     ])
   }
 ]
@@ -47876,7 +47874,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-11ec15f5] {\n    background-color: #CF120B;\n    color: white;\n    /*margin:0;\n    padding:0;*/\n}\n.h3-title[data-v-11ec15f5] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-11ec15f5] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-11ec15f5]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-11ec15f5] {\n    float: left;\n}\n.separator[data-v-11ec15f5] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-11ec15f5], textarea.mayusculas[data-v-11ec15f5]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-11ec15f5]{\n    text-transform:lowercase;\n}\n.center[data-v-11ec15f5] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-11ec15f5] {\n    z-index:100000000;\n}\n.modal-main[data-v-11ec15f5] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-11ec15f5] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-11ec15f5] {\n    text-align: left;\n    border: 1px solid gray;\n}\ntable[data-v-11ec15f5] {\n            font-size: 185%;\n            font-family: sans-serif;\n            border-spacing: 0;\n            border-collapse: collapse;\n            border:1px solid black;\n}\n.todo[data-v-11ec15f5] {\n            width: 98%;\n}\n.mitad[data-v-11ec15f5] {\n            width: 49%;\n            display: inline-block;\n}\ntable[data-v-11ec15f5], th[data-v-11ec15f5], td[data-v-11ec15f5] {\n            border: 1px solid black;\n}   \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-11ec15f5] {\n    background-color: #CF120B;\n    color: white;\n    /*margin:0;\n    padding:0;*/\n}\n.h3-title[data-v-11ec15f5] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-11ec15f5] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-11ec15f5]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-11ec15f5] {\n    float: left;\n}\n.separator[data-v-11ec15f5] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-11ec15f5], textarea.mayusculas[data-v-11ec15f5]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-11ec15f5]{\n    text-transform:lowercase;\n}\n.center[data-v-11ec15f5] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-11ec15f5] {\n    z-index:100000000;\n}\n.modal-main[data-v-11ec15f5] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-11ec15f5] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-11ec15f5] {\n    text-align: left;\n    border: 1px solid gray;\n}\n.titulo[data-v-11ec15f5] {\n            font-size: 15px;\n}\ntable[data-v-11ec15f5] {\n            font-size: 100%;\n            font-family: sans-serif;\n            border-spacing: 0;\n            border-collapse: collapse;\n}\n.todo[data-v-11ec15f5] {\n            width: 98%;\n}\n.mitad[data-v-11ec15f5] {\n            width: 49%;\n            display: inline-block;\n}\n.conborde[data-v-11ec15f5] {\n            border: 1px solid black;\n}\n.detalle[data-v-11ec15f5] {\n            font-family: sans-serif;\n            font-size:10px !important;\n} \n\n", ""]);
 
 // exports
 
@@ -48378,6 +48376,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -48386,18 +48389,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'bienes',
-    mounted: function mounted() {
+    created: function created() {
         this.$store.dispatch('LOAD_EMPRESAS_LIST');
         this.$store.dispatch('LOAD_AREAS_LIST');
         this.$store.dispatch('LOAD_BIENES_LIST');
-        this.$store.dispatch('LOAD_GRUPOS_LIST');
-        this.$store.dispatch('LOAD_CLASES_LIST');
         this.$store.dispatch('LOAD_DATA_INIT_LIST');
-        this.$store.dispatch('LOAD_COMBO_AREAS_LIST');
-        this.$store.dispatch('LOAD_COMBO_EMPRESAS_LIST');
     },
+    mounted: function mounted() {},
     data: function data() {
         return {
+            edition: false,
             searchText: '', // If value is falsy, reset searchText & searchItem
 
             codsed: '',
@@ -48452,6 +48453,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             }, {
                 label: 'fecha_compra',
                 field: 'fecha_compra',
+                type: 'date',
+                inputFormat: 'YYYY-MM-DD',
+                outputFormat: 'DD/MM/YYYY',
                 width: '10%'
             }, {
                 label: 'Ubicacion',
@@ -48556,7 +48560,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             console.log(row);
         },
         Imprimir: function Imprimir() {
-            var cssText = '\n            table {\n                font-size: 185%;\n                font-family: sans-serif;\n                border-spacing: 0;\n                border-collapse: collapse;\n                border:1px solid black;\n            }\n\n            .todo {\n                width: 98%;\n            }\n\n            .mitad {\n                width: 49%;\n                display: inline-block;\n            }\n\n            table, th, td {\n                border: 1px solid black;\n            }            \n            ';
+            var cssText = '\n            .titulo {\n                font-size: 15px;\n            }\n\n            table {\n                font-size: 100%;\n                font-family: sans-serif;\n                border-spacing: 0;\n                border-collapse: collapse;\n            }\n\n            .todo {\n                width: 98%;\n            }\n\n            .mitad {\n                width: 49%;\n                display: inline-block;\n            }\n\n            .conborde {\n                border: 1px solid black;\n            }\n\n            .detalle {\n                font-family: sans-serif;\n                font-size:10px !important;\n            } \n         \n            ';
 
             var d = new __WEBPACK_IMPORTED_MODULE_4_printd__["Printd"]();
 
@@ -48565,6 +48569,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         },
         LoadForm: function LoadForm() {
             //this.item_emp = {}   
+            this.edition = false;
             this.codsed = '';
             this.codare = '';
             this.codubi = '';
@@ -48597,7 +48602,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 modelo: '',
                 marca: '',
                 numero_serie: '',
-                medidad: '',
+                medidas: '',
                 caracteristicas: '',
                 conservacion: '',
                 en_uso: 'Si',
@@ -48637,7 +48642,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.IconClass = 'fa fa-circle-o-notch fa-spin';
             this.labelButton = 'Procesando';
             axios.post(url, this.dataBien).then(function (response) {
-                console.log("respuesta: ", response.data[0]);
                 if (typeof response.data.errors != "undefined") {
                     _this5.errors = response.data.errors;
                     var resultado = "";
@@ -48653,8 +48657,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                     return;
                 }
 
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
-
                 _this5.$store.dispatch('LOAD_BIENES_LIST');
                 _this5.errors = [];
                 _this5.ShowIcon = false;
@@ -48662,7 +48664,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 _this5.labelButton = 'Grabar Datos';
                 _this5.$modal.hide('bien');
                 _this5.processImprimir(response.data[0]);
-                //this.$modal.show('imprimir');
                 toastr.success('Nuevo Registro creado con exito');
             }).catch(function (error) {
                 _this5.errors = error.response.data.status;
@@ -48708,22 +48709,94 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             });
         },
         processEdit: function processEdit(bie) {
+            var _this7 = this;
+
+            this.edition = true;
+            this.$emit('getClear');
+            /*             this.$store.dispatch('LOAD_DATA_INIT_LIST')   */
             var databie = [];
             databie = _.clone(bie);
-            //dataempr.access = dataempr.access == 1 ? true : false
-            //-->this.item_emp = this.combo_empresas.find((cemp) => cemp.value == dataarea.empresa_id)
-            /*             this.item_emp = this.combo_empresas.find(emp => emp.value == ubi.area.empresa_id)
-                        this.codemp = ubi.area.empresa_id
-                        this.item_are = this.areasBy.find(are => are.value == ubi.area_id)
-                        this.dataUbicacion = {
-                            id:dataubic.id,
-                            nombre_ubicacion:dataubic.nombre_ubicacion,
-                            area_id:dataubic.area_id         
-                        }  */
-            this.$modal.show('bien');
+
+            this.item_sed = this.combo_sedes.find(function (sed) {
+                return sed.value == databie.ubicacion.area.sede_id;
+            });
+            this.codsed = databie.ubicacion.area.sede_id;
+            this.codare = databie.ubicacion.area_id;
+            this.item_are = this.areasBy.find(function (are) {
+                return are.value == _this7.codare;
+            });
+            this.item_ubi = this.ubicacionesBy.find(function (ubi) {
+                return ubi.value == databie.ubicacion_id;
+            });
+
+            this.item_res_are = this.combo_responsables.find(function (res) {
+                return res.value == databie.empleado_id;
+            });
+            this.item_cla = this.combo_clases.find(function (cla) {
+                return cla.value == databie.clase_id;
+            });
+            this.item_res_bie = this.combo_responsables.find(function (res) {
+                return res.value == databie.encargado_id;
+            });
+            this.item_tip_ing = this.combo_tipoingresos.find(function (tip) {
+                return tip.value == databie.tipoingreso_id;
+            });
+            this.item_cue = this.combo_cuentas.find(function (cue) {
+                return cue.value == databie.cuenta_id;
+            });
+            this.item_est = this.combo_estados.find(function (est) {
+                return est.text == databie.conservacion;
+            });
+            if (databie.documento_id != null) {
+                this.item_tip_doc = this.combo_documentos.find(function (doc) {
+                    return doc.value == databie.documento_id;
+                });
+            }
+            if (databie.proveedor_id != null) {
+                this.item_pro = this.combo_proveedores.find(function (pro) {
+                    return pro.value == databie.proveedor_id;
+                });
+            }
+            if (databie.garantia_id != null) {
+                this.item_gar = this.combo_garantias.find(function (gar) {
+                    return gar.value == databie.garantia_id;
+                });
+            }
+
+            this.dataBien = {
+                id: databie.id,
+                codigo_barra: databie.codigo_barra,
+                codBar39: databie.codBar39,
+                clase_id: databie.clase_id,
+                descripcion: databie.descripcion,
+                ubicacion_id: databie.ubicacion_id,
+                empleado_id: databie.empleado_id,
+                encargado_id: databie.encargado_id,
+                modelo: databie.modelo,
+                marca: databie.marca,
+                numero_serie: databie.numero_serie,
+                medidas: databie.medidas,
+                caracteristicas: databie.caracteristicas,
+                conservacion: databie.conservacion,
+                en_uso: databie.en_uso,
+                fecha_compra: this.formatFecha(databie.fecha_compra),
+                tipoingreso_id: databie.tipoingreso_id,
+                documento_id: databie.documento_id,
+                numero_documento: databie.numero_documento,
+                costo: databie.costo,
+                proveedor_id: databie.proveedor_id,
+                depresiable: databie.depresiable,
+                cuenta_id: databie.cuenta_id,
+                dias_mantenimiento: databie.dias_mantenimiento,
+                fecha_registro: this.formatFecha(databie.fecha_registro),
+                serie_documento: databie.serie_documento,
+                garantia_id: databie.garantia_id,
+                dias_garantia: databie.dias_garantia,
+                foto: databie.foto
+            }, this.$modal.show('bien');
         },
         processDelete: function processDelete(id) {
-            var _this7 = this;
+            var _this8 = this;
 
             this.$dialog.confirm("<span style='color:red'><strong>¿ Desea Eliminar este Registro ?</strong></span>", {
                 html: true, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
@@ -48739,7 +48812,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 toastr.options.progressBar = true;
                 axios.delete(url).then(function (response) {
                     //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
-                    _this7.$store.dispatch('LOAD_BIENES_LIST');
+                    _this8.$store.dispatch('LOAD_BIENES_LIST');
                     toastr.success('Registro Eliminado correctamente');
                     dialog.close();
                 });
@@ -48748,7 +48821,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             });
         },
         processImprimir: function processImprimir(row) {
-            console.log("row: ", row);
             var databie = [];
             databie = _.clone(row);
 
@@ -48870,6 +48942,18 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         resetGar: function resetGar() {
             this.item_gar = {};
             this.dataBien.garantia_id = '';
+        },
+
+        formatFecha: function formatFecha(fec) {
+            if (fec == null) {
+                return null;
+            }
+            var f = fec.split('-');
+            var newf = f[2] + '-' + f[1] + '-' + f[0];
+            return newf;
+        },
+        eliminaFoto: function eliminaFoto() {
+            this.dataBien.foto = null;
         }
     }
 
@@ -52688,7 +52772,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  _vm.onClickFn(props.row, props.index)
+                                  _vm.processEdit(props.row)
                                 }
                               }
                             },
@@ -52702,7 +52786,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  _vm.onClickFn(props.row, props.index)
+                                  _vm.processEdit(props.row)
                                 }
                               }
                             },
@@ -52716,7 +52800,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  _vm.onClickFn(props.row, props.index)
+                                  _vm.processEdit(props.row)
                                 }
                               }
                             },
@@ -52730,7 +52814,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  _vm.onClickFn(props.row, props.index)
+                                  _vm.processEdit(props.row)
                                 }
                               }
                             },
@@ -52739,7 +52823,9 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(props.row.numero_serie))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(props.row.fecha_compra))]),
+                          _c("td", [
+                            _vm._v(_vm._s(props.formattedRow.fecha_compra))
+                          ]),
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(_vm._s(props.row.ubicacion.nombre_ubicacion))
@@ -52753,7 +52839,7 @@ var render = function() {
                                 on: {
                                   click: function($event) {
                                     $event.preventDefault()
-                                    _vm.processDelete(props.row)
+                                    _vm.processDelete(props.row.id)
                                   }
                                 }
                               },
@@ -52860,7 +52946,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Sede ")]
+                            [
+                              _vm._v("Sede "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -52925,7 +53016,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Area ")]
+                            [
+                              _vm._v("Area "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -52990,7 +53086,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Ubicación ")]
+                            [
+                              _vm._v("Ubicación "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -53055,7 +53156,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Responsable del Area ")]
+                            [
+                              _vm._v("Responsable del Area "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -53128,7 +53234,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Clase ")]
+                            [
+                              _vm._v("Clase "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -53218,7 +53329,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Responsable del Bien ")]
+                            [
+                              _vm._v("Responsable del Bien "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -53494,12 +53610,7 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [
-                              _vm._v("Medidas "),
-                              _c("span", { staticClass: "asterisk" }, [
-                                _vm._v("*")
-                              ])
-                            ]
+                            [_vm._v("Medidas ")]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -53514,11 +53625,7 @@ var render = function() {
                                   }
                                 ],
                                 staticClass: "form-control input-sm mayusculas",
-                                attrs: {
-                                  type: "text",
-                                  name: "medidas",
-                                  required: ""
-                                },
+                                attrs: { type: "text", name: "medidas" },
                                 domProps: { value: _vm.dataBien.medidas },
                                 on: {
                                   input: function($event) {
@@ -53544,12 +53651,7 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [
-                              _vm._v("Caracteristicas "),
-                              _c("span", { staticClass: "asterisk" }, [
-                                _vm._v("*")
-                              ])
-                            ]
+                            [_vm._v("Caracteristicas ")]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -53567,8 +53669,7 @@ var render = function() {
                                 attrs: {
                                   rows: "6",
                                   cols: "20",
-                                  name: "caracteristicas",
-                                  required: ""
+                                  name: "caracteristicas"
                                 },
                                 domProps: {
                                   value: _vm.dataBien.caracteristicas
@@ -53590,29 +53691,68 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-group ml-20 pl-20 mb-0 pb-0" },
-                          [
-                            _c("label", { staticClass: "col-sm-12" }, [
-                              _vm._v("Foto ")
-                            ]),
-                            _vm._v(" "),
-                            _c(
+                        _vm.dataBien.foto == null || !_vm.edition
+                          ? _c(
                               "div",
-                              { staticClass: "form-group mb-0" },
+                              {
+                                staticClass: "form-group ml-20 pl-20 mb-0 pb-0"
+                              },
                               [
-                                _c("file-upload", {
-                                  on: {
-                                    cargaImagen: _vm.getImagen,
-                                    removeImage: _vm.getClear
-                                  }
-                                })
-                              ],
-                              1
+                                _c("label", { staticClass: "col-sm-12" }, [
+                                  _vm._v("Foto ")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "form-group mb-0" },
+                                  [
+                                    _c("file-upload", {
+                                      on: {
+                                        cargaImagen: _vm.getImagen,
+                                        removeImage: _vm.getClear
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
                             )
-                          ]
-                        )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.dataBien.foto != null && _vm.edition
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "form-group ml-20 pl-20 mb-0 pb-0"
+                              },
+                              [
+                                _c("label", { staticClass: "col-sm-12" }, [
+                                  _vm._v("Foto ")
+                                ]),
+                                _vm._v(" "),
+                                _c("img", {
+                                  attrs: {
+                                    src: "/images/" + _vm.dataBien.foto,
+                                    height: "128",
+                                    width: "128",
+                                    alt: ""
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "row ml-20 mt-10" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-danger",
+                                      attrs: { type: "button" },
+                                      on: { click: _vm.eliminaFoto }
+                                    },
+                                    [_vm._v("Borrar Foto")]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
                       ]
                     )
                   ])
@@ -53631,7 +53771,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Tipo Ingreso ")]
+                            [
+                              _vm._v("Tipo Ingreso "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -54134,7 +54279,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Estado conservación ")]
+                            [
+                              _vm._v("Estado conservación "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -54199,7 +54349,12 @@ var render = function() {
                               staticClass: "control-label",
                               attrs: { for: "" }
                             },
-                            [_vm._v("Cuenta ")]
+                            [
+                              _vm._v("Cuenta "),
+                              _c("span", { staticClass: "asterisk" }, [
+                                _vm._v("*")
+                              ])
+                            ]
                           ),
                           _vm._v(" "),
                           _c("div", { staticClass: "row" }, [
@@ -54519,12 +54674,12 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-primary active",
-                          attrs: { type: "submit" }
+                          staticClass: "btn btn-success active",
+                          attrs: { type: "submit", disabled: _vm.ShowIcon }
                         },
                         [
-                          _c("i", { staticClass: "fa fa-cloud-upload" }),
-                          _vm._v(" Grabar")
+                          _c("i", { class: [_vm.IconClass] }),
+                          _vm._v(" " + _vm._s(_vm.labelButton))
                         ]
                       )
                     ])
@@ -54541,7 +54696,7 @@ var render = function() {
         {
           attrs: {
             name: "imprimir",
-            width: "40%",
+            width: "30%",
             height: "auto",
             scrollable: false,
             clickToClose: false
@@ -54552,7 +54707,7 @@ var render = function() {
             "div",
             { staticClass: "form-group ml-5", attrs: { id: "printMe" } },
             [
-              _c("h2", [
+              _c("h2", { staticClass: "titulo" }, [
                 _vm._v(
                   _vm._s(_vm.showBien.nombre_empresa) +
                     " - " +
@@ -54560,40 +54715,45 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("barcode", { attrs: { value: _vm.showBien.codigo_barra } }, [
-                _vm._v(
-                  "\n                    Show this if the rendering fails.\n                "
-                )
-              ]),
+              _c(
+                "barcode",
+                {
+                  attrs: {
+                    value: _vm.showBien.codigo_barra,
+                    width: "2",
+                    height: "75",
+                    fontSize: "10"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                    Show this if the rendering fails.\n                "
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "todo" }, [
                 _c("div", { staticClass: "mitad" }, [
-                  _c("div", { staticClass: "todo" }, [
-                    _c("label", { attrs: { for: "" } }, [
-                      _vm._v(
-                        "\n                                " +
-                          _vm._s(_vm.showBien.nombre_bien) +
-                          "\n                            "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "todo" }, [
-                    _c("label", { attrs: { for: "" } }, [
-                      _vm._v(
-                        "\n                                " +
-                          _vm._s(_vm.showBien.nombre_ubicacion) +
-                          "\n                            "
-                      )
+                  _c("table", { staticClass: "descripcion" }, [
+                    _c("tr", [
+                      _c("th", [_vm._v(_vm._s(_vm.showBien.nombre_bien))])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [_vm._v(_vm._s(_vm.showBien.nombre_ubicacion))])
                     ])
                   ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "mitad" }, [
-                  _c("table", [
-                    _c("tr", [_c("th", [_vm._v("INV")])]),
+                  _c("table", { staticClass: "conborde" }, [
+                    _c("tr", { staticClass: "conborde" }, [
+                      _c("th", { staticClass: "conborde" }, [_vm._v("INV")])
+                    ]),
                     _vm._v(" "),
-                    _c("tr", [_c("td", [_vm._v("2018")])])
+                    _c("tr", { staticClass: "conborde" }, [
+                      _c("td", { staticClass: "conborde" }, [_vm._v("2018")])
+                    ])
                   ])
                 ])
               ])
@@ -82549,7 +82709,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "pull-left info" }, [
-        _c("p", [_vm._v("Alexander Pierce")]),
+        _c("p", [_vm._v("Administrador")]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
           _c("i", { staticClass: "fa fa-circle text-success" }),
@@ -83372,7 +83532,7 @@ var staticRenderFns = [
           attrs: { src: "/img/user2-160x160.jpg", alt: "User Image" }
         }),
         _vm._v(" "),
-        _c("span", { staticClass: "hidden-xs" }, [_vm._v("Alexander Pierce")])
+        _c("span", { staticClass: "hidden-xs" }, [_vm._v("Administrador")])
       ]
     )
   },
@@ -83388,7 +83548,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "\n                Alexander Pierce - Web Developer\n                "
+          "\n                Administrador - Web Developer\n                "
         ),
         _c("small", [_vm._v("Member since Nov. 2012")])
       ])
