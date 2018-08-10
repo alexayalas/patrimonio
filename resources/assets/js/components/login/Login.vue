@@ -91,6 +91,9 @@ export default {
                 this.$router.push({ name: 'Dashboard' })
                 toastr.success('Ingreso exitoso')
             }).catch(error => {
+                this.ShowIcon = false
+                this.IconClass = 'fa fa-cloud-upload'
+                this.labelButton = 'Ingresar'  
                 this.errors = error.response;
                 console.log("err: ",this.errors) 
                 toastr.error("Hubo un error en el proceso: "+this.errors)

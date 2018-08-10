@@ -45817,7 +45817,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -45958,6 +45958,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 _this.$router.push({ name: 'Dashboard' });
                 toastr.success('Ingreso exitoso');
             }).catch(function (error) {
+                _this.ShowIcon = false;
+                _this.IconClass = 'fa fa-cloud-upload';
+                _this.labelButton = 'Ingresar';
                 _this.errors = error.response;
                 console.log("err: ", _this.errors);
                 toastr.error("Hubo un error en el proceso: " + _this.errors);
