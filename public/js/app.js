@@ -82704,7 +82704,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "pull-left image" }, [
         _c("img", {
           staticClass: "img-circle",
-          attrs: { src: "/img/user2-160x160.jpg", alt: "User Image" }
+          attrs: { src: "/img/no-image.png", alt: "User Image" }
         })
       ]),
       _vm._v(" "),
@@ -83169,7 +83169,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "pull-left" }, [
                   _c("img", {
                     staticClass: "img-circle",
-                    attrs: { src: "/img/user2-160x160.jpg", alt: "User Image" }
+                    attrs: { src: "/img/no-image.png", alt: "User Image" }
                   })
                 ]),
                 _vm._v(" "),
@@ -83529,7 +83529,7 @@ var staticRenderFns = [
       [
         _c("img", {
           staticClass: "user-image",
-          attrs: { src: "/img/user2-160x160.jpg", alt: "User Image" }
+          attrs: { src: "/img/no-image.png", alt: "User Image" }
         }),
         _vm._v(" "),
         _c("span", { staticClass: "hidden-xs" }, [_vm._v("Administrador")])
@@ -83543,7 +83543,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "user-header" }, [
       _c("img", {
         staticClass: "img-circle",
-        attrs: { src: "/img/user2-160x160.jpg", alt: "User Image" }
+        attrs: { src: "/img/no-image.png", alt: "User Image" }
       }),
       _vm._v(" "),
       _c("p", [
