@@ -446,13 +446,15 @@
         <!-- /. form de registro de pacientes -->
         </modal> 
         <modal name="imprimir" width="30%" height="auto" :scrollable="false" :clickToClose="false">
-            <div id="printMe" class="form-group ml-5">
-                <h2 class="titulo">{{ showBien.nombre_empresa }} - {{ showBien.nombre_sede }}</h2>
-                <barcode :value="showBien.codigo_barra" width="2" height="75" fontSize="10">
+            <div id="printMe" class="form-group ml-10 mt-10">
+                <h2 class="titulo">{{ showBien.nombre_empresa }}</h2>
+                <h2 class="titulo">{{ showBien.nombre_sede }}</h2>
+
+                <barcode :value="showBien.codigo_barra" width="1" height="28" fontSize="7" marginTop="5" marginBottom="2">
                     Show this if the rendering fails.
                 </barcode> 
                 <div class="todo">
-                    <div class="mitad">
+                    <div class="mitad1">
                         <table class="descripcion">
                             <tr>
                                 <th>{{ showBien.nombre_bien }}</th>
@@ -462,8 +464,8 @@
                             </tr>
                         </table>                       
                     </div>
-                    <div class="mitad">
-                        <table class="conborde">
+                    <div class="mitad2">
+                        <table class="conborde descripcion2 pull-right">
                             <tr class="conborde">
                                 <th class="conborde">INV</th>
                             </tr>
@@ -663,22 +665,35 @@ export default {
         Imprimir: function(){
             const cssText = `
             .titulo {
-                font-size: 15px;
+                font-family: sans-serif !important;
+                font-size: 7px;
+                margin:0;
+                padding:0;
             }
 
             table {
-                font-size: 100%;
                 font-family: sans-serif;
                 border-spacing: 0;
                 border-collapse: collapse;
             }
 
-            .todo {
-                width: 98%;
+            table.descripcion tr th {
+                padding-bottom:5px;
             }
 
-            .mitad {
-                width: 49%;
+            .todo {
+                width: 98%;
+                margin:0;
+                padding:0;
+            }
+
+            .mitad1 {
+                width: 60%;
+                display: inline-block;
+            }
+
+            .mitad2 {
+                width: 30%;
                 display: inline-block;
             }
 
@@ -686,10 +701,18 @@ export default {
                 border: 1px solid black;
             }
 
-            .detalle {
-                font-family: sans-serif;
-                font-size:10px !important;
+            .descripcion {
+                font-family: sans-serif !important;
+                font-size:6px !important;
             } 
+
+            .descripcion2 {
+                font-family: sans-serif !important;
+                font-size:8px !important;                
+            }
+            .pull-right {
+                float:right;
+            }
          
             `
 
@@ -1122,34 +1145,53 @@ export default {
         text-align: left;
         border: 1px solid gray;
     }
+    /** estilos de la impresion **/
+    .titulo {
+        font-family: sans-serif !important;
+        font-size: 12px;
+        margin:0;
+        padding:0;
+    }
 
-            .titulo {
-                font-size: 15px;
-            }
+    table {
+        font-family: sans-serif;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
 
-            table {
-                font-size: 100%;
-                font-family: sans-serif;
-                border-spacing: 0;
-                border-collapse: collapse;
-            }
+    table.descripcion tr th {
+        padding-bottom:5px;
+    }
 
-            .todo {
-                width: 98%;
-            }
+    .todo {
+        width: 98%;
+        margin:0;
+        padding:0;
+    }
 
-            .mitad {
-                width: 49%;
-                display: inline-block;
-            }
+    .mitad1 {
+        width: 60%;
+        display: inline-block;
+    }
 
-            .conborde {
-                border: 1px solid black;
-            }
+    .mitad2 {
+        width: 30%;
+        display: inline-block;
+    }
 
-            .detalle {
-                font-family: sans-serif;
-                font-size:10px !important;
-            } 
+    .conborde {
+        border: 1px solid black;
+    }
+
+    .descripcion {
+        font-family: sans-serif !important;
+        font-size:10px !important;
+    } 
+
+    .descripcion2 {
+        font-family: sans-serif !important;
+        font-size:12px !important;                
+    }
+    /** fin estilos de la impresion**/
 
 </style>

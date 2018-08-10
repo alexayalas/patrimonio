@@ -47900,7 +47900,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-11ec15f5] {\n    background-color: #CF120B;\n    color: white;\n    /*margin:0;\n    padding:0;*/\n}\n.h3-title[data-v-11ec15f5] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-11ec15f5] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-11ec15f5]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-11ec15f5] {\n    float: left;\n}\n.separator[data-v-11ec15f5] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-11ec15f5], textarea.mayusculas[data-v-11ec15f5]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-11ec15f5]{\n    text-transform:lowercase;\n}\n.center[data-v-11ec15f5] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-11ec15f5] {\n    z-index:100000000;\n}\n.modal-main[data-v-11ec15f5] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-11ec15f5] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-11ec15f5] {\n    text-align: left;\n    border: 1px solid gray;\n}\n.titulo[data-v-11ec15f5] {\n            font-size: 15px;\n}\ntable[data-v-11ec15f5] {\n            font-size: 100%;\n            font-family: sans-serif;\n            border-spacing: 0;\n            border-collapse: collapse;\n}\n.todo[data-v-11ec15f5] {\n            width: 98%;\n}\n.mitad[data-v-11ec15f5] {\n            width: 49%;\n            display: inline-block;\n}\n.conborde[data-v-11ec15f5] {\n            border: 1px solid black;\n}\n.detalle[data-v-11ec15f5] {\n            font-family: sans-serif;\n            font-size:10px !important;\n} \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-11ec15f5] {\n    background-color: #CF120B;\n    color: white;\n    /*margin:0;\n    padding:0;*/\n}\n.h3-title[data-v-11ec15f5] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-11ec15f5] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-11ec15f5]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-11ec15f5] {\n    float: left;\n}\n.separator[data-v-11ec15f5] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-11ec15f5], textarea.mayusculas[data-v-11ec15f5]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-11ec15f5]{\n    text-transform:lowercase;\n}\n.center[data-v-11ec15f5] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-11ec15f5] {\n    z-index:100000000;\n}\n.modal-main[data-v-11ec15f5] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-11ec15f5] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-11ec15f5] {\n    text-align: left;\n    border: 1px solid gray;\n}\n/** estilos de la impresion **/\n.titulo[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size: 12px;\n    margin:0;\n    padding:0;\n}\ntable[data-v-11ec15f5] {\n    font-family: sans-serif;\n    border-spacing: 0;\n    border-collapse: collapse;\n}\ntable.descripcion tr th[data-v-11ec15f5] {\n    padding-bottom:5px;\n}\n.todo[data-v-11ec15f5] {\n    width: 98%;\n    margin:0;\n    padding:0;\n}\n.mitad1[data-v-11ec15f5] {\n    width: 60%;\n    display: inline-block;\n}\n.mitad2[data-v-11ec15f5] {\n    width: 30%;\n    display: inline-block;\n}\n.conborde[data-v-11ec15f5] {\n    border: 1px solid black;\n}\n.descripcion[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size:10px !important;\n}\n.descripcion2[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size:12px !important;\n}\n/** fin estilos de la impresion**/\n\n", ""]);
 
 // exports
 
@@ -47921,6 +47921,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_printd___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_printd__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
+//
 //
 //
 //
@@ -48586,7 +48588,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             console.log(row);
         },
         Imprimir: function Imprimir() {
-            var cssText = '\n            .titulo {\n                font-size: 15px;\n            }\n\n            table {\n                font-size: 100%;\n                font-family: sans-serif;\n                border-spacing: 0;\n                border-collapse: collapse;\n            }\n\n            .todo {\n                width: 98%;\n            }\n\n            .mitad {\n                width: 49%;\n                display: inline-block;\n            }\n\n            .conborde {\n                border: 1px solid black;\n            }\n\n            .detalle {\n                font-family: sans-serif;\n                font-size:10px !important;\n            } \n         \n            ';
+            var cssText = '\n            .titulo {\n                font-family: sans-serif !important;\n                font-size: 7px;\n                margin:0;\n                padding:0;\n            }\n\n            table {\n                font-family: sans-serif;\n                border-spacing: 0;\n                border-collapse: collapse;\n            }\n\n            table.descripcion tr th {\n                padding-bottom:5px;\n            }\n\n            .todo {\n                width: 98%;\n                margin:0;\n                padding:0;\n            }\n\n            .mitad1 {\n                width: 60%;\n                display: inline-block;\n            }\n\n            .mitad2 {\n                width: 30%;\n                display: inline-block;\n            }\n\n            .conborde {\n                border: 1px solid black;\n            }\n\n            .descripcion {\n                font-family: sans-serif !important;\n                font-size:6px !important;\n            } \n\n            .descripcion2 {\n                font-family: sans-serif !important;\n                font-size:8px !important;                \n            }\n            .pull-right {\n                float:right;\n            }\n         \n            ';
 
             var d = new __WEBPACK_IMPORTED_MODULE_4_printd__["Printd"]();
 
@@ -54731,14 +54733,14 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "form-group ml-5", attrs: { id: "printMe" } },
+            { staticClass: "form-group ml-10 mt-10", attrs: { id: "printMe" } },
             [
               _c("h2", { staticClass: "titulo" }, [
-                _vm._v(
-                  _vm._s(_vm.showBien.nombre_empresa) +
-                    " - " +
-                    _vm._s(_vm.showBien.nombre_sede)
-                )
+                _vm._v(_vm._s(_vm.showBien.nombre_empresa))
+              ]),
+              _vm._v(" "),
+              _c("h2", { staticClass: "titulo" }, [
+                _vm._v(_vm._s(_vm.showBien.nombre_sede))
               ]),
               _vm._v(" "),
               _c(
@@ -54746,9 +54748,11 @@ var render = function() {
                 {
                   attrs: {
                     value: _vm.showBien.codigo_barra,
-                    width: "2",
-                    height: "75",
-                    fontSize: "10"
+                    width: "1",
+                    height: "28",
+                    fontSize: "7",
+                    marginTop: "5",
+                    marginBottom: "2"
                   }
                 },
                 [
@@ -54759,7 +54763,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticClass: "todo" }, [
-                _c("div", { staticClass: "mitad" }, [
+                _c("div", { staticClass: "mitad1" }, [
                   _c("table", { staticClass: "descripcion" }, [
                     _c("tr", [
                       _c("th", [_vm._v(_vm._s(_vm.showBien.nombre_bien))])
@@ -54771,16 +54775,20 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "mitad" }, [
-                  _c("table", { staticClass: "conborde" }, [
-                    _c("tr", { staticClass: "conborde" }, [
-                      _c("th", { staticClass: "conborde" }, [_vm._v("INV")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", { staticClass: "conborde" }, [
-                      _c("td", { staticClass: "conborde" }, [_vm._v("2018")])
-                    ])
-                  ])
+                _c("div", { staticClass: "mitad2" }, [
+                  _c(
+                    "table",
+                    { staticClass: "conborde descripcion2 pull-right" },
+                    [
+                      _c("tr", { staticClass: "conborde" }, [
+                        _c("th", { staticClass: "conborde" }, [_vm._v("INV")])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", { staticClass: "conborde" }, [
+                        _c("td", { staticClass: "conborde" }, [_vm._v("2018")])
+                      ])
+                    ]
+                  )
                 ])
               ])
             ],
