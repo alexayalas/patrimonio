@@ -98,6 +98,14 @@ export default {
             console.log(err)
         });
     },
+    LOAD_COMBO_ROLES_LIST: function ({ commit }) {
+        var urlType = '/api/roles/show';
+        return axios.get(urlType).then((response) => {
+            commit('SET_COMBO_ROLES_LIST', { list: response.data })
+        }, (err) => {
+            console.log(err)
+        });
+    },    
     LOAD_EMPLEADOS_LIST: function ({ commit }) {
         var urlEmpleados = '/api/empleados';
         return axios.get(urlEmpleados).then((response) => {
@@ -145,7 +153,31 @@ export default {
         }, (err) => {
             console.log(err)
         });
-    },      
+    },  
+    LOAD_ROLES_LIST: function ({ commit }) {
+        var url = '/api/roles';
+        return axios.get(url).then((response) => {
+            commit('SET_ROLES_LIST', { list: response.data })
+        }, (err) => {
+            console.log(err)
+        });
+    },   
+    LOAD_PERMISOS_LIST: function ({ commit }) {
+        var url = '/api/roles/create';
+        return axios.get(url).then((response) => {
+            commit('SET_PERMISOS_LIST', { list: response.data })
+        }, (err) => {
+            console.log(err)
+        });
+    },  
+    LOAD_USERS_LIST: function ({ commit }) {
+        var url = '/api/users';
+        return axios.get(url).then((response) => {
+            commit('SET_USERS_LIST', { list: response.data })
+        }, (err) => {
+            console.log(err)
+        });
+    },              
     LOAD_DATA_INIT_LIST: function ({ commit }) {
         var urlType = '/api/bienes/create';
         return axios.get(urlType).then((response) => {

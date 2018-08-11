@@ -194,9 +194,9 @@ export default {
         
       }
     },
-    updated(){
-      //this.getMenuClick()
-    },      
+    beforeCreate() {
+        this.$store.dispatch('LOAD_PERMISOS_LIST')     
+    },          
     computed: {
         ...mapState(['permisos','user_system','isAdmin']),
         rutaActual: function () {

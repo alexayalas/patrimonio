@@ -2,7 +2,7 @@
 export default {
     user_system: null,    
     authenticated: false,
-    permisos: null,
+    //permisos: null,
     permisos_user : null,
     isAdmin: false,
     bienes:[],
@@ -21,10 +21,14 @@ export default {
     cuentas:[],
     documentos:[],
     garantias:[],
+    roles:[],
+    permisos:[],
+    users:[],
     combo_clases:[],
     combo_ubicaciones:[],
     combo_responsables:[],
     combo_tipoingresos:[],
     combo_proveedores:[],
     combo_cuentas:[],
+    combo_roles:[],
 }

@@ -37,6 +37,7 @@ export default {
         console.log("autentificado: ",this.authenticated)
     },
     beforeCreate() {
+        this.$store.dispatch('LOAD_EMPRESAS_LIST')     
         document.body.className = "hold-transition skin-red sidebar-mini";
     },    
     computed: {

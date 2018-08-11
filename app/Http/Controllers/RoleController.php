@@ -23,7 +23,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        
+        $roles = Role::with('permissions')->orderBy('id','ASC')->get();
+        return $roles;        
     }
 
     /**
@@ -33,7 +34,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $permissions = Permission::get();
+        return $permissions; 
     }
 
     /**
@@ -58,7 +60,9 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $combo_roles = Role::orderBy('id','ASC')->get(['id as value','name as text']); 
+        return $combo_roles;   
+
     }
 
     /**
@@ -81,13 +85,13 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $role = User::find($id);
+        $role = Role::find($id);
 
         // actualiza el role
         $role->update($request->all());
 
         // actualiza los permisos
-        $user->permissions()->sync($request->get('permissions'));
+        $role->permissions()->sync($request->get('permissions'));
     }
 
     /**

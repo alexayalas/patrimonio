@@ -44,6 +44,9 @@ export default {
     SET_COMBO_GRUPOS_LIST: (state, { list }) => {
         state.combo_grupos = list
     },
+    SET_COMBO_ROLES_LIST: (state, { list }) => {
+        state.combo_roles = list
+    },    
     SET_EMPLEADOS_LIST: (state, { list }) => {      // EMPLEADOS
         state.empleados = list
     },     
@@ -56,12 +59,21 @@ export default {
     SET_CUENTAS_LIST: (state, { list }) => {      // CUENTAS
         state.cuentas = list
     },  
-    SET_DOCUMENTOS_LIST: (state, { list }) => {      // CUENTAS
+    SET_DOCUMENTOS_LIST: (state, { list }) => {      // DOCUMENTOS
         state.documentos = list
     },  
     SET_GARANTIAS_LIST: (state, { list }) => {      // GARANTIAS
         state.garantias = list
     },      
+    SET_ROLES_LIST: (state, { list }) => {      // ROLES
+        state.roles = list
+    }, 
+    SET_USERS_LIST: (state, { list }) => {      // USUARIOS
+        state.users = list
+    },     
+    SET_PERMISOS_LIST: (state, { list }) => {      // PERMISOS
+        state.permisos = list
+    },          
     SET_DATA_INIT_LIST: (state, { list }) => {
         state.combo_responsables    = list.combo_responsables
         state.combo_clases          = list.combo_clases

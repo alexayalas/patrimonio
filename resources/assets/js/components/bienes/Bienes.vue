@@ -1089,8 +1089,6 @@ export default {
     .title-form {
         background-color: #CF120B;
         color: white;
-        /*margin:0;
-        padding:0;*/
     }
 
     .h3-title {
