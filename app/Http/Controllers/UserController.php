@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Exception;
 use Validator;
 use Carbon\Carbon;
@@ -38,7 +39,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -88,7 +89,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -155,4 +156,43 @@ class UserController extends Controller
     {
         //
     }
+
+    public function changePassword(Request $request)
+    {
+        try
+        {
+            $rules = ['antPass' => 'required',
+                    'newPass' => 'required',
+                    'repPass' => 'required'
+                    ];
+
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return response()->json(['errors'=>$validator->errors()]);
+            }       
+            if($request->newPass != $request->repPass){
+                return response()->json(['errors'=>'La nueva clave y la repeticion de clave no son iguales']);                
+            }    
+            $input = $request->all();
+            $user = User::find(auth()->user()->id);     
+            
+            if (Hash::check($input['antPass'], $user->password))
+            {
+                $newPw = $input['newPass'];
+                $user->password = bcrypt($newPw);
+                $user->save();
+
+                DB::commit();           
+                return;
+            }else{
+                return response()->json(['errors'=>'La clave actual no es correcta']);                                
+            }
+        } catch (Exception $e) {
+            DB::rollback();          
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
+        
+    }    
 }

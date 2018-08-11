@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- START DEFAULT DATATABLE -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"> 
-                            <h3 class="panel-title">VillaSalud</h3>                               
+                    <div class="panel panel-danger">
+                        <div class="panel-heading bg-red-active"> 
+                            <!-- <h3 class="panel-title">VillaSalud</h3> -->                               
                             <div class="row">
-                                <button type="button" class="btn btn-info pull-right mr-10" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">store_mall_directory</i> Nueva Garantia</button>
+                                <button type="button" class="btn bg-yellow pull-right mr-10" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">how_to_vote</i> Nueva Garantia</button>
                             </div>                                                        
                         </div>
                         <div class="panel-body">
@@ -48,10 +48,10 @@
         <!-- PAGE CONTENT MODAL -->  
         <modal name="garantia" :width="'50%'" :height="'auto'" :scrollable="true" :clickToClose="false">
             <!-- form de registro de garantias -->
-            <div>
+            <div class="col-md-12 modal-main pl-0 pr-0">
                 <div class="row title-form">
-                    <h3 class="pull-left h3-title">Registro de Garantias</h3>
-                    <div class="pull-right close-form" @click="$modal.hide('garantia')"><i class="glyphicon glyphicon-remove"></i></div>                
+                    <h3 class="pull-left h3-title pl-10">Registro de Garantias</h3>
+                    <div class="pull-right close-form pr-20" @click="$modal.hide('garantia')"><i class="glyphicon glyphicon-remove"></i></div>                
                 </div>
                 <form data-sample-validation-1 class="form-horizontal form-bordered" role="form" method="POST" v-on:submit.prevent="ActionGarantia">
                     <div class="form-body">
@@ -254,10 +254,8 @@ export default {
 </script>
 <style scoped>
     .title-form {
-        background-color: #347c7c;
+        background-color: #CF120B;
         color: white;
-        margin:0;
-        padding:0
     }
 
     .h3-title {
@@ -279,12 +277,12 @@ export default {
     } 
 
     .separator {
-        border-top: 1px solid #CCC7B8;
+        border-top: 1px solid #CF120B;
     }
 
-    input.mayusculas{
+    input.mayusculas, textarea.mayusculas{
         text-transform:uppercase;
-    } 
+    }     
 
     input.minusculas{
         text-transform:lowercase;
@@ -293,5 +291,24 @@ export default {
     .center {
         text-align: center;
     }   
+      
+    .v--modal-overlay {
+        z-index:100000000;
+    }    
+
+    .modal-main {
+        background-color: #F6E0A6 !important;
+        color:rgb(41, 2, 1);
+    } 
+
+    .modal-item {
+        border-bottom: 1px solid rgb(255, 81, 81);
+        border-left: 1px solid rgb(255, 81, 81);
+        border-right: 1px solid rgb(255, 81, 81);
+    }
+    .label-grupo {
+        text-align: left;
+        border: 1px solid gray;
+    }      
    
 </style>

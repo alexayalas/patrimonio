@@ -19,6 +19,7 @@ Route::post('login', 'AuthenticateController@login');
 
 Route::middleware(['auth'])->group(function(){
     Route::post('logout', 'AuthenticateController@logout'); 
+    Route::post('/users/changepassword', 'UserController@changePassword'); 
     // Areas
     Route::resource('areas','AreaController');
     // bajas

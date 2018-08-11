@@ -11,7 +11,6 @@ export default {
         state.isAdmin = datos.user.isAdmin   
         localStorage.setItem('autentificado', true)
         localStorage.setItem('user', JSON.stringify(datos.user.user[0]))
-        //console.log("datitos ", datos.user.user[0])
     },
     SET_BIENES_LIST: (state, { list }) => {      // BIENES
         state.bienes = list

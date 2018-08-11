@@ -25759,13 +25759,13 @@ __webpack_require__(38);
 
 Vue.component('navbar', __webpack_require__(208));
 Vue.component('topbar', __webpack_require__(211));
-Vue.component('footervue', __webpack_require__(214));
-Vue.component('breadcrumb', __webpack_require__(217));
+Vue.component('footervue', __webpack_require__(216));
+Vue.component('breadcrumb', __webpack_require__(219));
 
 /*--- Carga de Imagenes ---*/
-Vue.component('file-upload', __webpack_require__(220));
-Vue.component('file-upload-multiple', __webpack_require__(225));
-Vue.component('file-upload-images', __webpack_require__(230));
+Vue.component('file-upload', __webpack_require__(222));
+Vue.component('file-upload-multiple', __webpack_require__(227));
+Vue.component('file-upload-images', __webpack_require__(232));
 
 
 
@@ -45219,7 +45219,6 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         state.isAdmin = datos.user.isAdmin;
         localStorage.setItem('autentificado', true);
         localStorage.setItem('user', JSON.stringify(datos.user.user[0]));
-        //console.log("datitos ", datos.user.user[0])
     },
 
     SET_BIENES_LIST: function SET_BIENES_LIST(state, _ref2) {
@@ -55227,7 +55226,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-6bdff45a] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-6bdff45a] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-6bdff45a] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-6bdff45a]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-6bdff45a] {\n    float: left;\n}\n.separator[data-v-6bdff45a] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-6bdff45a]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-6bdff45a]{\n    text-transform:lowercase;\n}\n.center[data-v-6bdff45a] {\n    text-align: center;\n}   \n  \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-6bdff45a] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-6bdff45a] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-6bdff45a] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-6bdff45a]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-6bdff45a] {\n    float: left;\n}\n.separator[data-v-6bdff45a] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-6bdff45a], textarea.mayusculas[data-v-6bdff45a]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-6bdff45a]{\n    text-transform:lowercase;\n}\n.center[data-v-6bdff45a] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-6bdff45a] {\n    z-index:100000000;\n}\n.modal-main[data-v-6bdff45a] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-6bdff45a] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-6bdff45a] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n", ""]);
 
 // exports
 
@@ -55555,17 +55554,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -55580,7 +55575,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("account_circle")]
+                        [_vm._v("queue_play_next")]
                       ),
                       _vm._v(" Nueva Clase")
                     ]
@@ -55685,16 +55680,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de clase")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("clase")
@@ -55993,7 +55988,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-469598bb] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-469598bb] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-469598bb] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-469598bb]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-469598bb] {\n    float: left;\n}\n.separator[data-v-469598bb] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-469598bb]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-469598bb]{\n    text-transform:lowercase;\n}\n.center[data-v-469598bb] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-469598bb] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-469598bb] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-469598bb] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-469598bb]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-469598bb] {\n    float: left;\n}\n.separator[data-v-469598bb] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-469598bb], textarea.mayusculas[data-v-469598bb]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-469598bb]{\n    text-transform:lowercase;\n}\n.center[data-v-469598bb] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-469598bb] {\n    z-index:100000000;\n}\n.modal-main[data-v-469598bb] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-469598bb] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-469598bb] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -56276,17 +56271,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -56301,7 +56292,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("ballot")]
                       ),
                       _vm._v(" Nuevo Grupo")
                     ]
@@ -56392,16 +56383,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Grupos")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("grupo")
@@ -56639,7 +56630,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-22093a8d] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-22093a8d] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-22093a8d] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-22093a8d]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-22093a8d] {\n    float: left;\n}\n.separator[data-v-22093a8d] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-22093a8d]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-22093a8d]{\n    text-transform:lowercase;\n}\n.center[data-v-22093a8d] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-22093a8d] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-22093a8d] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-22093a8d] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-22093a8d]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-22093a8d] {\n    float: left;\n}\n.separator[data-v-22093a8d] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-22093a8d], textarea.mayusculas[data-v-22093a8d]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-22093a8d]{\n    text-transform:lowercase;\n}\n.center[data-v-22093a8d] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-22093a8d] {\n    z-index:100000000;\n}\n.modal-main[data-v-22093a8d] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-22093a8d] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-22093a8d] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -56951,17 +56942,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -56976,7 +56963,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("how_to_reg")]
                       ),
                       _vm._v(" Nuevo Empleado")
                     ]
@@ -57095,16 +57082,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Empleados")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("empleado")
@@ -57413,7 +57400,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-5c42dfac] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-5c42dfac] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-5c42dfac] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-5c42dfac]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-5c42dfac] {\n    float: left;\n}\n.separator[data-v-5c42dfac] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-5c42dfac]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-5c42dfac]{\n    text-transform:lowercase;\n}\n.center[data-v-5c42dfac] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-5c42dfac] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-5c42dfac] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-5c42dfac] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-5c42dfac]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-5c42dfac] {\n    float: left;\n}\n.separator[data-v-5c42dfac] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-5c42dfac], textarea.mayusculas[data-v-5c42dfac]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-5c42dfac]{\n    text-transform:lowercase;\n}\n.center[data-v-5c42dfac] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-5c42dfac] {\n    z-index:100000000;\n}\n.modal-main[data-v-5c42dfac] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-5c42dfac] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-5c42dfac] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -57695,17 +57682,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -57720,7 +57703,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("local_atm")]
                       ),
                       _vm._v(" Nueva Cuenta")
                     ]
@@ -57811,16 +57794,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
-                _vm._v("Registro de Tipos de ingresos")
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
+                _vm._v("Registro de Cuentas")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("cuenta")
@@ -58058,7 +58041,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-0f0c6810] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-0f0c6810] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-0f0c6810] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-0f0c6810]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-0f0c6810] {\n    float: left;\n}\n.separator[data-v-0f0c6810] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-0f0c6810]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-0f0c6810]{\n    text-transform:lowercase;\n}\n.center[data-v-0f0c6810] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-0f0c6810] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-0f0c6810] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-0f0c6810] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-0f0c6810]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-0f0c6810] {\n    float: left;\n}\n.separator[data-v-0f0c6810] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-0f0c6810], textarea.mayusculas[data-v-0f0c6810]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-0f0c6810]{\n    text-transform:lowercase;\n}\n.center[data-v-0f0c6810] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-0f0c6810] {\n    z-index:100000000;\n}\n.modal-main[data-v-0f0c6810] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-0f0c6810] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-0f0c6810] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -58340,17 +58323,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -58365,7 +58344,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("description")]
                       ),
                       _vm._v(" Nuevo Documento")
                     ]
@@ -58456,16 +58435,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
-                _vm._v("Registro de Tipos de ingresos")
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
+                _vm._v("Registro de Documentos")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("documento")
@@ -58705,7 +58684,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-c339f6aa] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-c339f6aa] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-c339f6aa] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-c339f6aa]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-c339f6aa] {\n    float: left;\n}\n.separator[data-v-c339f6aa] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-c339f6aa]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-c339f6aa]{\n    text-transform:lowercase;\n}\n.center[data-v-c339f6aa] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-c339f6aa] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-c339f6aa] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-c339f6aa] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-c339f6aa]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-c339f6aa] {\n    float: left;\n}\n.separator[data-v-c339f6aa] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-c339f6aa], textarea.mayusculas[data-v-c339f6aa]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-c339f6aa]{\n    text-transform:lowercase;\n}\n.center[data-v-c339f6aa] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-c339f6aa] {\n    z-index:100000000;\n}\n.modal-main[data-v-c339f6aa] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-c339f6aa] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-c339f6aa] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -58987,17 +58966,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -59012,7 +58987,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("how_to_vote")]
                       ),
                       _vm._v(" Nueva Garantia")
                     ]
@@ -59103,16 +59078,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Garantias")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("garantia")
@@ -59350,7 +59325,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-034ad927] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-034ad927] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-034ad927] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-034ad927]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-034ad927] {\n    float: left;\n}\n.separator[data-v-034ad927] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-034ad927]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-034ad927]{\n    text-transform:lowercase;\n}\n.center[data-v-034ad927] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-034ad927] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-034ad927] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-034ad927] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-034ad927]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-034ad927] {\n    float: left;\n}\n.separator[data-v-034ad927] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-034ad927], textarea.mayusculas[data-v-034ad927]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-034ad927]{\n    text-transform:lowercase;\n}\n.center[data-v-034ad927] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-034ad927] {\n    z-index:100000000;\n}\n.modal-main[data-v-034ad927] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-034ad927] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-034ad927] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -59632,17 +59607,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -59657,7 +59628,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("exit_to_app")]
                       ),
                       _vm._v(" Nuevo Tipo")
                     ]
@@ -59748,16 +59719,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Tipos de ingresos")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("tipoingreso")
@@ -60027,7 +59998,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-eb8f39d6] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-eb8f39d6] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-eb8f39d6] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-eb8f39d6]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-eb8f39d6] {\n    float: left;\n}\n.separator[data-v-eb8f39d6] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-eb8f39d6]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-eb8f39d6]{\n    text-transform:lowercase;\n}\n.center[data-v-eb8f39d6] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-eb8f39d6] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-eb8f39d6] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-eb8f39d6] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-eb8f39d6]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-eb8f39d6] {\n    float: left;\n}\n.separator[data-v-eb8f39d6] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-eb8f39d6], textarea.mayusculas[data-v-eb8f39d6]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-eb8f39d6]{\n    text-transform:lowercase;\n}\n.center[data-v-eb8f39d6] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-eb8f39d6] {\n    z-index:100000000;\n}\n.modal-main[data-v-eb8f39d6] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-eb8f39d6] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-eb8f39d6] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -60384,17 +60355,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -60409,7 +60376,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("local_shipping")]
                       ),
                       _vm._v(" Nuevo Proveedor")
                     ]
@@ -60570,16 +60537,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Proveedores")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("proveedor")
@@ -62821,7 +62788,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-9f4e7ee0] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-9f4e7ee0] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-9f4e7ee0] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-9f4e7ee0]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-9f4e7ee0] {\n    float: left;\n}\n.separator[data-v-9f4e7ee0] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-9f4e7ee0]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-9f4e7ee0]{\n    text-transform:lowercase;\n}\n.center[data-v-9f4e7ee0] {\n    text-align: center;\n}   \n  \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-9f4e7ee0] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-9f4e7ee0] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-9f4e7ee0] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-9f4e7ee0]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-9f4e7ee0] {\n    float: left;\n}\n.separator[data-v-9f4e7ee0] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-9f4e7ee0], textarea.mayusculas[data-v-9f4e7ee0]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-9f4e7ee0]{\n    text-transform:lowercase;\n}\n.center[data-v-9f4e7ee0] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-9f4e7ee0] {\n    z-index:100000000;\n}\n.modal-main[data-v-9f4e7ee0] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-9f4e7ee0] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-9f4e7ee0] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n  \n", ""]);
 
 // exports
 
@@ -63186,17 +63153,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -63211,7 +63174,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("account_circle")]
+                        [_vm._v("folder_shared")]
                       ),
                       _vm._v(" Nueva Area")
                     ]
@@ -63330,16 +63293,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Area")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("area")
@@ -63699,7 +63662,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-b4313c20] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-b4313c20] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-b4313c20] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-b4313c20]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-b4313c20] {\n    float: left;\n}\n.separator[data-v-b4313c20] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-b4313c20]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-b4313c20]{\n    text-transform:lowercase;\n}\n.center[data-v-b4313c20] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-b4313c20] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-b4313c20] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-b4313c20] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-b4313c20]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-b4313c20] {\n    float: left;\n}\n.separator[data-v-b4313c20] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-b4313c20], textarea.mayusculas[data-v-b4313c20]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-b4313c20]{\n    text-transform:lowercase;\n}\n.center[data-v-b4313c20] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-b4313c20] {\n    z-index:100000000;\n}\n.modal-main[data-v-b4313c20] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-b4313c20] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-b4313c20] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -64028,17 +63991,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -64186,16 +64145,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Empresa")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("empresa")
@@ -64546,7 +64505,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-aeb322ec] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-aeb322ec] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-aeb322ec] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-aeb322ec]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-aeb322ec] {\n    float: left;\n}\n.separator[data-v-aeb322ec] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-aeb322ec]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-aeb322ec]{\n    text-transform:lowercase;\n}\n.center[data-v-aeb322ec] {\n    text-align: center;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-aeb322ec] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-aeb322ec] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-aeb322ec] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-aeb322ec]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-aeb322ec] {\n    float: left;\n}\n.separator[data-v-aeb322ec] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-aeb322ec], textarea.mayusculas[data-v-aeb322ec]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-aeb322ec]{\n    text-transform:lowercase;\n}\n.center[data-v-aeb322ec] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-aeb322ec] {\n    z-index:100000000;\n}\n.modal-main[data-v-aeb322ec] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-aeb322ec] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-aeb322ec] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -64839,17 +64798,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -64864,7 +64819,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("business")]
                       ),
                       _vm._v(" Nueva Sede")
                     ]
@@ -64969,16 +64924,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Sede")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("sede")
@@ -65255,7 +65210,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-3f85b8d2] {\n    background-color: #347c7c;\n    color: white;\n    margin:0;\n    padding:0\n}\n.h3-title[data-v-3f85b8d2] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-3f85b8d2] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-3f85b8d2]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-3f85b8d2] {\n    float: left;\n}\n.separator[data-v-3f85b8d2] {\n    border-top: 1px solid #CCC7B8;\n}\ninput.mayusculas[data-v-3f85b8d2]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-3f85b8d2]{\n    text-transform:lowercase;\n}\n.center[data-v-3f85b8d2] {\n    text-align: center;\n}   \n  \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-3f85b8d2] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-3f85b8d2] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-3f85b8d2] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-3f85b8d2]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-3f85b8d2] {\n    float: left;\n}\n.separator[data-v-3f85b8d2] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-3f85b8d2], textarea.mayusculas[data-v-3f85b8d2]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-3f85b8d2]{\n    text-transform:lowercase;\n}\n.center[data-v-3f85b8d2] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-3f85b8d2] {\n    z-index:100000000;\n}\n.modal-main[data-v-3f85b8d2] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-3f85b8d2] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-3f85b8d2] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n  \n", ""]);
 
 // exports
 
@@ -65636,17 +65591,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -65661,7 +65612,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("account_circle")]
+                        [_vm._v("message")]
                       ),
                       _vm._v(" Nueva Ubicación")
                     ]
@@ -65784,16 +65735,16 @@ var render = function() {
           }
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
             _c("div", { staticClass: "row title-form" }, [
-              _c("h3", { staticClass: "pull-left h3-title" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
                 _vm._v("Registro de Ubicación")
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "pull-right close-form",
+                  staticClass: "pull-right close-form pr-20",
                   on: {
                     click: function($event) {
                       _vm.$modal.hide("ubicacion")
@@ -84569,17 +84520,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(212)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(212)
+var __vue_script__ = __webpack_require__(214)
 /* template */
-var __vue_template__ = __webpack_require__(213)
+var __vue_template__ = __webpack_require__(215)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-c07f7060"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -84613,10 +84568,53 @@ module.exports = Component.exports
 
 /***/ }),
 /* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(213);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("01b0c2d8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c07f7060\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Topbar.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c07f7060\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Topbar.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 213 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.title-form[data-v-c07f7060] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-c07f7060] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-c07f7060] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-c07f7060]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-c07f7060] {\n    float: left;\n}\n.separator[data-v-c07f7060] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-c07f7060], textarea.mayusculas[data-v-c07f7060]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-c07f7060]{\n    text-transform:lowercase;\n}\n.center[data-v-c07f7060] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-c07f7060] {\n    z-index:100000000;\n}\n.modal-main[data-v-c07f7060] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-c07f7060] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-c07f7060] {\n    text-align: left;\n    border: 1px solid gray;\n}   \n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 214 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(1);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 //
 //
 //
@@ -84712,246 +84710,344 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'topbar',
     data: function data() {
         return {
-            message: ''
+            message: '',
+            dataPassword: {
+                antPass: '',
+                newPass: '',
+                repPass: ''
+            }
         };
     },
 
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['user_system'])),
     methods: {
         logout: function logout() {
             var _this = this;
 
-            //this.$router.push({ name: 'login' })
             this.$store.dispatch('LOGOUT').then(function () {
                 _this.$router.push({ name: 'login' });
+            });
+        },
+
+        loadForm: function loadForm() {
+            this.dataPassword = {
+                antPass: '',
+                newPass: '',
+                repPass: ''
+            };
+            this.$modal.show('Formpassword');
+        },
+        changePassword: function changePassword() {
+            var _this2 = this;
+
+            var url = '/api/users/changepassword';
+            toastr.options.closeButton = true;
+            toastr.options.progressBar = true;
+            axios.post(url, this.dataPassword).then(function (response) {
+                if (typeof response.data.errors != "undefined") {
+                    _this2.errors = response.data.errors;
+                    var resultado = "";
+                    for (var i in _this2.errors) {
+                        if (_this2.errors.hasOwnProperty(i)) {
+                            resultado += "error -> " + i + " = " + _this2.errors[i] + "\n";
+                        }
+                    }
+                    //toastr.error(resultado);
+                    toastr.error("Hubo un error en el proceso: verifique los datos ingresados ");
+                    return;
+                }
+                _this2.$modal.hide('Formpassword');
+                _this2.errors = [];
+                toastr.success('se realizo el cambio de clave correctamente');
+            }).catch(function (error) {
+                _this2.errors = error.response.data.status;
+                _this2.$modal.hide('Formpassword');
+                toastr.error("Hubo un error en el proceso: " + _this2.errors);
+                console.log(error.response.status);
             });
         }
     }
 });
 
 /***/ }),
-/* 213 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "main-header" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("nav", { staticClass: "navbar navbar-static-top" }, [
-      _vm._m(1),
+  return _c(
+    "header",
+    { staticClass: "main-header" },
+    [
+      _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "navbar-custom-menu" }, [
-        _c("ul", { staticClass: "nav navbar-nav" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _c("li", { staticClass: "dropdown user user-menu" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("ul", { staticClass: "dropdown-menu" }, [
-              _vm._m(6),
+      _c("nav", { staticClass: "navbar navbar-static-top" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "navbar-custom-menu" }, [
+          _c("ul", { staticClass: "nav navbar-nav" }, [
+            _c("li", { staticClass: "dropdown user user-menu" }, [
+              _vm._m(2),
               _vm._v(" "),
-              _vm._m(7),
-              _vm._v(" "),
-              _c("li", { staticClass: "user-footer" }, [
-                _vm._m(8),
+              _c("ul", { staticClass: "dropdown-menu" }, [
+                _vm._m(3),
                 _vm._v(" "),
-                _c("div", { staticClass: "pull-right" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-default btn-flat",
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.logout($event)
+                _c("li", { staticClass: "user-footer" }, [
+                  _c("div", { staticClass: "pull-left" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-default btn-flat",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.loadForm($event)
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Cerrar Sesión")]
-                  )
+                      },
+                      [_vm._v("Cambiar Clave")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pull-right" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-default btn-flat",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.logout($event)
+                          }
+                        }
+                      },
+                      [_vm._v("Cerrar Sesión")]
+                    )
+                  ])
                 ])
               ])
             ])
           ])
         ])
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "modal",
+        {
+          attrs: {
+            name: "Formpassword",
+            width: "25%",
+            height: "auto",
+            scrollable: true,
+            clickToClose: false
+          }
+        },
+        [
+          _c("div", { staticClass: "col-md-12 modal-main pl-0 pr-0" }, [
+            _c("div", { staticClass: "row title-form" }, [
+              _c("h3", { staticClass: "pull-left h3-title pl-10" }, [
+                _vm._v("Cambio de contraseña")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "pull-right close-form pr-20",
+                  on: {
+                    click: function($event) {
+                      _vm.$modal.hide("Formpassword")
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fa fa-close" })]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "form-horizontal form-bordered",
+                attrs: {
+                  "data-sample-validation-1": "",
+                  role: "form",
+                  method: "POST"
+                },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.changePassword($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-body" }, [
+                  _c("div", { staticClass: "col-md-12 pt-20" }, [
+                    _c("div", { staticClass: "form-group ml-5" }, [
+                      _c("label", { staticClass: "control-label" }, [
+                        _vm._v("Escriba su contraseña actual "),
+                        _c("span", { staticClass: "asterisk" }, [_vm._v("*")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-11" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.dataPassword.antPass,
+                                expression: "dataPassword.antPass"
+                              }
+                            ],
+                            staticClass: "form-control input-sm",
+                            attrs: { type: "password", required: "" },
+                            domProps: { value: _vm.dataPassword.antPass },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.dataPassword,
+                                  "antPass",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group ml-5" }, [
+                      _c("label", { staticClass: "control-label" }, [
+                        _vm._v("Escriba su nueva contraseña "),
+                        _c("span", { staticClass: "asterisk" }, [_vm._v("*")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-11" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.dataPassword.newPass,
+                                expression: "dataPassword.newPass"
+                              }
+                            ],
+                            staticClass: "form-control input-sm",
+                            attrs: { type: "password", required: "" },
+                            domProps: { value: _vm.dataPassword.newPass },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.dataPassword,
+                                  "newPass",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group ml-5" }, [
+                      _c("label", { staticClass: "control-label" }, [
+                        _vm._v("Repita su nueva contraseña ")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-11" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.dataPassword.repPass,
+                                expression: "dataPassword.repPass"
+                              }
+                            ],
+                            staticClass: "form-control input-sm",
+                            attrs: { type: "password", required: "" },
+                            domProps: { value: _vm.dataPassword.repPass },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.dataPassword,
+                                  "repPass",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-12 pt-20 mb-10 mt-0 pr-20 separator" },
+                  [
+                    _c("div", { staticClass: "pull-right pr-10" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger active",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.$modal.hide("Formpassword")
+                            }
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-reply-all" }),
+                          _vm._v(" Cancelar")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary active",
+                          attrs: { type: "submit" }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-cloud-upload" }),
+                          _vm._v(" Grabar")
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -84976,381 +85072,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "sr-only" }, [_vm._v("Toggle navigation")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "dropdown messages-menu" }, [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-toggle",
-          attrs: { href: "#", "data-toggle": "dropdown" }
-        },
-        [
-          _c("i", { staticClass: "fa fa-envelope-o" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "label label-success" }, [_vm._v("4")])
-        ]
-      ),
-      _vm._v(" "),
-      _c("ul", { staticClass: "dropdown-menu" }, [
-        _c("li", { staticClass: "header" }, [_vm._v("You have 4 messages")]),
-        _vm._v(" "),
-        _c("li", [
-          _c("ul", { staticClass: "menu" }, [
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "pull-left" }, [
-                  _c("img", {
-                    staticClass: "img-circle",
-                    attrs: { src: "/img/no-image.png", alt: "User Image" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h4", [
-                  _vm._v(
-                    "\n                        Support Team\n                        "
-                  ),
-                  _c("small", [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 5 mins")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Why not buy a new awesome theme?")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "pull-left" }, [
-                  _c("img", {
-                    staticClass: "img-circle",
-                    attrs: { src: "/img/user3-128x128.jpg", alt: "User Image" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h4", [
-                  _vm._v(
-                    "\n                        AdminLTE Design Team\n                        "
-                  ),
-                  _c("small", [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 2 hours")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Why not buy a new awesome theme?")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "pull-left" }, [
-                  _c("img", {
-                    staticClass: "img-circle",
-                    attrs: { src: "/img/user4-128x128.jpg", alt: "User Image" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h4", [
-                  _vm._v(
-                    "\n                        Developers\n                        "
-                  ),
-                  _c("small", [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" Today")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Why not buy a new awesome theme?")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "pull-left" }, [
-                  _c("img", {
-                    staticClass: "img-circle",
-                    attrs: { src: "/img/user3-128x128.jpg", alt: "User Image" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h4", [
-                  _vm._v(
-                    "\n                        Sales Department\n                        "
-                  ),
-                  _c("small", [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" Yesterday")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Why not buy a new awesome theme?")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "pull-left" }, [
-                  _c("img", {
-                    staticClass: "img-circle",
-                    attrs: { src: "/img/user4-128x128.jpg", alt: "User Image" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h4", [
-                  _vm._v(
-                    "\n                        Reviewers\n                        "
-                  ),
-                  _c("small", [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 2 days")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Why not buy a new awesome theme?")])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "footer" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("See All Messages")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "dropdown notifications-menu" }, [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-toggle",
-          attrs: { href: "#", "data-toggle": "dropdown" }
-        },
-        [
-          _c("i", { staticClass: "fa fa-bell-o" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "label label-warning" }, [_vm._v("10")])
-        ]
-      ),
-      _vm._v(" "),
-      _c("ul", { staticClass: "dropdown-menu" }, [
-        _c("li", { staticClass: "header" }, [
-          _vm._v("You have 10 notifications")
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("ul", { staticClass: "menu" }, [
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "fa fa-users text-aqua" }),
-                _vm._v(" 5 new members joined today\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "fa fa-warning text-yellow" }),
-                _vm._v(
-                  " Very long description here that may not fit into the\n                    page and may cause design problems\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "fa fa-users text-red" }),
-                _vm._v(" 5 new members joined\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "fa fa-shopping-cart text-green" }),
-                _vm._v(" 25 sales made\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("i", { staticClass: "fa fa-user text-red" }),
-                _vm._v(" You changed your username\n                    ")
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "footer" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("View all")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "dropdown tasks-menu" }, [
-      _c(
-        "a",
-        {
-          staticClass: "dropdown-toggle",
-          attrs: { href: "#", "data-toggle": "dropdown" }
-        },
-        [
-          _c("i", { staticClass: "fa fa-flag-o" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "label label-danger" }, [_vm._v("9")])
-        ]
-      ),
-      _vm._v(" "),
-      _c("ul", { staticClass: "dropdown-menu" }, [
-        _c("li", { staticClass: "header" }, [_vm._v("You have 9 tasks")]),
-        _vm._v(" "),
-        _c("li", [
-          _c("ul", { staticClass: "menu" }, [
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("h3", [
-                  _vm._v(
-                    "\n                        Design some buttons\n                        "
-                  ),
-                  _c("small", { staticClass: "pull-right" }, [_vm._v("20%")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "progress xs" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "progress-bar progress-bar-aqua",
-                      staticStyle: { width: "20%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "20",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "sr-only" }, [
-                        _vm._v("20% Complete")
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("h3", [
-                  _vm._v(
-                    "\n                        Create a nice theme\n                        "
-                  ),
-                  _c("small", { staticClass: "pull-right" }, [_vm._v("40%")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "progress xs" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "progress-bar progress-bar-green",
-                      staticStyle: { width: "40%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "20",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "sr-only" }, [
-                        _vm._v("40% Complete")
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("h3", [
-                  _vm._v(
-                    "\n                        Some task I need to do\n                        "
-                  ),
-                  _c("small", { staticClass: "pull-right" }, [_vm._v("60%")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "progress xs" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "progress-bar progress-bar-red",
-                      staticStyle: { width: "60%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "20",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "sr-only" }, [
-                        _vm._v("60% Complete")
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("h3", [
-                  _vm._v(
-                    "\n                        Make beautiful transitions\n                        "
-                  ),
-                  _c("small", { staticClass: "pull-right" }, [_vm._v("80%")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "progress xs" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "progress-bar progress-bar-yellow",
-                      staticStyle: { width: "80%" },
-                      attrs: {
-                        role: "progressbar",
-                        "aria-valuenow": "20",
-                        "aria-valuemin": "0",
-                        "aria-valuemax": "100"
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "sr-only" }, [
-                        _vm._v("80% Complete")
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "footer" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("View all tasks")])
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -85384,42 +85105,10 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "\n                Administrador - Web Developer\n                "
+          "\n                    Administrador - Web Developer\n                    "
         ),
         _c("small", [_vm._v("Member since Nov. 2012")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "user-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-xs-4 text-center" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Followers")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-xs-4 text-center" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Sales")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-xs-4 text-center" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Friends")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pull-left" }, [
-      _c(
-        "a",
-        { staticClass: "btn btn-default btn-flat", attrs: { href: "#" } },
-        [_vm._v("Profile")]
-      )
     ])
   }
 ]
@@ -85433,15 +85122,15 @@ if (false) {
 }
 
 /***/ }),
-/* 214 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(215)
+var __vue_script__ = __webpack_require__(217)
 /* template */
-var __vue_template__ = __webpack_require__(216)
+var __vue_template__ = __webpack_require__(218)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -85480,7 +85169,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 215 */
+/* 217 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85505,7 +85194,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 216 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -85546,15 +85235,15 @@ if (false) {
 }
 
 /***/ }),
-/* 217 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(218)
+var __vue_script__ = __webpack_require__(220)
 /* template */
-var __vue_template__ = __webpack_require__(219)
+var __vue_template__ = __webpack_require__(221)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -85593,7 +85282,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85619,7 +85308,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 219 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -85662,19 +85351,19 @@ if (false) {
 }
 
 /***/ }),
-/* 220 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(221)
+  __webpack_require__(223)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(223)
+var __vue_script__ = __webpack_require__(225)
 /* template */
-var __vue_template__ = __webpack_require__(224)
+var __vue_template__ = __webpack_require__(226)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -85713,13 +85402,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 221 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(222);
+var content = __webpack_require__(224);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -85739,7 +85428,7 @@ if(false) {
 }
 
 /***/ }),
-/* 222 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -85753,7 +85442,7 @@ exports.push([module.i, "\n.container-Photo[data-v-564c421f] {\n    width: 128px
 
 
 /***/ }),
-/* 223 */
+/* 225 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85846,7 +85535,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 224 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -85916,19 +85605,19 @@ if (false) {
 }
 
 /***/ }),
-/* 225 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(226)
+  __webpack_require__(228)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(228)
+var __vue_script__ = __webpack_require__(230)
 /* template */
-var __vue_template__ = __webpack_require__(229)
+var __vue_template__ = __webpack_require__(231)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -85967,13 +85656,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 226 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(227);
+var content = __webpack_require__(229);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -85993,7 +85682,7 @@ if(false) {
 }
 
 /***/ }),
-/* 227 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -86007,7 +85696,7 @@ exports.push([module.i, "\ninput[type=\"file\"][data-v-57738562] {\n    display:
 
 
 /***/ }),
-/* 228 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -86212,7 +85901,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 229 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -86368,19 +86057,19 @@ if (false) {
 }
 
 /***/ }),
-/* 230 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(231)
+  __webpack_require__(233)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(233)
+var __vue_script__ = __webpack_require__(235)
 /* template */
-var __vue_template__ = __webpack_require__(234)
+var __vue_template__ = __webpack_require__(236)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -86419,13 +86108,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 231 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(232);
+var content = __webpack_require__(234);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -86445,7 +86134,7 @@ if(false) {
 }
 
 /***/ }),
-/* 232 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -86459,7 +86148,7 @@ exports.push([module.i, "\ninput[type=\"file\"][data-v-8676b912] {\n    display:
 
 
 /***/ }),
-/* 233 */
+/* 235 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -86664,7 +86353,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 234 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
