@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- START DEFAULT DATATABLE -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"> 
-                            <h3 class="panel-title">VillaSalud</h3>                               
+                    <div class="panel panel-danger">
+                        <div class="panel-heading bg-red-active"> 
+                            <!-- <h3 class="panel-title">VillaSalud</h3>  -->                              
                             <div class="row">
-                                <button type="button" class="btn btn-info pull-right mr-10" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">store_mall_directory</i> Nuevo Usuario</button>
+                                <button type="button" class="btn bg-yellow pull-right mr-10" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">person_add</i> Nuevo Usuario</button>
                             </div>                                                        
                         </div>
                         <div class="panel-body">

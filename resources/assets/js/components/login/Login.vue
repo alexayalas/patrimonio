@@ -35,9 +35,6 @@
 import { mapState, mapGetters } from 'vuex'
 export default {
     name:'login',
-    mounted() {
-        //console.log("permisos: ",this.permisos)
-    },  
     beforeCreate() {
         document.body.className = "hold-transition login-page";
     },     
@@ -54,10 +51,7 @@ export default {
             sitekey: '6LfaYFcUAAAAAFVD3dAq4jzNTeZkwzFBtqaiAr76' ,           
             errors:[]          
         }
-    },
-    computed: {
-        ...mapState(['permisos','user_system']),
-    },           
+    },         
     methods: {
         login() {
             this.ShowIcon = true

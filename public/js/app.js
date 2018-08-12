@@ -45215,7 +45215,6 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         state.authenticated = true;
         state.user_system = datos.user.user[0]; // aca estan los datos del usuario loggeado  
         state.permisos_user = datos.user.permisos_user;
-        state.permisos = datos.user.permisos;
         state.isAdmin = datos.user.isAdmin;
         localStorage.setItem('autentificado', true);
         localStorage.setItem('user', JSON.stringify(datos.user.user[0]));
@@ -45351,7 +45350,6 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
                 commit('LOGOUT');
                 resolve();
             }).catch(function (error) {
-                console.log(error);
                 reject(error);
             });
         }, function (error) {
@@ -45880,7 +45878,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -45925,8 +45923,6 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(1);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 //
 //
 //
@@ -45964,9 +45960,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'login',
-    mounted: function mounted() {
-        //console.log("permisos: ",this.permisos)
-    },
     beforeCreate: function beforeCreate() {
         document.body.className = "hold-transition login-page";
     },
@@ -45985,7 +45978,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['permisos', 'user_system'])),
     methods: {
         login: function login() {
             var _this = this;
@@ -61302,17 +61294,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -61327,7 +61315,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("group_add")]
                       ),
                       _vm._v(" Nuevo Rol")
                     ]
@@ -62283,17 +62271,13 @@ var render = function() {
       _c("section", { staticClass: "content" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "panel panel-primary" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _c("h3", { staticClass: "panel-title" }, [
-                  _vm._v("VillaSalud")
-                ]),
-                _vm._v(" "),
+            _c("div", { staticClass: "panel panel-danger" }, [
+              _c("div", { staticClass: "panel-heading bg-red-active" }, [
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-info pull-right mr-10",
+                      staticClass: "btn bg-yellow pull-right mr-10",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -62308,7 +62292,7 @@ var render = function() {
                         {
                           staticClass: "material-icons bootstro-prev-btn mr-5"
                         },
-                        [_vm._v("store_mall_directory")]
+                        [_vm._v("person_add")]
                       ),
                       _vm._v(" Nuevo Usuario")
                     ]
@@ -83993,18 +83977,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -84020,18 +83992,18 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         this.$store.dispatch('LOAD_PERMISOS_LIST');
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* mapState */])(['permisos', 'user_system', 'isAdmin']), {
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* mapState */])(['permisos_user', 'user_system', 'isAdmin']), {
         rutaActual: function rutaActual() {
             return this.$route.path + "#";
         }
 
     }),
     methods: {
-        permisos_user: function permisos_user(dato) {
+        permissions_user: function permissions_user(dato) {
             if (this.isAdmin) {
                 return true;
             }
-            var obj = __WEBPACK_IMPORTED_MODULE_0_vue_underscore__["a" /* _ */].find(this.permisos, function (obj) {
+            var obj = __WEBPACK_IMPORTED_MODULE_0_vue_underscore__["a" /* _ */].find(this.permisos_user, function (obj) {
                 return obj.slug === dato;
             });
             if (obj == -1 || obj == undefined) {
@@ -84072,34 +84044,19 @@ var render = function() {
               _c("a", { attrs: { href: "#" } }, [
                 _c("i", { staticClass: "fa fa-dashboard" }),
                 _vm._v(" "),
-                _c("span", [_vm._v("Dashboard")]),
+                _c("span", [_vm._v("DASHBOARD")]),
                 _vm._v(" "),
                 _c("span", { staticClass: "pull-right-container" })
               ])
             ]
           ),
           _vm._v(" "),
-          _vm.permisos_user("biens.index")
-            ? _c(
-                "router-link",
-                {
-                  staticClass: "treeview",
-                  attrs: { to: "/empresas-bienes", tag: "li", exact: "" }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-pie-chart" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Bienes")])
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.permisos_user("ubicacions.index") ||
-          _vm.permisos_user("areas.index") ||
-          _vm.permisos_user("empresas.index") ||
-          _vm.permisos_user("sedes.index")
+          _vm.permissions_user("ubicacions.index") ||
+          _vm.permissions_user("areas.index") ||
+          _vm.permissions_user("empresas.index") ||
+          _vm.permissions_user("sedes.index") ||
+          _vm.permissions_user("empleados.index") ||
+          _vm.permissions_user("proveedores.index")
             ? _c(
                 "router-link",
                 {
@@ -84108,9 +84065,9 @@ var render = function() {
                 },
                 [
                   _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-files-o" }),
+                    _c("i", { staticClass: "fa fa-sitemap" }),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Ubicaciones")]),
+                    _c("span", [_vm._v("ADMINISTRACIÓN")]),
                     _vm._v(" "),
                     _c("span", { staticClass: "pull-right-container" }, [
                       _c("i", { staticClass: "fa fa-angle-left pull-right" })
@@ -84121,7 +84078,7 @@ var render = function() {
                     "ul",
                     { staticClass: "treeview-menu" },
                     [
-                      _vm.permisos_user("empresas.index")
+                      _vm.permissions_user("empresas.index")
                         ? _c(
                             "router-link",
                             {
@@ -84136,7 +84093,7 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("sedes.index")
+                      _vm.permissions_user("sedes.index")
                         ? _c(
                             "router-link",
                             { attrs: { to: "/sedes", tag: "li", exact: "" } },
@@ -84149,7 +84106,7 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("areas.index")
+                      _vm.permissions_user("areas.index")
                         ? _c(
                             "router-link",
                             { attrs: { to: "/areas", tag: "li", exact: "" } },
@@ -84162,7 +84119,7 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("ubicacions.index")
+                      _vm.permissions_user("ubicacions.index")
                         ? _c(
                             "router-link",
                             {
@@ -84179,6 +84136,40 @@ var render = function() {
                               ])
                             ]
                           )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.permissions_user("empleados.index")
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: { to: "/empleados", tag: "li", exact: "" }
+                            },
+                            [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _c("i", { staticClass: "fa fa-circle-o" }),
+                                _vm._v("Empleados\n                        ")
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.permissions_user("proveedors.index")
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: "/proveedores",
+                                tag: "li",
+                                exact: ""
+                              }
+                            },
+                            [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _c("i", { staticClass: "fa fa-circle-o" }),
+                                _vm._v("Proveedores\n                        ")
+                              ])
+                            ]
+                          )
                         : _vm._e()
                     ],
                     1
@@ -84187,7 +84178,12 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.permisos_user("grupos.index") || _vm.permisos_user("clases.index")
+          _vm.permissions_user("biens.index") ||
+          _vm.permissions_user("grupos.index") ||
+          _vm.permissions_user("clases.index") ||
+          _vm.permissions_user("traslados.index") ||
+          _vm.permissions_user("bajas.index") ||
+          _vm.permissions_user("mantenimientos.index")
             ? _c(
                 "router-link",
                 {
@@ -84196,9 +84192,9 @@ var render = function() {
                 },
                 [
                   _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-th" }),
+                    _c("i", { staticClass: "fa fa-folder-open" }),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Clasificaciones")]),
+                    _c("span", [_vm._v("GESTIÓN DE BIENES")]),
                     _vm._v(" "),
                     _c("span", { staticClass: "pull-right-container" }, [
                       _c("i", { staticClass: "fa fa-angle-left pull-right" })
@@ -84209,27 +84205,96 @@ var render = function() {
                     "ul",
                     { staticClass: "treeview-menu" },
                     [
-                      _vm.permisos_user("grupos.index")
+                      _vm.permissions_user("biens.index")
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: "/empresas-bienes",
+                                tag: "li",
+                                exact: ""
+                              }
+                            },
+                            [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _c("i", { staticClass: "fa fa-circle-o" }),
+                                _vm._v("Bienes\n                        ")
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.permissions_user("grupos.index")
                         ? _c(
                             "router-link",
                             { attrs: { to: "/grupos", tag: "li", exact: "" } },
                             [
                               _c("a", { attrs: { href: "#" } }, [
                                 _c("i", { staticClass: "fa fa-circle-o" }),
-                                _vm._v(" Grupo\n                        ")
+                                _vm._v(" Grupos\n                        ")
                               ])
                             ]
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("clases.index")
+                      _vm.permissions_user("clases.index")
                         ? _c(
                             "router-link",
                             { attrs: { to: "/clases", tag: "li", exact: "" } },
                             [
                               _c("a", { attrs: { href: "#" } }, [
                                 _c("i", { staticClass: "fa fa-circle-o" }),
-                                _vm._v(" Clase\n                        ")
+                                _vm._v(" Clases\n                        ")
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.permissions_user("traslados.index")
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: { to: "/traslados", tag: "li", exact: "" }
+                            },
+                            [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _c("i", { staticClass: "fa fa-circle-o" }),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("Traslados")])
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.permissions_user("bajas.index")
+                        ? _c(
+                            "router-link",
+                            { attrs: { to: "/bajas", tag: "li", exact: "" } },
+                            [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _c("i", { staticClass: "fa fa-circle-o" }),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("Bajas")])
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.permissions_user("mantenimientos.index")
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: "/mantenimientos",
+                                tag: "li",
+                                exact: ""
+                              }
+                            },
+                            [
+                              _c("a", { attrs: { href: "#" } }, [
+                                _c("i", { staticClass: "fa fa-circle-o" }),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("Mantenimientos")])
                               ])
                             ]
                           )
@@ -84241,44 +84306,10 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.permisos_user("empleados.index")
-            ? _c(
-                "router-link",
-                {
-                  staticClass: "treeview",
-                  attrs: { to: "/empleados", tag: "li", exact: "" }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-pie-chart" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Empleados")])
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.permisos_user("proveedors.index")
-            ? _c(
-                "router-link",
-                {
-                  staticClass: "treeview",
-                  attrs: { to: "/proveedores", tag: "li", exact: "" }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-laptop" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Proveedores")])
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.permisos_user("tipoingresos.index") ||
-          _vm.permisos_user("documentos.index") ||
-          _vm.permisos_user("cuentas.index") ||
-          _vm.permisos_user("garantias.index")
+          _vm.permissions_user("tipoingresos.index") ||
+          _vm.permissions_user("documentos.index") ||
+          _vm.permissions_user("cuentas.index") ||
+          _vm.permissions_user("garantias.index")
             ? _c(
                 "router-link",
                 {
@@ -84287,9 +84318,9 @@ var render = function() {
                 },
                 [
                   _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-edit" }),
+                    _c("i", { staticClass: "fa fa-file-text" }),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Maestros")]),
+                    _c("span", [_vm._v("MAESTROS")]),
                     _vm._v(" "),
                     _c("span", { staticClass: "pull-right-container" }, [
                       _c("i", { staticClass: "fa fa-angle-left pull-right" })
@@ -84300,7 +84331,7 @@ var render = function() {
                     "ul",
                     { staticClass: "treeview-menu" },
                     [
-                      _vm.permisos_user("tipoingresos.index")
+                      _vm.permissions_user("tipoingresos.index")
                         ? _c(
                             "router-link",
                             {
@@ -84314,14 +84345,14 @@ var render = function() {
                               _c("a", { attrs: { href: "#" } }, [
                                 _c("i", { staticClass: "fa fa-circle-o" }),
                                 _vm._v(
-                                  " Tipo Ingreso\n                        "
+                                  " Tipos de Ingresos\n                        "
                                 )
                               ])
                             ]
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("documentos.index")
+                      _vm.permissions_user("documentos.index")
                         ? _c(
                             "router-link",
                             {
@@ -84330,13 +84361,13 @@ var render = function() {
                             [
                               _c("a", { attrs: { href: "#" } }, [
                                 _c("i", { staticClass: "fa fa-circle-o" }),
-                                _vm._v(" Documento\n                        ")
+                                _vm._v(" Documentos\n                        ")
                               ])
                             ]
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("garantias.index")
+                      _vm.permissions_user("garantias.index")
                         ? _c(
                             "router-link",
                             {
@@ -84345,20 +84376,20 @@ var render = function() {
                             [
                               _c("a", { attrs: { href: "#" } }, [
                                 _c("i", { staticClass: "fa fa-circle-o" }),
-                                _vm._v(" Garantia\n                        ")
+                                _vm._v(" Garantias\n                        ")
                               ])
                             ]
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("cuentas.index")
+                      _vm.permissions_user("cuentas.index")
                         ? _c(
                             "router-link",
                             { attrs: { to: "/cuentas", tag: "li", exact: "" } },
                             [
                               _c("a", { attrs: { href: "#" } }, [
                                 _c("i", { staticClass: "fa fa-circle-o" }),
-                                _vm._v(" Cuenta\n                        ")
+                                _vm._v(" Cuentas\n                        ")
                               ])
                             ]
                           )
@@ -84370,58 +84401,8 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.permisos_user("traslados.index")
-            ? _c(
-                "router-link",
-                {
-                  staticClass: "treeview",
-                  attrs: { to: "/traslados", tag: "li", exact: "" }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-table" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Traslados")])
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.permisos_user("bajas.index")
-            ? _c(
-                "router-link",
-                {
-                  staticClass: "treeview",
-                  attrs: { to: "/bajas", tag: "li", exact: "" }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-calendar" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Bajas")])
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.permisos_user("mantenimientos.index")
-            ? _c(
-                "router-link",
-                {
-                  staticClass: "treeview",
-                  attrs: { to: "/mantenimientos", tag: "li", exact: "" }
-                },
-                [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-envelope" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Mantenimientos")])
-                  ])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.permisos_user("roles.index") || _vm.permisos_user("users.index")
+          _vm.permissions_user("roles.index") ||
+          _vm.permissions_user("users.index")
             ? _c(
                 "router-link",
                 {
@@ -84430,9 +84411,9 @@ var render = function() {
                 },
                 [
                   _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fa fa-folder" }),
+                    _c("i", { staticClass: "fa fa-unlock-alt" }),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Seguridad")]),
+                    _c("span", [_vm._v("SEGURIDAD")]),
                     _vm._v(" "),
                     _c("span", { staticClass: "pull-right-container" }, [
                       _c("i", { staticClass: "fa fa-angle-left pull-right" })
@@ -84443,7 +84424,7 @@ var render = function() {
                     "ul",
                     { staticClass: "treeview-menu" },
                     [
-                      _vm.permisos_user("roles.index")
+                      _vm.permissions_user("roles.index")
                         ? _c(
                             "router-link",
                             { attrs: { to: "/roles", tag: "li", exact: "" } },
@@ -84456,7 +84437,7 @@ var render = function() {
                           )
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.permisos_user("users.index")
+                      _vm.permissions_user("users.index")
                         ? _c(
                             "router-link",
                             {

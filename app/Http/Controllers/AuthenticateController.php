@@ -34,18 +34,11 @@ class AuthenticateController extends Controller
                 $isAdmin = true;
             }
             //$roles = Auth::user()->getRoles();    // -- Lista de Roles asignados al usuario
-            $permisos = Permission::get();
             $permisos_user = Auth::user()->getPermissions();    // --- Lista de permisos asignados al usuario
             $id = Auth::id();
             $user = User::where('id',$id)->get();   // -- Datos del usuario
 
-/*             dd($roles);
-
-            if($user[0]->empleado->habilitado == 0){
-                Auth::logout();
-                return response()->json(['logging' => 0 , 'error' => 'El Usuario esta deshabilitado ... consulte con el Area de sistemas !!!'], 401);
-            } */
-            return response()->json(["logging" => 1 , "user" => $user , "isAdmin" => $isAdmin , "permisos" => $permisos, "permisos_user" => $permisos_user]);     
+            return response()->json(["logging" => 1 , "user" => $user , "isAdmin" => $isAdmin , "permisos_user" => $permisos_user]);     
         }
 
         return response()->json(['logging' => 0 , 'error' => 'Usuario y/o Password son incorrectos !!!'], 401);

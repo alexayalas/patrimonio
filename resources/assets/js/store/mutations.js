@@ -6,8 +6,7 @@ export default {
     SAVE_TOKEN(state, { datos }) {
         state.authenticated = true
         state.user_system = datos.user.user[0]  // aca estan los datos del usuario loggeado  
-        state.permisos_user = datos.user.permisos_user   
-        state.permisos = datos.user.permisos          
+        state.permisos_user = datos.user.permisos_user          
         state.isAdmin = datos.user.isAdmin   
         localStorage.setItem('autentificado', true)
         localStorage.setItem('user', JSON.stringify(datos.user.user[0]))

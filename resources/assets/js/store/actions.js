@@ -7,7 +7,6 @@ export default {
                     resolve()
                 })
                 .catch(function (error) {
-                    console.log(error)
                     reject(error)
                 });
         }, error => console.log(error))
