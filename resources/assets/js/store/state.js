@@ -23,6 +23,7 @@ export default {
     garantias:[],
     roles:[],
     permisos:[],
+    modules:[],
     users:[],
     combo_clases:[],
     combo_ubicaciones:[],
@@ -31,4 +32,5 @@ export default {
     combo_proveedores:[],
     combo_cuentas:[],
     combo_roles:[],
+    role_user:[],
 }

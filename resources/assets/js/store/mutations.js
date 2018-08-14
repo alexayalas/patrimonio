@@ -1,6 +1,7 @@
 export default {
     LOGOUT(state) {
         state.authenticated = false
+        state.role_user = null
         localStorage.removeItem('autentificado')
     },
     SAVE_TOKEN(state, { datos }) {
@@ -10,6 +11,7 @@ export default {
         state.isAdmin = datos.user.isAdmin   
         localStorage.setItem('autentificado', true)
         localStorage.setItem('user', JSON.stringify(datos.user.user[0]))
+        console.log("datos de loggin:",datos)
     },
     SET_BIENES_LIST: (state, { list }) => {      // BIENES
         state.bienes = list
@@ -66,6 +68,9 @@ export default {
     SET_ROLES_LIST: (state, { list }) => {      // ROLES
         state.roles = list
     }, 
+    SET_MODULES_LIST: (state, { list }) => {      // MODULOS
+        state.modules = list
+    },     
     SET_USERS_LIST: (state, { list }) => {      // USUARIOS
         state.users = list
     },     
@@ -82,5 +87,8 @@ export default {
         state.combo_cuentas         = list.combo_cuentas
         state.combo_documentos      = list.combo_documentos 
         state.combo_garantias       = list.combo_garantias      
-    },                                                                                            
+    },
+    SET_ROLE_USER: (state, { list }) => {      // PERFIL DE USUARIO
+        state.role_user = list
+    },                                                                                                 
 }

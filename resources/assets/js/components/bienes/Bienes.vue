@@ -624,7 +624,8 @@ export default {
                 nombre_sede:'',
                 nombre_bien:'',
                 nombre_ubicacion:'',
-                codigo_barra:''
+                codigo_barra:'',
+                codBar39:''
             }
         }
     },
@@ -920,7 +921,7 @@ export default {
                 dias_garantia:databie.dias_garantia,
                 foto:databie.foto
             }, 
-
+            console.log("bien: ",this.dataBien)
             this.$modal.show('bien')        
         },
         processDelete(id){
@@ -957,7 +958,8 @@ export default {
                 nombre_sede:databie.ubicacion.area.sede.nombre_sede,
                 nombre_bien:databie.descripcion,
                 nombre_ubicacion:databie.ubicacion.nombre_ubicacion,
-                codigo_barra:databie.codigo_barra
+                codigo_barra:databie.codigo_barra,
+                codBar39:databie.codBar39
             } 
 
             this.$modal.show('imprimir')                          

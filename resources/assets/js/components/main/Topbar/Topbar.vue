@@ -20,7 +20,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="/img/no-image.png" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Administrador</span>
+                        <span class="hidden-xs">{{ user_system.name_complete}}</span>
                     </a>
                     <ul class="dropdown-menu">
                     <!-- User image -->
@@ -28,8 +28,8 @@
                         <img src="/img/no-image.png" class="img-circle" alt="User Image">
 
                         <p>
-                        Administrador - Web Developer
-                        <small>Member since Nov. 2012</small>
+                         {{ user_system.name_complete}}
+                        <small>{{ user_system.roles[0].name}}</small>
                         </p>
                     </li>
                     <!-- Menu Footer-->

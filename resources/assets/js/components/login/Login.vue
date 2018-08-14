@@ -63,9 +63,9 @@ export default {
                     this.errors = response.data.errors;
                     var resultado = "";
                     for (var i in this.errors) {
-                    if (this.errors.hasOwnProperty(i)) {
-                        resultado += "error -> " + i + " = " + this.errors[i] + "\n";
-                    }
+                        if (this.errors.hasOwnProperty(i)) {
+                            resultado += "error -> " + i + " = " + this.errors[i] + "\n";
+                        }
                     }
                     toastr.error(resultado);
                     this.ShowIcon = false
@@ -75,6 +75,7 @@ export default {
                 }
 
                 this.$store.dispatch('SAVE_TOKEN', { user : response.data } ).then(response => {
+                    this.$store.dispatch('LOAD_ROLE_USER') 
                     //this.$store.dispatch('LOAD_PERFIL_USER')
                 }, error => {
                     console.error("Fallo no definido")
@@ -89,8 +90,8 @@ export default {
                 this.IconClass = 'fa fa-cloud-upload'
                 this.labelButton = 'Ingresar'  
                 this.errors = error.response;
-                console.log("err: ",this.errors) 
-                toastr.error("Hubo un error en el proceso: "+this.errors)
+                console.log("err: ",this.errors.data.error) 
+                toastr.error("Hubo un error en el proceso: "+this.errors.data.error)
             }); 
         },
     }    

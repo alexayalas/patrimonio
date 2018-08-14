@@ -35,7 +35,11 @@
                             styleClass="table condensed table-bordered table-striped">
                                 <template slot="table-row" slot-scope="props">
                                     <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.name }}</td>
+                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.name_complete }}</td>                                    
                                     <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.email }}</td>
+                                    <td>
+                                        <toggle-button :value="props.row.enabled" :color="{checked: '#337ab7', unchecked: '#FF0000'}" :sync="true" :labels="{checked: 'SI', unchecked: 'NO'}" @change="updateAtributos(props.row.id,props.row.enabled)"/>                            
+                                    </td>
                                     <td class="center"><button title="Eliminar Usuario" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button></td>
                                 </template>                              
                             </vue-good-table>
@@ -54,15 +58,21 @@
                     <h3 class="pull-left h3-title pl-10">Registro de Usuario</h3>
                     <div class="pull-right close-form pr-20" @click="$modal.hide('usuario')"><i class="glyphicon glyphicon-remove"></i></div>                
                 </div>
-                <form data-sample-validation-1 class="form-horizontal form-bordered" role="form" method="POST" v-on:submit.prevent="ActionEmpresa">
+                <form data-sample-validation-1 class="form-horizontal form-bordered" role="form" method="POST" v-on:submit.prevent="ActionUsuario">
                     <div class="form-body">
                         <div class="col-md-12 pt-20">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Nombre <span class="asterisk">*</span></label>
+                                <label class="col-sm-4 control-label">Nombre de Usuario <span class="asterisk">*</span></label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control input-sm mayusculas" name="nombre_usuario" v-model="dataUsuario.name" required>
+                                    <input type="text" class="form-control input-sm" name="nombre_usuario" v-model="dataUsuario.name" required>
                                 </div>                         
-                            </div><!-- /.form-group -->                    
+                            </div><!-- /.form-group -->    
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nombres y Apellidos <span class="asterisk">*</span></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control input-sm mayusculas" name="nombre_completo" v-model="dataUsuario.name_complete" required>
+                                </div>                         
+                            </div><!-- /.form-group -->                                               
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Email </label>
                                 <div class="col-sm-8">
@@ -122,17 +132,28 @@ export default {
             textof:'de',
             columns: [
                 {
-                label: 'Nombre',
+                label: 'UserName',
                 field: 'name',
                 filterable: true,
-                width:'50%',
+                width:'30%',
                 },
+                {
+                label: 'Nombres y Apellidos',
+                field: 'name_complete',
+                filterable: true,
+                width:'30%',
+                },                
                 {
                 label: 'Email',
                 field: 'email',
                 filterable: true,
-                width:'40%',
-                },                                                                            
+                width:'20%',
+                }, 
+                {
+                label: 'Habilitado',
+                field: 'enabled',
+                width:'10%',                
+                },                                                                                            
                 {
                 label: 'Acción',
                 html: true  ,
@@ -141,10 +162,15 @@ export default {
             ],
             dataUsuario : {
                 name:'',
+                name_complete:'',
                 email:'',
                 password:'',
+                enabled:true,
                 roles:[]   
-            },                
+            }, 
+            dataAtributos: {
+                enabled:null
+            },                           
             errors:[]
         }
     },
@@ -166,8 +192,10 @@ export default {
 
             this.dataUsuario = {
                 name:'',
+                name_complete:'',
                 email:'',
                 password:'',
+                enabled:true,
                 roles:[]   
             }, 
             this.$store.dispatch('LOAD_COMBO_ROLES_LIST')                                    
@@ -188,32 +216,35 @@ export default {
             this.IconClass = 'fa fa-circle-o-notch fa-spin'
             this.labelButton = 'Procesando'        
             axios.post(url, this.dataUsuario).then(response => {
-            if(typeof(response.data.errors) != "undefined"){
-                this.errors = response.data.errors;
-                var resultado = "";
-                for (var i in this.errors) {
-                    if (this.errors.hasOwnProperty(i)) {
-                        resultado += "error -> " + i + " = " + this.errors[i] + "\n";
+                if(typeof(response.data.errors) != "undefined"){
+                    this.errors = response.data.errors;
+                    var resultado = "";
+                    for (var i in this.errors) {
+                        if (this.errors.hasOwnProperty(i)) {
+                            resultado += "error -> " + i + " = " + this.errors[i] + "\n";
+                        }
                     }
+                    toastr.error(resultado);
+                    this.ShowIcon = false
+                    this.IconClass = 'fa fa-cloud-upload'
+                    this.labelButton = 'Grabar Datos'                  
+                    return;
                 }
-                toastr.error(resultado);
+                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
+                this.$store.dispatch('LOAD_USERS_LIST')    
+                this.errors = [];
                 this.ShowIcon = false
                 this.IconClass = 'fa fa-cloud-upload'
-                this.labelButton = 'Grabar Datos'                  
-                return;
-            }
-            //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
-            this.$store.dispatch('LOAD_USERS_LIST')    
-            this.errors = [];
-            this.ShowIcon = false
-            this.IconClass = 'fa fa-cloud-upload'
-            this.labelButton = 'Grabar Datos'              
-            this.$modal.hide('usuario');
-            toastr.success('Nuevo Usuario creada con exito');
+                this.labelButton = 'Grabar Datos'              
+                this.$modal.hide('usuario');
+                toastr.success('Nuevo Usuario creada con exito');
             }).catch(error => {
-            this.errors = error.response.data.status;
-            toastr.error("Hubo un error en el proceso: "+this.errors);
-            console.log(error.response.status);
+                this.errors = error.response.data.status;
+                toastr.error("Hubo un error en el proceso: "+this.errors);
+                this.ShowIcon = false
+                this.IconClass = 'fa fa-cloud-upload'
+                this.labelButton = 'Grabar Datos'   
+                console.log(error.response.status);
             });
         },
         updateUsuario: function(){
@@ -261,7 +292,9 @@ export default {
             this.dataUsuario = {
                 id:datausu.id,
                 name:datausu.name,
+                name_complete:datausu.name_complete,
                 email:datausu.email, 
+                enabled:datausu.enabled,
                 roles:[]                        
             }  
             if(typeof(datausu.roles[0]) != "undefined"){
@@ -295,7 +328,57 @@ export default {
             .catch(() => {
                 console.log('Delete aborted');
             });
-        },               
+        },
+        updateAtributos: function(id,acce){
+            this.$dialog.confirm("<span style='color:red'><strong>¿ Desea Actualizar este atributo ?</strong></span>", {
+                html: true, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
+                loader: true, // set to true if you want the dailog to show a loader after click on "proceed"
+                reverse: false, // switch the button positions (left to right, and vise versa)
+                okText: 'Aceptar',
+                cancelText: 'Cancelar',
+                animation: 'fade', // Available: "zoom", "bounce", "fade"
+                type: 'basic',
+            })
+                .then((dialog) => {
+                var url = '/api/users/updateattribute/'+id;
+                toastr.options.closeButton = true;
+                toastr.options.progressBar = true;
+
+                if(acce != null){
+                    if(acce == true){
+                        this.dataAtributos.enabled = false
+                    }else{
+                        this.dataAtributos.enabled = true
+                    }
+                }            
+                axios.put(url, this.dataAtributos).then(response => {
+                if(typeof(response.data.errors) != "undefined"){
+                    this.errors = response.data.errors;
+                    var resultado = "";
+                    for (var i in this.errors) {
+                        if (this.errors.hasOwnProperty(i)) {
+                            resultado += "error -> " + i + " = " + this.errors[i] + "\n";
+                        }
+                    }
+                    toastr.error(resultado);
+                    return;
+                }
+
+                this.errors = [];
+                toastr.success('se actualizaron los datos correctamente');
+                dialog.close();
+                this.$store.dispatch('LOAD_USERS_LIST')             
+                }).catch(error => {
+                    this.errors = error.response.data.status;
+                    toastr.error("Hubo un error en el proceso: "+this.errors);
+                    dialog.close();
+                });
+                })
+            .catch(() => {
+                this.$store.dispatch('LOAD_USERS_LIST')         
+            });
+        }, 
+
         onSelectRol (item_rol) {
             this.item_rol = item_rol
             this.dataUsuario.roles = []

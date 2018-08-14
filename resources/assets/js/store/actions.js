@@ -169,6 +169,14 @@ export default {
             console.log(err)
         });
     },  
+    LOAD_MODULES_LIST: function ({ commit }) {
+        var url = '/api/modules';
+        return axios.get(url).then((response) => {
+            commit('SET_MODULES_LIST', { list: response.data })
+        }, (err) => {
+            console.log(err)
+        });
+    },      
     LOAD_USERS_LIST: function ({ commit }) {
         var url = '/api/users';
         return axios.get(url).then((response) => {
@@ -184,5 +192,16 @@ export default {
         }, (err) => {
             console.log(err)
         });
-    },                                                                                                         
+    },  
+    LOAD_ROLE_USER: function ({ commit, state }) {
+        if (state.user_system != null) {
+            var url = "/api/roles/cargaModules/" + state.user_system.roles[0].id
+            return axios.get(url).then((response) => {
+                commit('SET_ROLE_USER', { list: response.data })
+            }, (err) => {
+                console.log(err)
+            });
+        }
+        commit('SET_ROLE_USER', { list: null })
+    },                                                                                                            
 }

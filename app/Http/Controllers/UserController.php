@@ -54,15 +54,15 @@ class UserController extends Controller
 
         try {
             $rules = [  'name'      => 'required|unique:users',
-                        'roles'     => 'required',
-                        'password'  => 'required|min:6'];
+                        'roles'     => 'required'];
 
             $validator = Validator::make($request->all(), $rules);
             if ($validator->fails()) {
                 return response()->json(['errors'=>$validator->errors()]);
             }
             $user = new User($request->all());
-            $user->password = bcrypt('secret');
+            $user->name_complete = Str::upper($user->name_complete);
+            $user->password = bcrypt('villasalud1');
             $user->save();            
             // creamos el usuario
             //$user = User::create($request->all());
@@ -112,14 +112,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
         DB::beginTransaction();    
 
         try {
-            $rules = [  'name'      => 'required|unique:users',
-                        'roles'     => 'required',
-                        'password'  => 'required|min:6'];
+            $rules = [  'name'      => 'required',
+                        'roles'     => 'required'];
 
             $validator = Validator::make($request->all(), $rules);
             if ($validator->fails()) {
@@ -127,10 +124,10 @@ class UserController extends Controller
             }
 
             $user = User::find($id);
-
             // actualiza el usuario
-            $user->update($request->all());
-
+            $user->fill($request->all());
+            $user->name_complete = Str::upper($user->name_complete);
+            $user->save();
             // actualiza los roles
             $user->roles()->sync($request->get('roles'));
 
@@ -194,5 +191,23 @@ class UserController extends Controller
             );
         }
         
-    }    
+    } 
+    
+    public function updateAttribute(Request $request, $id)
+    {
+        try{
+            $user = User::find($id);
+
+            if($request->has('enabled')){
+                $user->enabled = $request->enabled; 
+            }
+
+            $user->save();
+            return;
+        }catch (Exception $e) {         
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
+    }      
 }

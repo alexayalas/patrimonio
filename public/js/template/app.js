@@ -393,9 +393,18 @@ function _init() {
         //Get the clicked link and the next element
         var $this = $(this);
         var checkElement = $this.next();
+        console.log("next: ",checkElement)
+        console.log("prev", $this.prev());
+
         //Borrar todos los ul.treeview-menu menu-open
         if(!checkElement.is('.treeview-menu')){
           var parent = $this.parents('ul').first();
+          // configuracion manual
+          var solo = $this.parent('li');
+          if(solo.is('.not-treeview')){
+            parent.find('li.active').removeClass('active');
+            solo.addClass('active')
+          }
           //Close all open menus within the parent
           var ul = parent.find('ul:visible').slideUp(animationSpeed);
           //Remove the menu-open class from the parent

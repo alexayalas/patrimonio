@@ -22,6 +22,7 @@ import Areas from './components/ubicaciones/Areas.vue'
 import Empresas from './components/ubicaciones/Empresas.vue'
 import Sedes from './components/ubicaciones/Sedes.vue'
 import Ubicaciones from './components/ubicaciones/Ubicaciones.vue'
+import CentralReportes from './components/reportes/CentralReportes.vue'
 
 import NotFound from './components/errors/NotFound.vue'
 
@@ -124,13 +125,13 @@ export default [
             }, 
             {
                 path: '/empresas',
-                name: 'empresas',
+                name: 'Empresas',
                 component: Empresas,
                 meta: { requiresAuth: true }
             },  
             {
                 path: '/sedes',
-                name: 'sedes',
+                name: 'Sedes',
                 component: Sedes,
                 meta: { requiresAuth: true }
             },             
@@ -151,7 +152,13 @@ export default [
                 name: 'Usuarios',
                 component: Usuarios,
                 meta: { requiresAuth: true }
-            },          
+            },   
+            {
+                path: '/central-reportes',
+                name: 'CentralReportes',
+                component: CentralReportes,
+                meta: { requiresAuth: true }
+            },                    
             {
                 path: '/login',
                 name: 'login',

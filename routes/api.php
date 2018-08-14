@@ -20,6 +20,9 @@ Route::post('login', 'AuthenticateController@login');
 Route::middleware(['auth'])->group(function(){
     Route::post('logout', 'AuthenticateController@logout'); 
     Route::post('/users/changepassword', 'UserController@changePassword'); 
+    Route::put('/roles/updateModules/{id}', 'RoleController@updateModules');
+    Route::get('/roles/cargaModules/{id}', 'RoleController@cargaModules'); 
+    Route::put('/users/updateattribute/{id}','UserController@updateAttribute');        
     // Areas
     Route::resource('areas','AreaController');
     // bajas
@@ -52,6 +55,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('ubicaciones','UbicacionController');                                        
     // Roles
     Route::resource('roles','RoleController'); 
+    // Modules
+    Route::resource('modules','ModuleController'); 
     // Usuarios
     Route::resource('users','UserController');
     // Garantias
