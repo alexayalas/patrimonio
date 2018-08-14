@@ -46553,71 +46553,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'dashboard',
@@ -46728,147 +46663,37 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("section", { staticClass: "col-lg-6 connectedSortable" }, [
-          _c("div", { staticClass: "box box-solid bg-green-gradient" }, [
-            _c("div", { staticClass: "box-header" }, [
-              _c("i", { staticClass: "fa fa-calendar" }),
-              _vm._v(" "),
-              _c("h3", { staticClass: "box-title" }, [_vm._v("Calendar")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "pull-right box-tools" }, [
-                _c("div", { staticClass: "btn-group" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success btn-sm dropdown-toggle",
-                      attrs: { type: "button", "data-toggle": "dropdown" }
-                    },
-                    [_c("i", { staticClass: "fa fa-bars" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "dropdown-menu pull-right",
-                      attrs: { role: "menu" }
-                    },
-                    [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Add new event")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Clear events")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "divider" }),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("View calendar")
-                        ])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-success btn-sm",
-                    attrs: { type: "button", "data-widget": "collapse" }
-                  },
-                  [_c("i", { staticClass: "fa fa-minus" })]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-success btn-sm",
-                    attrs: { type: "button", "data-widget": "remove" }
-                  },
-                  [_c("i", { staticClass: "fa fa-times" })]
-                )
-              ])
-            ]),
+        _c("section", { staticClass: "col-lg-12 connectedSortable" }, [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("img", {
+              staticClass: "img-responsive",
+              attrs: { src: "/img/sede-ves.jpg", alt: "VILLA EL SALVADOR" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "box-body no-padding" }, [
-              _c("div", {
-                staticStyle: { width: "100%" },
-                attrs: { id: "calendar" }
-              })
-            ]),
+            _c("label", { staticClass: "control-label", attrs: { for: "" } }, [
+              _vm._v("Sede Villa El Salvador")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("img", {
+              staticClass: "img-responsive",
+              attrs: { src: "/img/sede-lurin.jpg", alt: "LURIN" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "box-footer text-black" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-6" }, [
-                  _c("div", { staticClass: "clearfix" }, [
-                    _c("span", { staticClass: "pull-left" }, [
-                      _vm._v("Task #1")
-                    ]),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "pull-right" }, [_vm._v("90%")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "progress xs" }, [
-                    _c("div", {
-                      staticClass: "progress-bar progress-bar-green",
-                      staticStyle: { width: "90%" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "clearfix" }, [
-                    _c("span", { staticClass: "pull-left" }, [
-                      _vm._v("Task #2")
-                    ]),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "pull-right" }, [_vm._v("70%")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "progress xs" }, [
-                    _c("div", {
-                      staticClass: "progress-bar progress-bar-green",
-                      staticStyle: { width: "70%" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-6" }, [
-                  _c("div", { staticClass: "clearfix" }, [
-                    _c("span", { staticClass: "pull-left" }, [
-                      _vm._v("Task #3")
-                    ]),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "pull-right" }, [_vm._v("60%")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "progress xs" }, [
-                    _c("div", {
-                      staticClass: "progress-bar progress-bar-green",
-                      staticStyle: { width: "60%" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "clearfix" }, [
-                    _c("span", { staticClass: "pull-left" }, [
-                      _vm._v("Task #4")
-                    ]),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "pull-right" }, [_vm._v("40%")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "progress xs" }, [
-                    _c("div", {
-                      staticClass: "progress-bar progress-bar-green",
-                      staticStyle: { width: "40%" }
-                    })
-                  ])
-                ])
-              ])
+            _c("label", { staticClass: "control-label", attrs: { for: "" } }, [
+              _vm._v("Sede Lurin")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("img", {
+              staticClass: "img-responsive",
+              attrs: { src: "/img/sede-sjl.jpg", alt: "SAN JUAN DE LURIGANCHO" }
+            }),
+            _vm._v(" "),
+            _c("label", { staticClass: "control-label", attrs: { for: "" } }, [
+              _vm._v("Sede San Juan de Lurigancho")
             ])
           ])
         ])
