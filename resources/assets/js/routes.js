@@ -164,7 +164,9 @@ export default [
                 name: 'login',
                 component: Login,
                 meta: { redirectIfLogged: true }
-            },        
+            }, 
+            
+            
         ]
     },
     {

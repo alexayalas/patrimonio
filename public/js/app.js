@@ -25758,15 +25758,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __webpack_require__(38);
 
-Vue.component('navbar', __webpack_require__(213));
-Vue.component('topbar', __webpack_require__(218));
-Vue.component('footervue', __webpack_require__(223));
-Vue.component('breadcrumb', __webpack_require__(226));
+Vue.component('navbar', __webpack_require__(217));
+Vue.component('topbar', __webpack_require__(222));
+Vue.component('footervue', __webpack_require__(227));
+Vue.component('breadcrumb', __webpack_require__(230));
 
 /*--- Carga de Imagenes ---*/
-Vue.component('file-upload', __webpack_require__(229));
-Vue.component('file-upload-multiple', __webpack_require__(234));
-Vue.component('file-upload-images', __webpack_require__(239));
+Vue.component('file-upload', __webpack_require__(233));
+Vue.component('file-upload-multiple', __webpack_require__(238));
+Vue.component('file-upload-images', __webpack_require__(243));
 
 
 
@@ -25790,9 +25790,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuejs_dialog__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuejs_dialog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuejs_dialog__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interceptors__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_good_table__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_good_table__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_good_table___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_good_table__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_js_toggle_button__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_js_toggle_button__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_js_toggle_button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue_js_toggle_button__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_underscore__ = __webpack_require__(19);
 
@@ -46826,7 +46826,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-11ec15f5] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-11ec15f5] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-11ec15f5] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-11ec15f5]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-11ec15f5] {\n    float: left;\n}\n.separator[data-v-11ec15f5] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-11ec15f5], textarea.mayusculas[data-v-11ec15f5]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-11ec15f5]{\n    text-transform:lowercase;\n}\n.center[data-v-11ec15f5] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-11ec15f5] {\n    z-index:100000000;\n}\n.modal-main[data-v-11ec15f5] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-11ec15f5] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-11ec15f5] {\n    text-align: left;\n    border: 1px solid gray;\n}\n/** estilos de la impresion **/\n.titulo[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size: 12px;\n    margin:0;\n    padding:0;\n}\ntable[data-v-11ec15f5] {\n    font-family: sans-serif;\n    border-spacing: 0;\n    border-collapse: collapse;\n}\ntable.descripcion tr th[data-v-11ec15f5] {\n    padding-bottom:5px;\n}\n.todo[data-v-11ec15f5] {\n    width: 98%;\n    margin:0;\n    padding:0;\n}\n.mitad1[data-v-11ec15f5] {\n    width: 60%;\n    display: inline-block;\n}\n.mitad2[data-v-11ec15f5] {\n    width: 30%;\n    display: inline-block;\n}\n.conborde[data-v-11ec15f5] {\n    border: 1px solid black;\n}\n.descripcion[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size:10px !important;\n}\n.descripcion2[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size:12px !important;\n}\n/** fin estilos de la impresion**/\n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-11ec15f5] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-11ec15f5] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-11ec15f5] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-11ec15f5]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-11ec15f5] {\n    float: left;\n}\n.separator[data-v-11ec15f5] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-11ec15f5], textarea.mayusculas[data-v-11ec15f5]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-11ec15f5]{\n    text-transform:lowercase;\n}\n.center[data-v-11ec15f5] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-11ec15f5] {\n    z-index:9000;\n}\n.modal-main[data-v-11ec15f5] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-11ec15f5] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-11ec15f5] {\n    text-align: left;\n    border: 1px solid gray;\n}\n/** estilos de la impresion **/\n.titulo[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size: 12px;\n    margin:0;\n    padding:0;\n}\ntable[data-v-11ec15f5] {\n    font-family: sans-serif;\n    border-spacing: 0;\n    border-collapse: collapse;\n}\ntable.descripcion tr th[data-v-11ec15f5] {\n    padding-bottom:5px;\n}\n.todo[data-v-11ec15f5] {\n    width: 98%;\n    margin:0;\n    padding:0;\n}\n.mitad1[data-v-11ec15f5] {\n    width: 60%;\n    display: inline-block;\n}\n.mitad2[data-v-11ec15f5] {\n    width: 30%;\n    display: inline-block;\n}\n.conborde[data-v-11ec15f5] {\n    border: 1px solid black;\n}\n.descripcion[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size:10px !important;\n}\n.descripcion2[data-v-11ec15f5] {\n    font-family: sans-serif !important;\n    font-size:12px !important;\n}\n/** fin estilos de la impresion**/\n\n", ""]);
 
 // exports
 
@@ -54089,7 +54089,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-6bdff45a] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-6bdff45a] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-6bdff45a] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-6bdff45a]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-6bdff45a] {\n    float: left;\n}\n.separator[data-v-6bdff45a] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-6bdff45a], textarea.mayusculas[data-v-6bdff45a]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-6bdff45a]{\n    text-transform:lowercase;\n}\n.center[data-v-6bdff45a] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-6bdff45a] {\n    z-index:100000000;\n}\n.modal-main[data-v-6bdff45a] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-6bdff45a] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-6bdff45a] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-6bdff45a] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-6bdff45a] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-6bdff45a] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-6bdff45a]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-6bdff45a] {\n    float: left;\n}\n.separator[data-v-6bdff45a] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-6bdff45a], textarea.mayusculas[data-v-6bdff45a]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-6bdff45a]{\n    text-transform:lowercase;\n}\n.center[data-v-6bdff45a] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-6bdff45a] {\n    z-index:9000;\n}\n.modal-main[data-v-6bdff45a] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-6bdff45a] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-6bdff45a] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n", ""]);
 
 // exports
 
@@ -54851,7 +54851,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-469598bb] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-469598bb] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-469598bb] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-469598bb]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-469598bb] {\n    float: left;\n}\n.separator[data-v-469598bb] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-469598bb], textarea.mayusculas[data-v-469598bb]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-469598bb]{\n    text-transform:lowercase;\n}\n.center[data-v-469598bb] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-469598bb] {\n    z-index:100000000;\n}\n.modal-main[data-v-469598bb] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-469598bb] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-469598bb] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-469598bb] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-469598bb] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-469598bb] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-469598bb]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-469598bb] {\n    float: left;\n}\n.separator[data-v-469598bb] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-469598bb], textarea.mayusculas[data-v-469598bb]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-469598bb]{\n    text-transform:lowercase;\n}\n.center[data-v-469598bb] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-469598bb] {\n    z-index:9000;\n}\n.modal-main[data-v-469598bb] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-469598bb] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-469598bb] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -55493,7 +55493,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-22093a8d] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-22093a8d] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-22093a8d] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-22093a8d]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-22093a8d] {\n    float: left;\n}\n.separator[data-v-22093a8d] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-22093a8d], textarea.mayusculas[data-v-22093a8d]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-22093a8d]{\n    text-transform:lowercase;\n}\n.center[data-v-22093a8d] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-22093a8d] {\n    z-index:100000000;\n}\n.modal-main[data-v-22093a8d] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-22093a8d] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-22093a8d] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-22093a8d] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-22093a8d] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-22093a8d] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-22093a8d]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-22093a8d] {\n    float: left;\n}\n.separator[data-v-22093a8d] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-22093a8d], textarea.mayusculas[data-v-22093a8d]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-22093a8d]{\n    text-transform:lowercase;\n}\n.center[data-v-22093a8d] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-22093a8d] {\n    z-index:9000;\n}\n.modal-main[data-v-22093a8d] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-22093a8d] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-22093a8d] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -56263,7 +56263,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-5c42dfac] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-5c42dfac] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-5c42dfac] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-5c42dfac]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-5c42dfac] {\n    float: left;\n}\n.separator[data-v-5c42dfac] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-5c42dfac], textarea.mayusculas[data-v-5c42dfac]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-5c42dfac]{\n    text-transform:lowercase;\n}\n.center[data-v-5c42dfac] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-5c42dfac] {\n    z-index:100000000;\n}\n.modal-main[data-v-5c42dfac] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-5c42dfac] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-5c42dfac] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-5c42dfac] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-5c42dfac] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-5c42dfac] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-5c42dfac]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-5c42dfac] {\n    float: left;\n}\n.separator[data-v-5c42dfac] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-5c42dfac], textarea.mayusculas[data-v-5c42dfac]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-5c42dfac]{\n    text-transform:lowercase;\n}\n.center[data-v-5c42dfac] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-5c42dfac] {\n    z-index:9000;\n}\n.modal-main[data-v-5c42dfac] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-5c42dfac] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-5c42dfac] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -56904,7 +56904,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-0f0c6810] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-0f0c6810] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-0f0c6810] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-0f0c6810]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-0f0c6810] {\n    float: left;\n}\n.separator[data-v-0f0c6810] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-0f0c6810], textarea.mayusculas[data-v-0f0c6810]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-0f0c6810]{\n    text-transform:lowercase;\n}\n.center[data-v-0f0c6810] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-0f0c6810] {\n    z-index:100000000;\n}\n.modal-main[data-v-0f0c6810] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-0f0c6810] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-0f0c6810] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-0f0c6810] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-0f0c6810] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-0f0c6810] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-0f0c6810]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-0f0c6810] {\n    float: left;\n}\n.separator[data-v-0f0c6810] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-0f0c6810], textarea.mayusculas[data-v-0f0c6810]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-0f0c6810]{\n    text-transform:lowercase;\n}\n.center[data-v-0f0c6810] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-0f0c6810] {\n    z-index:9000;\n}\n.modal-main[data-v-0f0c6810] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-0f0c6810] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-0f0c6810] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -57547,7 +57547,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-c339f6aa] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-c339f6aa] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-c339f6aa] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-c339f6aa]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-c339f6aa] {\n    float: left;\n}\n.separator[data-v-c339f6aa] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-c339f6aa], textarea.mayusculas[data-v-c339f6aa]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-c339f6aa]{\n    text-transform:lowercase;\n}\n.center[data-v-c339f6aa] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-c339f6aa] {\n    z-index:100000000;\n}\n.modal-main[data-v-c339f6aa] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-c339f6aa] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-c339f6aa] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-c339f6aa] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-c339f6aa] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-c339f6aa] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-c339f6aa]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-c339f6aa] {\n    float: left;\n}\n.separator[data-v-c339f6aa] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-c339f6aa], textarea.mayusculas[data-v-c339f6aa]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-c339f6aa]{\n    text-transform:lowercase;\n}\n.center[data-v-c339f6aa] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-c339f6aa] {\n    z-index:9000;\n}\n.modal-main[data-v-c339f6aa] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-c339f6aa] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-c339f6aa] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -58188,7 +58188,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-034ad927] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-034ad927] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-034ad927] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-034ad927]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-034ad927] {\n    float: left;\n}\n.separator[data-v-034ad927] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-034ad927], textarea.mayusculas[data-v-034ad927]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-034ad927]{\n    text-transform:lowercase;\n}\n.center[data-v-034ad927] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-034ad927] {\n    z-index:100000000;\n}\n.modal-main[data-v-034ad927] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-034ad927] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-034ad927] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-034ad927] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-034ad927] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-034ad927] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-034ad927]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-034ad927] {\n    float: left;\n}\n.separator[data-v-034ad927] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-034ad927], textarea.mayusculas[data-v-034ad927]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-034ad927]{\n    text-transform:lowercase;\n}\n.center[data-v-034ad927] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-034ad927] {\n    z-index:9000;\n}\n.modal-main[data-v-034ad927] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-034ad927] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-034ad927] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -58861,7 +58861,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-eb8f39d6] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-eb8f39d6] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-eb8f39d6] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-eb8f39d6]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-eb8f39d6] {\n    float: left;\n}\n.separator[data-v-eb8f39d6] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-eb8f39d6], textarea.mayusculas[data-v-eb8f39d6]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-eb8f39d6]{\n    text-transform:lowercase;\n}\n.center[data-v-eb8f39d6] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-eb8f39d6] {\n    z-index:100000000;\n}\n.modal-main[data-v-eb8f39d6] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-eb8f39d6] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-eb8f39d6] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-eb8f39d6] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-eb8f39d6] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-eb8f39d6] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-eb8f39d6]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-eb8f39d6] {\n    float: left;\n}\n.separator[data-v-eb8f39d6] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-eb8f39d6], textarea.mayusculas[data-v-eb8f39d6]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-eb8f39d6]{\n    text-transform:lowercase;\n}\n.center[data-v-eb8f39d6] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-eb8f39d6] {\n    z-index:9000;\n}\n.modal-main[data-v-eb8f39d6] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-eb8f39d6] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-eb8f39d6] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -59826,7 +59826,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-0d35c06a] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-0d35c06a] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-0d35c06a] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-0d35c06a]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-0d35c06a] {\n    float: left;\n}\n.separator[data-v-0d35c06a] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-0d35c06a], textarea.mayusculas[data-v-0d35c06a]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-0d35c06a]{\n    text-transform:lowercase;\n}\n.center[data-v-0d35c06a] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-0d35c06a] {\n    z-index:100000000;\n}\n.modal-main[data-v-0d35c06a] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-0d35c06a] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-0d35c06a] {\n    text-align: left;\n    border: 1px solid gray;\n}  \n\n/*-- Estilos del input check ---*/\n.label-cbx[data-v-0d35c06a] {\n    user-select: none;\n    cursor: pointer;\n    margin-bottom: 0;\n}\n.label-cbx input:checked + .checkbox[data-v-0d35c06a] {\n    border-color: #20C2E0;\n}\n.label-cbx input:checked + .checkbox svg path[data-v-0d35c06a] {\n    fill: #20C2E0;\n}\n.label-cbx input:checked + .checkbox svg polyline[data-v-0d35c06a] {\n    stroke-dashoffset: 0;\n}\n.label-cbx:hover .checkbox svg path[data-v-0d35c06a] {\n    stroke-dashoffset: 0;\n}\n.label-cbx .checkbox[data-v-0d35c06a] {\n    position: relative;\n    top: 2px;\n    float: left;\n    margin-right: 8px;\n    width: 20px;\n    height: 20px;\n    border: 2px solid #C8CCD4;\n    border-radius: 3px;\n}\n.label-cbx .checkbox svg[data-v-0d35c06a] {\n    position: absolute;\n    top: -2px;\n    left: -2px;\n}\n.label-cbx .checkbox svg path[data-v-0d35c06a] {\n    fill: none;\n    stroke: #20C2E0;\n    stroke-width: 2;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-dasharray: 71px;\n    stroke-dashoffset: 71px;\n    transition: all 0.6s ease;\n}\n.label-cbx .checkbox svg polyline[data-v-0d35c06a] {\n    fill: none;\n    stroke: #FFF;\n    stroke-width: 2;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-dasharray: 18px;\n    stroke-dashoffset: 18px;\n    transition: all 0.3s ease;\n}\n.label-cbx > span[data-v-0d35c06a] {\n    pointer-events: none;\n    vertical-align: middle;\n}\n.cntr[data-v-0d35c06a] {\n    position: absolute;\n    top: 45%;\n    left: 0;\n    width: 100%;\n    text-align: center;\n}\n.invisible[data-v-0d35c06a] {\n    position: absolute;\n    z-index: -1;\n    width: 0;\n    height: 0;\n    opacity: 0;\n}\n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-0d35c06a] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-0d35c06a] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-0d35c06a] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-0d35c06a]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-0d35c06a] {\n    float: left;\n}\n.separator[data-v-0d35c06a] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-0d35c06a], textarea.mayusculas[data-v-0d35c06a]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-0d35c06a]{\n    text-transform:lowercase;\n}\n.center[data-v-0d35c06a] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-0d35c06a] {\n    z-index:9000;\n}\n.modal-main[data-v-0d35c06a] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-0d35c06a] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-0d35c06a] {\n    text-align: left;\n    border: 1px solid gray;\n}  \n\n/*-- Estilos del input check ---*/\n.label-cbx[data-v-0d35c06a] {\n    user-select: none;\n    cursor: pointer;\n    margin-bottom: 0;\n}\n.label-cbx input:checked + .checkbox[data-v-0d35c06a] {\n    border-color: #20C2E0;\n}\n.label-cbx input:checked + .checkbox svg path[data-v-0d35c06a] {\n    fill: #20C2E0;\n}\n.label-cbx input:checked + .checkbox svg polyline[data-v-0d35c06a] {\n    stroke-dashoffset: 0;\n}\n.label-cbx:hover .checkbox svg path[data-v-0d35c06a] {\n    stroke-dashoffset: 0;\n}\n.label-cbx .checkbox[data-v-0d35c06a] {\n    position: relative;\n    top: 2px;\n    float: left;\n    margin-right: 8px;\n    width: 20px;\n    height: 20px;\n    border: 2px solid #C8CCD4;\n    border-radius: 3px;\n}\n.label-cbx .checkbox svg[data-v-0d35c06a] {\n    position: absolute;\n    top: -2px;\n    left: -2px;\n}\n.label-cbx .checkbox svg path[data-v-0d35c06a] {\n    fill: none;\n    stroke: #20C2E0;\n    stroke-width: 2;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-dasharray: 71px;\n    stroke-dashoffset: 71px;\n    transition: all 0.6s ease;\n}\n.label-cbx .checkbox svg polyline[data-v-0d35c06a] {\n    fill: none;\n    stroke: #FFF;\n    stroke-width: 2;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    stroke-dasharray: 18px;\n    stroke-dashoffset: 18px;\n    transition: all 0.3s ease;\n}\n.label-cbx > span[data-v-0d35c06a] {\n    pointer-events: none;\n    vertical-align: middle;\n}\n.cntr[data-v-0d35c06a] {\n    position: absolute;\n    top: 45%;\n    left: 0;\n    width: 100%;\n    text-align: center;\n}\n.invisible[data-v-0d35c06a] {\n    position: absolute;\n    z-index: -1;\n    width: 0;\n    height: 0;\n    opacity: 0;\n}\n\n", ""]);
 
 // exports
 
@@ -62955,7 +62955,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-a152dd30] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-a152dd30] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-a152dd30] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-a152dd30]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-a152dd30] {\n    float: left;\n}\n.separator[data-v-a152dd30] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-a152dd30], textarea.mayusculas[data-v-a152dd30]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-a152dd30]{\n    text-transform:lowercase;\n}\n.center[data-v-a152dd30] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-a152dd30] {\n    z-index:100000000;\n}\n.modal-main[data-v-a152dd30] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-a152dd30] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-a152dd30] {\n    text-align: left;\n    border: 1px solid gray;\n}   \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-a152dd30] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-a152dd30] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-a152dd30] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-a152dd30]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-a152dd30] {\n    float: left;\n}\n.separator[data-v-a152dd30] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-a152dd30], textarea.mayusculas[data-v-a152dd30]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-a152dd30]{\n    text-transform:lowercase;\n}\n.center[data-v-a152dd30] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-a152dd30] {\n    z-index:9000;\n}\n.modal-main[data-v-a152dd30] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-a152dd30] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-a152dd30] {\n    text-align: left;\n    border: 1px solid gray;\n}   \n\n", ""]);
 
 // exports
 
@@ -63961,7 +63961,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-9f4e7ee0] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-9f4e7ee0] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-9f4e7ee0] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-9f4e7ee0]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-9f4e7ee0] {\n    float: left;\n}\n.separator[data-v-9f4e7ee0] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-9f4e7ee0], textarea.mayusculas[data-v-9f4e7ee0]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-9f4e7ee0]{\n    text-transform:lowercase;\n}\n.center[data-v-9f4e7ee0] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-9f4e7ee0] {\n    z-index:100000000;\n}\n.modal-main[data-v-9f4e7ee0] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-9f4e7ee0] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-9f4e7ee0] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n  \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-9f4e7ee0] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-9f4e7ee0] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-9f4e7ee0] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-9f4e7ee0]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-9f4e7ee0] {\n    float: left;\n}\n.separator[data-v-9f4e7ee0] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-9f4e7ee0], textarea.mayusculas[data-v-9f4e7ee0]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-9f4e7ee0]{\n    text-transform:lowercase;\n}\n.center[data-v-9f4e7ee0] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-9f4e7ee0] {\n    z-index:9000;\n}\n.modal-main[data-v-9f4e7ee0] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-9f4e7ee0] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-9f4e7ee0] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n  \n", ""]);
 
 // exports
 
@@ -64835,7 +64835,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-b4313c20] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-b4313c20] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-b4313c20] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-b4313c20]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-b4313c20] {\n    float: left;\n}\n.separator[data-v-b4313c20] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-b4313c20], textarea.mayusculas[data-v-b4313c20]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-b4313c20]{\n    text-transform:lowercase;\n}\n.center[data-v-b4313c20] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-b4313c20] {\n    z-index:100000000;\n}\n.modal-main[data-v-b4313c20] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-b4313c20] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-b4313c20] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-b4313c20] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-b4313c20] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-b4313c20] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-b4313c20]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-b4313c20] {\n    float: left;\n}\n.separator[data-v-b4313c20] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-b4313c20], textarea.mayusculas[data-v-b4313c20]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-b4313c20]{\n    text-transform:lowercase;\n}\n.center[data-v-b4313c20] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-b4313c20] {\n    z-index:9000;\n}\n.modal-main[data-v-b4313c20] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-b4313c20] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-b4313c20] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -65678,7 +65678,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-aeb322ec] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-aeb322ec] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-aeb322ec] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-aeb322ec]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-aeb322ec] {\n    float: left;\n}\n.separator[data-v-aeb322ec] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-aeb322ec], textarea.mayusculas[data-v-aeb322ec]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-aeb322ec]{\n    text-transform:lowercase;\n}\n.center[data-v-aeb322ec] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-aeb322ec] {\n    z-index:100000000;\n}\n.modal-main[data-v-aeb322ec] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-aeb322ec] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-aeb322ec] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
+exports.push([module.i, "\n.title-form[data-v-aeb322ec] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-aeb322ec] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-aeb322ec] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-aeb322ec]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-aeb322ec] {\n    float: left;\n}\n.separator[data-v-aeb322ec] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-aeb322ec], textarea.mayusculas[data-v-aeb322ec]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-aeb322ec]{\n    text-transform:lowercase;\n}\n.center[data-v-aeb322ec] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-aeb322ec] {\n    z-index:9000;\n}\n.modal-main[data-v-aeb322ec] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-aeb322ec] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-aeb322ec] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n\n", ""]);
 
 // exports
 
@@ -66383,7 +66383,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.title-form[data-v-3f85b8d2] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-3f85b8d2] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-3f85b8d2] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-3f85b8d2]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-3f85b8d2] {\n    float: left;\n}\n.separator[data-v-3f85b8d2] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-3f85b8d2], textarea.mayusculas[data-v-3f85b8d2]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-3f85b8d2]{\n    text-transform:lowercase;\n}\n.center[data-v-3f85b8d2] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-3f85b8d2] {\n    z-index:100000000;\n}\n.modal-main[data-v-3f85b8d2] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-3f85b8d2] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-3f85b8d2] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n  \n", ""]);
+exports.push([module.i, "\n.title-form[data-v-3f85b8d2] {\n    background-color: #CF120B;\n    color: white;\n}\n.h3-title[data-v-3f85b8d2] {\n    margin:10px 0 10px 20px;\n    color: white;\n}\n.close-form[data-v-3f85b8d2] {\n    margin:15px;\n    border-radius: 50%;\n    cursor: pointer;\n}\n.enlace[data-v-3f85b8d2]:hover {\n    cursor:pointer; cursor: hand\n}\n.bootstro-prev-btn[data-v-3f85b8d2] {\n    float: left;\n}\n.separator[data-v-3f85b8d2] {\n    border-top: 1px solid #CF120B;\n}\ninput.mayusculas[data-v-3f85b8d2], textarea.mayusculas[data-v-3f85b8d2]{\n    text-transform:uppercase;\n}\ninput.minusculas[data-v-3f85b8d2]{\n    text-transform:lowercase;\n}\n.center[data-v-3f85b8d2] {\n    text-align: center;\n}\n.v--modal-overlay[data-v-3f85b8d2] {\n    z-index:9000;\n}\n.modal-main[data-v-3f85b8d2] {\n    background-color: #F6E0A6 !important;\n    color:rgb(41, 2, 1);\n}\n.modal-item[data-v-3f85b8d2] {\n    border-bottom: 1px solid rgb(255, 81, 81);\n    border-left: 1px solid rgb(255, 81, 81);\n    border-right: 1px solid rgb(255, 81, 81);\n}\n.label-grupo[data-v-3f85b8d2] {\n    text-align: left;\n    border: 1px solid gray;\n}      \n  \n", ""]);
 
 // exports
 
@@ -67326,17 +67326,22 @@ if (false) {
 /* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(211)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(213)
 /* template */
-var __vue_template__ = null
+var __vue_template__ = __webpack_require__(214)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-07b207d9"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -67349,11 +67354,167 @@ var Component = normalizeComponent(
 )
 Component.options.__file = "resources\\assets\\js\\components\\errors\\NotFound.vue"
 
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-07b207d9", Component.options)
+  } else {
+    hotAPI.reload("data-v-07b207d9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
 module.exports = Component.exports
 
 
 /***/ }),
 /* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(212);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("1952ca72", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-07b207d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NotFound.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-07b207d9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NotFound.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nh2[data-v-07b207d9] {\n    font-weight: 700;\n    font-size: 150px;\n    font-family: sans-serif;\n    margin-right: 30px;\n}\n.error-page[data-v-07b207d9] {\n    width: 80% !important;\n}\n.headline[data-v-07b207d9] {\n    float: none !important;\n}\n.error-content[data-v-07b207d9] {\n    margin-left: 0 !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 213 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "not-found",
+    data: function data() {
+        return {
+            name: ''
+        };
+    }
+});
+
+/***/ }),
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "content" }, [
+        _c("div", { staticClass: "error-page" }, [
+          _c("h2", { staticClass: "headline text-yellow text-center" }, [
+            _vm._v(" 404")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "error-content text-center" }, [
+            _c("h3", [
+              _c("i", { staticClass: "fa fa-warning text-yellow" }),
+              _vm._v(" Oops! Pagina no encontrada.")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "\n                        No pudimos encontrar la página que estabas buscando.\n                        Mientras tanto, puedes "
+              ),
+              _c("a", { attrs: { href: "/dashboard" } }, [
+                _vm._v("retornar al Dashboard")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-07b207d9", module.exports)
+  }
+}
+
+/***/ }),
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -82576,7 +82737,7 @@ module.exports = __webpack_require__(86);
 });
 
 /***/ }),
-/* 212 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -83366,19 +83527,19 @@ module.exports = function listToStyles (parentId, list) {
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 213 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(214)
+  __webpack_require__(218)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(216)
+var __vue_script__ = __webpack_require__(220)
 /* template */
-var __vue_template__ = __webpack_require__(217)
+var __vue_template__ = __webpack_require__(221)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -83417,13 +83578,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 214 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(215);
+var content = __webpack_require__(219);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -83443,7 +83604,7 @@ if(false) {
 }
 
 /***/ }),
-/* 215 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -83457,7 +83618,7 @@ exports.push([module.i, "\n.texto-blanco {\n    color:white;\n}\n", ""]);
 
 
 /***/ }),
-/* 216 */
+/* 220 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83563,7 +83724,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 });
 
 /***/ }),
-/* 217 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -83697,19 +83858,19 @@ if (false) {
 }
 
 /***/ }),
-/* 218 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(219)
+  __webpack_require__(223)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(221)
+var __vue_script__ = __webpack_require__(225)
 /* template */
-var __vue_template__ = __webpack_require__(222)
+var __vue_template__ = __webpack_require__(226)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -83748,13 +83909,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 219 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(220);
+var content = __webpack_require__(224);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -83774,7 +83935,7 @@ if(false) {
 }
 
 /***/ }),
-/* 220 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -83788,7 +83949,7 @@ exports.push([module.i, "\n.title-form[data-v-c07f7060] {\n    background-color:
 
 
 /***/ }),
-/* 221 */
+/* 225 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83957,7 +84118,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 });
 
 /***/ }),
-/* 222 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -84295,15 +84456,15 @@ if (false) {
 }
 
 /***/ }),
-/* 223 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(224)
+var __vue_script__ = __webpack_require__(228)
 /* template */
-var __vue_template__ = __webpack_require__(225)
+var __vue_template__ = __webpack_require__(229)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -84342,7 +84503,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 224 */
+/* 228 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84367,7 +84528,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 225 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -84408,15 +84569,15 @@ if (false) {
 }
 
 /***/ }),
-/* 226 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(227)
+var __vue_script__ = __webpack_require__(231)
 /* template */
-var __vue_template__ = __webpack_require__(228)
+var __vue_template__ = __webpack_require__(232)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -84455,7 +84616,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 227 */
+/* 231 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84481,7 +84642,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 228 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -84524,19 +84685,19 @@ if (false) {
 }
 
 /***/ }),
-/* 229 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(230)
+  __webpack_require__(234)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(232)
+var __vue_script__ = __webpack_require__(236)
 /* template */
-var __vue_template__ = __webpack_require__(233)
+var __vue_template__ = __webpack_require__(237)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -84575,13 +84736,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 230 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(231);
+var content = __webpack_require__(235);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -84601,7 +84762,7 @@ if(false) {
 }
 
 /***/ }),
-/* 231 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -84615,7 +84776,7 @@ exports.push([module.i, "\n.container-Photo[data-v-564c421f] {\n    width: 128px
 
 
 /***/ }),
-/* 232 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84708,7 +84869,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 233 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -84778,19 +84939,19 @@ if (false) {
 }
 
 /***/ }),
-/* 234 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(235)
+  __webpack_require__(239)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(237)
+var __vue_script__ = __webpack_require__(241)
 /* template */
-var __vue_template__ = __webpack_require__(238)
+var __vue_template__ = __webpack_require__(242)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -84829,13 +84990,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 235 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(236);
+var content = __webpack_require__(240);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -84855,7 +85016,7 @@ if(false) {
 }
 
 /***/ }),
-/* 236 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -84869,7 +85030,7 @@ exports.push([module.i, "\ninput[type=\"file\"][data-v-57738562] {\n    display:
 
 
 /***/ }),
-/* 237 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85074,7 +85235,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 238 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -85230,19 +85391,19 @@ if (false) {
 }
 
 /***/ }),
-/* 239 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(240)
+  __webpack_require__(244)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(242)
+var __vue_script__ = __webpack_require__(246)
 /* template */
-var __vue_template__ = __webpack_require__(243)
+var __vue_template__ = __webpack_require__(247)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -85281,13 +85442,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 240 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(241);
+var content = __webpack_require__(245);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -85307,7 +85468,7 @@ if(false) {
 }
 
 /***/ }),
-/* 241 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -85321,7 +85482,7 @@ exports.push([module.i, "\ninput[type=\"file\"][data-v-8676b912] {\n    display:
 
 
 /***/ }),
-/* 242 */
+/* 246 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85526,7 +85687,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 243 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {

@@ -343,7 +343,7 @@ export default {
     }   
       
     .v--modal-overlay {
-        z-index:100000000;
+        z-index:9000;
     }    
 
     .modal-main {
