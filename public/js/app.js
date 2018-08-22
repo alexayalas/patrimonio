@@ -45338,6 +45338,7 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         state.combo_clases = list.combo_clases;
         state.combo_areas = list.combo_areas;
         state.combo_ubicaciones = list.combo_ubicaciones;
+        state.combo_sedes = list.combo_sedes;
         state.combo_tipoingresos = list.combo_tipoingresos;
         state.combo_proveedores = list.combo_proveedores;
         state.combo_cuentas = list.combo_cuentas;
@@ -47666,6 +47667,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         processEdit: function processEdit(bie) {
             var _this7 = this;
 
+            console.log("sedes combo", this.combo_sedes);
             this.edition = true;
             this.$emit('getClear');
             /*             this.$store.dispatch('LOAD_DATA_INIT_LIST')   */
@@ -47748,8 +47750,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 garantia_id: databie.garantia_id,
                 dias_garantia: databie.dias_garantia,
                 foto: databie.foto
-            }, console.log("bien: ", this.dataBien);
-            this.$modal.show('bien');
+            }, this.$modal.show('bien');
         },
         processDelete: function processDelete(id) {
             var _this8 = this;

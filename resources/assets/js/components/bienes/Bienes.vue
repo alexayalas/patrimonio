@@ -862,6 +862,7 @@ export default {
             });
         },
         processEdit(bie){
+            console.log("sedes combo",this.combo_sedes)
             this.edition = true
             this.$emit('getClear') 
 /*             this.$store.dispatch('LOAD_DATA_INIT_LIST')   */  
@@ -921,7 +922,6 @@ export default {
                 dias_garantia:databie.dias_garantia,
                 foto:databie.foto
             }, 
-            console.log("bien: ",this.dataBien)
             this.$modal.show('bien')        
         },
         processDelete(id){

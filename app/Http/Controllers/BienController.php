@@ -17,6 +17,7 @@ use App\Empleado;
 use App\Clase;
 use App\Area;
 use App\Ubicacion;
+use App\Sede;
 use App\Tipoingreso;
 use App\Proveedor;
 use App\Cuenta;
@@ -56,6 +57,7 @@ class BienController extends Controller
         $combo_clases = Clase::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_clase as text','grupo_id']);
         $combo_areas = Area::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_area as text','empresa_id','sede_id']);
         $combo_ubicaciones = Ubicacion::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_ubicacion as text','area_id']);
+        $combo_sedes = Sede::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_sede as text']);
         $combo_tipoingresos = Tipoingreso::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_tipoingreso as text']);
         $combo_proveedores = Proveedor::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_proveedor as text']);
         $combo_cuentas = Cuenta::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_cuenta as text']);
@@ -67,6 +69,7 @@ class BienController extends Controller
               'combo_clases'              => $combo_clases, 
               'combo_areas'               => $combo_areas,                           
               'combo_ubicaciones'         => $combo_ubicaciones,
+              'combo_sedes'               => $combo_sedes,              
               'combo_tipoingresos'        => $combo_tipoingresos,
               'combo_proveedores'         => $combo_proveedores,
               'combo_cuentas'             => $combo_cuentas,

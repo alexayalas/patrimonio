@@ -82,6 +82,7 @@ export default {
         state.combo_clases          = list.combo_clases
         state.combo_areas           = list.combo_areas
         state.combo_ubicaciones     = list.combo_ubicaciones
+        state.combo_sedes           = list.combo_sedes          
         state.combo_tipoingresos    = list.combo_tipoingresos
         state.combo_proveedores     = list.combo_proveedores
         state.combo_cuentas         = list.combo_cuentas
