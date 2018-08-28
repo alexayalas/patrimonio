@@ -23,5 +23,10 @@ class Ubicacion extends Model
     public function traslados()
     {
         return $this->hasMany('App\Traslado');
-    }        
+    }   
+    
+    public function movimientos()
+    {
+        return $this->hasMany('App\Movimiento');
+    }      
 }

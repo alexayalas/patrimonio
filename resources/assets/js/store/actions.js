@@ -203,5 +203,13 @@ export default {
             });
         }
         commit('SET_ROLE_USER', { list: null })
-    },                                                                                                            
+    },  
+    LOAD_MOVIMIENTOS_LIST: function ({ commit }) {
+        var url = '/api/movimientos';
+        return axios.get(url).then((response) => {
+            commit('SET_MOVIMIENTOS_LIST', { list: response.data })
+        }, (err) => {
+            console.log(err)
+        });
+    },                                                                                                              
 }

@@ -27,7 +27,7 @@ class Bien extends Model
 
     public function encargado()
     {
-        return $this->belongsTo('App\Empleado');
+        return $this->belongsTo('App\Empleado','encargado_id');
     }     
 
     public function tipoingreso()
@@ -68,5 +68,10 @@ class Bien extends Model
     public function garantia()
     {
         return $this->belongsTo('App\Garantia');
+    } 
+    
+    public function movimientos()
+    {
+        return $this->hasMany('App\Movimiento');
     }     
 }

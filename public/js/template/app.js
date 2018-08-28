@@ -393,9 +393,6 @@ function _init() {
         //Get the clicked link and the next element
         var $this = $(this);
         var checkElement = $this.next();
-        console.log("next: ",checkElement)
-        console.log("prev", $this.prev());
-
         //Borrar todos los ul.treeview-menu menu-open
         if(!checkElement.is('.treeview-menu')){
           var parent = $this.parents('ul').first();
@@ -423,7 +420,6 @@ function _init() {
         //If the menu is not visible
         else if ((checkElement.is('.treeview-menu')) && (!checkElement.is(':visible'))) {
           //Get the parent menu
-          console.log("opcion else if ...")
           var parent = $this.parents('ul').first();
           //Close all open menus within the parent
           var ul = parent.find('ul:visible').slideUp(animationSpeed);

@@ -39,4 +39,9 @@ class User extends Authenticatable
         return $this->belongsToMany('\Caffeinated\Shinobi\Models\Role')->withTimestamps();
     }
 
+    public function movimientos()
+    {
+        return $this->hasMany('App\Movimiento');
+    } 
+
 }

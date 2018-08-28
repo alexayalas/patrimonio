@@ -1,26 +1,23 @@
 <template>
     <div>
         <section class="content-header">
-        <h1>
-            {{ NombreEmpresa.nombre_empresa}}
-            <small>Lista de bienes</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-            <li class="active">Bienes</li>
-        </ol>
-        </section>    
+            <h1>
+                {{ NombreEmpresa.nombre_empresa}}
+                <small>Lista de bienes</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Bienes</li>
+            </ol>
+        </section> 
+        <div class="clearfix"></div>   
         <section class="content">
             <div class="col-md-12 pl-0 pr-0">
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-danger">
                     <div class="panel-heading bg-red-active"> 
-                        <!-- <h3 class="panel-title">VillaSalud</h3>  -->                              
-<!--                         <ul class="panel-controls">
-                            <li><button type="button" class="btn btn-info pull-right" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">account_circle</i> Nuevo Registro</button></li>
-                        </ul> -->
                         <div class="row">
-                            <button type="button" class="btn bg-yellow pull-right mr-10" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">account_circle</i> Registrar Bien</button>
+                            <button type="button" class="btn bg-yellow pull-right mr-10" @click.prevent="LoadForm"><i class="material-icons bootstro-prev-btn mr-5">create_new_folder</i> Registrar Bien</button>
                         </div>                                                        
                     </div>
                     <div class="panel-body">
@@ -33,6 +30,7 @@
                         :nextText="textnext"
                         :prevText="textprev"
                         :ofText="textof"
+                        :rowStyleClass = "'text-default'"
                         styleClass="table condensed table-bordered table-striped">
                             <template slot="table-row" slot-scope="props">
                                 <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.codigo_barra }}</td>
@@ -40,11 +38,11 @@
                                 <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.marca}}</td>
                                 <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.modelo }}</td>
                                 <td>{{ props.row.numero_serie }}</td>
-                                <td>{{ props.formattedRow.fecha_compra }}</td>
+                                <td>{{ props.formattedRow.fecha_registro | reversefecha }}</td>
                                 <td>{{ props.row.ubicacion.nombre_ubicacion }}</td>
                                 <td class="center">
-                                    <button title="ELIMINAR BIEN" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
-                                    <button title="IMPRIMIR CODIGO DE BARRAS" @click.prevent="processImprimir(props.row)"><i class="material-icons md-18">print</i></button>
+                                    <button type="button" class="btn btn-danger btn-xs" title="ELIMINAR BIEN" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
+                                    <button type="button" class="btn btn-success btn-xs" title="IMPRIMIR CODIGO DE BARRAS" @click.prevent="processImprimir(props.row)"><i class="material-icons md-18">print</i></button>
                                 </td>
                             </template>                              
                         </vue-good-table>
@@ -63,92 +61,87 @@
                 <form data-sample-validation-1 class="form-horizontal form-bordered" role="form" method="POST" v-on:submit.prevent="ActionBien">
                     <div class="col-md-4 pt-20 pr-0">
                         <div class="box box-danger">
-                            <div class="box-body modal-main modal-item">
-                                <div class="form-group ml-5">
+                            <div class="box-body modal-main modal-item pt-0">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Sede <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_sedes"
+                                                class="input-sm"
                                                 :selected-option="item_sed"
                                                 placeholder="seleccione una Sede"
                                                 @select="onSelectSed">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_sed.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_sed.text">
-                                            <button type="button" title="Borrar Sede" class="btn btn-danger btn-sm mt-5" @click.prevent="resetSed"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_sed.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Sede" @click.prevent="resetSed" aria-hidden="true" v-if="item_sed.text"></span>
                                     </div>
                                 </div>                                
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Area <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="areasBy"
+                                                class="input-sm"
                                                 :selected-option="item_are"
                                                 placeholder="seleccione una Area"
                                                 @select="onSelectAre">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_are.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_are.text">
-                                            <button type="button" title="Borrar Area" class="btn btn-danger btn-sm mt-5" @click.prevent="resetAre"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_are.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Area" @click.prevent="resetAre" aria-hidden="true" v-if="item_are.text"></span>
                                     </div>
                                 </div>  
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Ubicación <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="ubicacionesBy"
+                                                class="input-sm"
                                                 :selected-option="item_ubi"
                                                 placeholder="seleccione una Ubicación"
                                                 @select="onSelectUbi">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_ubi.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_ubi.text">
-                                            <button type="button" title="Borrar Ubicación" class="btn btn-danger btn-sm mt-5" @click.prevent="resetUbi"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_ubi.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Ubicacion" @click.prevent="resetUbi" aria-hidden="true" v-if="item_ubi.text"></span>
                                     </div>
                                 </div> 
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Responsable del Area <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_responsables"
+                                                class="input-sm"
                                                 :selected-option="item_res_are"
                                                 placeholder="seleccione un Responsable"
                                                 @select="onSelectResAre">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_res_are.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_res_are.text">
-                                            <button type="button" title="Borrar Responsable" class="btn btn-danger btn-sm mt-5" @click.prevent="resetResAre"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_res_are.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Responsable" @click.prevent="resetResAre" aria-hidden="true" v-if="item_res_are.text"></span>
                                     </div>
                                 </div>                                
                             </div>                                                      
                         </div> 
                         <div class="box box-danger">    
-                            <div class="box-body modal-main modal-item">
-                                <div class="form-group ml-5">
+                            <div class="box-body modal-main modal-item pt-0">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Clase <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_clases"
+                                                class="input-sm"
                                                 :selected-option="item_cla"
                                                 placeholder="seleccione una Clase"
                                                 @select="onSelectCla">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_cla.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_cla.text">
-                                            <button type="button" title="Borrar Clase" class="btn btn-danger btn-sm mt-5" @click.prevent="resetCla"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_cla.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Clase" @click.prevent="resetCla" aria-hidden="true" v-if="item_cla.text"></span>
                                     </div>
                                 </div>                                                                     
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Grupo</label>
                                     <div class="row">
                                         <div class="col-sm-11">
@@ -157,20 +150,19 @@
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Responsable del Bien <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_responsables"
+                                                class="input-sm"
                                                 :selected-option="item_res_bie"
                                                 placeholder="seleccione un Responsable"
                                                 @select="onSelectResBie">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_res_bie.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_res_bie.text">
-                                            <button type="button" title="Borrar Responsable" class="btn btn-danger btn-sm mt-5" @click.prevent="resetResBie"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_res_bie.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Responsable" @click.prevent="resetResBie" aria-hidden="true" v-if="item_res_bie.text"></span>
                                     </div>
                                 </div>                                 
                             </div>                                                   
@@ -178,16 +170,16 @@
                     </div>
                     <div class="col-md-4 pt-20 pr-0">
                         <div class="box box-danger">   
-                            <div class="box-body modal-main modal-item">
-                                <div class="form-group ml-5">
+                            <div class="box-body modal-main modal-item pt-0">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Descripcion <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-sm-11">
-                                            <textarea rows="5" cols="20" class="form-control input-sm mayusculas" name="descripcion" v-model="dataBien.descripcion" required></textarea>
+                                            <textarea rows="3" cols="20" class="form-control input-sm mayusculas" name="descripcion" v-model="dataBien.descripcion" required></textarea>
                                         </div>                                    
                                     </div>
                                 </div><!-- /.form-group -->
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Marca <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-sm-11">
@@ -195,7 +187,7 @@
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->     
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Modelo <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-sm-11">
@@ -203,7 +195,7 @@
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Numero de Serie <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-sm-11">
@@ -211,7 +203,7 @@
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->  
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Medidas </label>
                                     <div class="row">
                                         <div class="col-sm-11">
@@ -223,7 +215,7 @@
                                     <label for="" class="control-label">Caracteristicas </label>
                                     <div class="row">
                                         <div class="col-sm-11">
-                                            <textarea rows="6" cols="20" class="form-control input-sm mayusculas" name="caracteristicas" v-model="dataBien.caracteristicas"></textarea>
+                                            <textarea rows="3" cols="20" class="form-control input-sm mayusculas" name="caracteristicas" v-model="dataBien.caracteristicas"></textarea>
                                         </div>
                                     </div>
                                 </div><!-- /.form-group -->  
@@ -245,40 +237,38 @@
                     </div>                  
                     <div class="col-md-4 pt-20">
                         <div class="box box-danger"> 
-                            <div class="box-body modal-main modal-item">
-                                <div class="form-group ml-5">
+                            <div class="box-body modal-main modal-item pt-0 pb-30">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Tipo Ingreso <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_tipoingresos"
+                                                class="input-sm"
                                                 :selected-option="item_tip_ing"
                                                 placeholder="seleccione un Tipo"
                                                 @select="onSelectTipIng">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_tip_ing.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_tip_ing.text">
-                                            <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm mt-5" @click.prevent="resetTipIng"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_tip_ing.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Tipo de Ingreso" @click.prevent="resetTipIng" aria-hidden="true" v-if="item_tip_ing.text"></span>
                                     </div>
                                 </div>  
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Documento de Compra</label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_documentos"
+                                                class="input-sm"
                                                 :selected-option="item_tip_doc"
                                                 placeholder="seleccione un Tipo"
                                                 @select="onSelectTipDoc">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_tip_doc.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_tip_doc.text">
-                                            <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm mt-5" @click.prevent="resetTipDoc"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_tip_doc.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Tipo de Documento" @click.prevent="resetTipDoc" aria-hidden="true" v-if="item_tip_doc.text"></span>
                                     </div>
                                 </div>                                                                                                                                              
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <div class="col-md-5 pl-0">
                                         <label for="" class="control-label">Serie Doc. </label>
                                         <div class="row">
@@ -297,37 +287,35 @@
                                     </div>                                    
                            
                                 </div><!-- /.form-group -->    
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Proveedor </label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_proveedores"
+                                                class="input-sm"
                                                 :selected-option="item_pro"
                                                 placeholder="seleccione un Proveedor"
                                                 @select="onSelectPro">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_pro.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_pro.text">
-                                            <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm mt-5" @click.prevent="resetPro"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_pro.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Proveedor" @click.prevent="resetPro" aria-hidden="true" v-if="item_pro.text"></span>
                                     </div>
                                 </div> 
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <div class="col-md-8 pl-0">
                                         <label for="" class="control-label">Garantia </label>
                                         <div class="row">
                                             <div class="col-md-10 col-sm-10 col-xs-10">
                                                 <basic-select :options="combo_garantias"
+                                                    class="input-sm"
                                                     :selected-option="item_gar"
                                                     placeholder="seleccione"
                                                     @select="onSelectGar">
                                                 </basic-select>
                                             </div>
-                                            <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_gar.text"></span>
-                                            <div class="col-md-2 col-sm-2 pl-0" v-if="item_gar.text">
-                                                <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm mt-5" @click.prevent="resetGar"><i class="fa fa-close"></i> </button>
-                                            </div>
+                                            <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_gar.text"></span>
+                                            <span class="fa fa-trash mt-10 hand-up" title="Borrar Garantia" @click.prevent="resetGar" aria-hidden="true" v-if="item_gar.text"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -340,7 +328,7 @@
                                     </div>                                    
 
                                 </div>                                
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <div class="col-md-8 pl-0">
                                         <label for="" class="control-label">Fec.Compra </label>
                                         <div class="row">
@@ -358,39 +346,37 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Estado conservación <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_estados"
+                                                class="input-sm"
                                                 :selected-option="item_est"
                                                 placeholder="seleccione un estado"
                                                 @select="onSelectEst">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_est.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_est.text">
-                                            <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm mt-5" @click.prevent="resetEst"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_est.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Estado" @click.prevent="resetEst" aria-hidden="true" v-if="item_est.text"></span>
                                     </div>
                                 </div>                                                                                     
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <label for="" class="control-label">Cuenta <span class="asterisk">*</span></label>
                                     <div class="row">
                                         <div class="col-md-10 col-sm-10 col-xs-10">
                                             <basic-select :options="combo_cuentas"
+                                                class="input-sm"
                                                 :selected-option="item_cue"
                                                 placeholder="seleccione una Cuenta"
                                                 @select="onSelectCue">
                                             </basic-select>
                                         </div>
-                                        <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_cue.text"></span>
-                                        <div class="col-md-2 col-sm-2 pl-0" v-if="item_cue.text">
-                                            <button type="button" title="Borrar Cuenta" class="btn btn-danger btn-sm mt-5" @click.prevent="resetCue"><i class="fa fa-close"></i> </button>
-                                        </div>
+                                        <span class="fa fa-search mt-10" aria-hidden="true" v-if="!item_cue.text"></span>
+                                        <span class="fa fa-trash mt-10 hand-up" title="Borrar Cuenta" @click.prevent="resetCue" aria-hidden="true" v-if="item_cue.text"></span>
                                     </div>
                                 </div>                                                                                                                                              
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0">
                                     <div class="col-md-6 pl-0">
                                         <label for="" class="control-label">Costo </label>
                                         <div class="row">
@@ -411,7 +397,7 @@
                                         </div>
                                     </div>                            
                                 </div><!-- /.form-group -->  
-                                <div class="form-group ml-5">
+                                <div class="form-group ml-5 mb-0 pb-10">
                                     <div class="col-md-5 pl-0">
                                         <label for="" class="control-label">Condición <span class="asterisk">*</span></label>
                                         <div class="row">
@@ -537,20 +523,23 @@ export default {
             columns: [
                 {
                 label: 'Codigo',
-                field: 'codigo',
+                field: 'codigo_barra',
                 filterable: true,
+                placeholder: 'Buscar',
                 width:'10%',
                 },
                 {
                 label: 'Descripcion',
                 field: 'descripcion',
                 filterable: true,
+                placeholder: 'Buscar',
                 width:'20%',
                 },                    
                 {
                 label: 'Marca',
                 field: 'marca',
                 filterable: true,
+                placeholder: 'Buscar',
                 width:'10%',                
                 },
                 {
@@ -564,8 +553,8 @@ export default {
                 width:'10%',                
                 },
                 {
-                label: 'fecha_compra',
-                field: 'fecha_compra',
+                label: 'fecha_registro',
+                field: 'fecha_registro',
                 type: 'date',
                 inputFormat : 'YYYY-MM-DD',
                 outputFormat: 'DD/MM/YYYY',                
@@ -862,16 +851,16 @@ export default {
             });
         },
         processEdit(bie){
-            console.log("sedes combo",this.combo_sedes)
             this.edition = true
             this.$emit('getClear') 
-/*             this.$store.dispatch('LOAD_DATA_INIT_LIST')   */  
+
             var databie = []
             databie = _.clone(bie)
            
             this.item_sed = this.combo_sedes.find(sed => sed.value == databie.ubicacion.area.sede_id) 
             this.codsed = databie.ubicacion.area.sede_id
             this.codare = databie.ubicacion.area_id 
+            this.codgru = databie.clase.grupo_id
             this.item_are = this.areasBy.find(are => are.value == this.codare)  
             this.item_ubi = this.ubicacionesBy.find(ubi => ubi.value == databie.ubicacion_id) 
 
@@ -1011,6 +1000,7 @@ export default {
             this.item_cla = item_cla
             this.codgru = item_cla.grupo_id
             this.dataBien.clase_id = item_cla.value
+
         },
         resetCla () {
             this.item_cla = {}
@@ -1083,6 +1073,13 @@ export default {
             this.dataBien.foto = null
         }                                                                                             
     },
+    filters:{
+        reversefecha: function(value){
+            if(!value) return ''
+            value = value.toString()
+            return value.split('-').reverse().join('-')
+        }
+    }     
        
   
 }
@@ -1193,5 +1190,12 @@ export default {
         font-size:12px !important;                
     }
     /** fin estilos de la impresion**/
+
+    .hand-up {
+        cursor: pointer;
+        cursor: hand;
+        font-size:17px !important;
+        color:red !important;
+    }
 
 </style>

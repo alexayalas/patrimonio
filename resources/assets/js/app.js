@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-Vue.component('navbar', require('./components/main/NavBar/Navbar.vue'));
+Vue.component('navbar', require('./components/main/Navbar/Navbar.vue'));
 Vue.component('topbar', require('./components/main/Topbar/Topbar.vue'));
 Vue.component('footervue', require('./components/main/Footer/FooterVue.vue'));
 Vue.component('breadcrumb', require('./components/main/Breadcrumb/Breadcrumb.vue'));

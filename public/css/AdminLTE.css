@@ -143,7 +143,9 @@ body.hold-transition .main-header .logo {
 }
 /* Content */
 .content {
-  min-height: 250px;
+ /*min-height: 250px; lo modifique*/
+  height: 100%;   /* coloque para que funcione correctamente */
+  overflow: hidden; /* coloque para que funcione correctamente */
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -4885,10 +4887,11 @@ table.text-center th {
 
 /* material icons google */
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-12 { font-size: 12px !important; }
+.material-icons.md-18 { font-size: 18px !important; }
+.material-icons.md-24 { font-size: 24px !important; }
+.material-icons.md-36 { font-size: 36px !important; }
+.material-icons.md-48 { font-size: 48px !important; }
 
 /* utilitarios margin padding */
 

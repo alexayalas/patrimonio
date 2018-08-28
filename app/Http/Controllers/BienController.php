@@ -18,11 +18,14 @@ use App\Clase;
 use App\Area;
 use App\Ubicacion;
 use App\Sede;
+use App\Grupo;
 use App\Tipoingreso;
 use App\Proveedor;
 use App\Cuenta;
 use App\Documento;
 use App\Garantia;
+use App\Movimiento;
+use App\Empresa;
 
 class BienController extends Controller
 {
@@ -42,7 +45,7 @@ class BienController extends Controller
      */
     public function index()
     {
-        $bienes = Bien::with(['ubicacion.area.empresa','ubicacion.area.sede','ubicacion'])->orderBy('id','ASC')->where('activo',1)->get();
+        $bienes = Bien::with(['ubicacion.area.empresa','ubicacion.area.sede','ubicacion','clase'])->orderBy('id','ASC')->where('activo',1)->get();
         return $bienes;
     }
 
@@ -57,7 +60,9 @@ class BienController extends Controller
         $combo_clases = Clase::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_clase as text','grupo_id']);
         $combo_areas = Area::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_area as text','empresa_id','sede_id']);
         $combo_ubicaciones = Ubicacion::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_ubicacion as text','area_id']);
+        $combo_empresas = Empresa::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_empresa as text']);
         $combo_sedes = Sede::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_sede as text']);
+        $grupos = Grupo::orderBy('id','ASC')->where('activo',true)->get();
         $combo_tipoingresos = Tipoingreso::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_tipoingreso as text']);
         $combo_proveedores = Proveedor::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_proveedor as text']);
         $combo_cuentas = Cuenta::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_cuenta as text']);
@@ -69,7 +74,9 @@ class BienController extends Controller
               'combo_clases'              => $combo_clases, 
               'combo_areas'               => $combo_areas,                           
               'combo_ubicaciones'         => $combo_ubicaciones,
-              'combo_sedes'               => $combo_sedes,              
+              'combo_empresas'            => $combo_empresas,  
+              'combo_sedes'               => $combo_sedes,                 
+              'grupos'                    => $grupos,                         
               'combo_tipoingresos'        => $combo_tipoingresos,
               'combo_proveedores'         => $combo_proveedores,
               'combo_cuentas'             => $combo_cuentas,
@@ -168,6 +175,22 @@ class BienController extends Controller
             $bienid->codigo_barra = $codbar;
             $bienid->codBar39 = $codbar39;
             $bienid->save();
+
+            /***  Registro en la tabla movimientos ****/
+            $movimiento = new Movimiento();
+            $movimiento->bien_id = $bien->id;
+            $movimiento->tipomovimiento = 'Registro';
+            $movimiento->fecha_movimiento = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+            $movimiento->ubicacion_id_anterior = null;
+            $movimiento->ubicacion_id_actual = $bien->ubicacion_id;            
+            $movimiento->encargado_id_anterior = null;
+            $movimiento->encargado_id_actual = $bien->encargado_id;            
+            $movimiento->conservacion_actual = $bien->conservacion;
+            $movimiento->en_uso_actual = $bien->en_uso;
+            $movimiento->tipo_traslado = null;
+            $movimiento->user_id = Auth::id();
+            $movimiento->save();
+            /***  Fin de registro ***/
 
             $bienCompleto = Bien::where('id',$bien->id)->with(['ubicacion.area.empresa','ubicacion.area.sede','ubicacion'])->get();
 
@@ -276,6 +299,17 @@ class BienController extends Controller
             $bien->numero_serie = Str::upper($bien->numero_serie);  
             $bien->caracteristicas = Str::upper($bien->caracteristicas);                       
             $bien->save();
+            /** Actualizacion en la tabla movimientos **/
+            if($bien->editable){
+                $movimiento = Movimiento::where('bien_id',$bien->id)->first();
+                $movimiento->fecha_movimiento = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+                $movimiento->ubicacion_id_actual = $bien->ubicacion_id;
+                $movimiento->encargado_id_actual = $bien->encargado_id;
+                $movimiento->conservacion_actual = $bien->conservacion;
+                $movimiento->en_uso_actual = $bien->en_uso;
+                $movimiento->save();
+            }
+            /** Fin de la actualizacion **/
 
             DB::commit();        
             return;

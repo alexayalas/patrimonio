@@ -18,6 +18,7 @@ import Proveedores from './components/proveedores/Proveedores.vue'
 import Roles from './components/seguridad/Roles.vue'
 import Usuarios from './components/seguridad/Usuarios.vue'
 import Traslados from './components/traslados/Traslados.vue'
+import EmpresasTraslados from './components/traslados/EmpresasTraslados.vue'
 import Areas from './components/ubicaciones/Areas.vue'
 import Empresas from './components/ubicaciones/Empresas.vue'
 import Sedes from './components/ubicaciones/Sedes.vue'
@@ -112,10 +113,17 @@ export default [
                 meta: { requiresAuth: true }
             },     
             {
-                path: '/traslados',
+                path: '/empresas-traslados',
+                name: 'EmpresasTraslados',
+                component: EmpresasTraslados,
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/traslados/:empresa',
                 name: 'Traslados',
                 component: Traslados,
-                meta: { requiresAuth: true }
+                meta: { requiresAuth: true },
+                props: true
             }, 
             {
                 path: '/areas',

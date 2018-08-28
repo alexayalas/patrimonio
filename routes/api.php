@@ -60,6 +60,8 @@ Route::middleware(['auth'])->group(function(){
     // Usuarios
     Route::resource('users','UserController');
     // Garantias
-    Route::resource('garantias','GarantiaController');    
+    Route::resource('garantias','GarantiaController'); 
+    // Movimientos
+    Route::resource('movimientos','MovimientoController');        
     
 });
