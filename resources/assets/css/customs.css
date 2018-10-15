@@ -1,0 +1,61 @@
+/** Clases Importantes para el uso del sistema **/
+    .title-form {
+        background-color: #CF120B;
+        color: white;
+    }
+
+    .h3-title {
+        margin:10px 0 10px 20px;
+        color: white;
+    }
+
+    .close-form {
+        margin:15px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .enlace:hover {
+        cursor:pointer; cursor: hand	      
+    } 
+
+    .bootstro-prev-btn {
+        float: left;
+    } 
+
+    .separator {
+        border-top: 1px solid #CF120B;
+    }
+
+    input.mayusculas, textarea.mayusculas{
+        text-transform:uppercase;
+    }     
+
+    input.minusculas{
+        text-transform:lowercase;
+    }    
+
+    .center {
+        text-align: center !important;
+    }    
+
+    .modal-main {
+        background-color: #F6E0A6 !important;
+        color:rgb(41, 2, 1);
+    } 
+
+    .modal-item {
+        border-bottom: 1px solid rgb(255, 81, 81);
+        border-left: 1px solid rgb(255, 81, 81);
+        border-right: 1px solid rgb(255, 81, 81);
+    }
+
+    .hand-up {
+        cursor: pointer;
+        cursor: hand;
+        font-size:17px !important;
+        color:red !important;
+    }
+    
+    table.vgt-table {
+        font-size: 13px !important;
+    }

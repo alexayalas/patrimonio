@@ -26,17 +26,27 @@
                             title="Listado de Documentos"
                             :columns="columns"
                             :rows="documentos"
-                            :paginate="true"
+                            :paginationOptions="{
+                                enabled: true,
+                                dropdownAllowAll: false,
+                                nextLabel: 'Sig',
+                                prevLabel: 'Ant',
+                                rowsPerPageLabel: 'Registros por Pagina',
+                                ofLabel: 'de',
+                                allLabel: 'Todos',
+                            }"
+                            @on-row-dblclick="processEdit"
+                            :rowStyleClass="'enlace'"
                             :lineNumbers="true"
-                            :rowsPerPageText="textpage"
-                            :nextText="textnext"
-                            :prevText="textprev"
-                            :ofText="textof"
-                            styleClass="table condensed table-bordered table-striped">
+                            styleClass="vgt-table condensed bordered striped">
                                 <template slot="table-row" slot-scope="props">
-                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.nombre_documento }}</td>
-                                    <td class="center"><button title="Eliminar Tipo" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button></td>
-                                </template>                              
+                                    <span v-if="props.column.field == 'btn'" class="center">
+                                        <button title="Eliminar Documento" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
+                                    </span>
+                                    <span v-else>
+                                        {{props.formattedRow[props.column.field]}}
+                                    </span>
+                                </template>                             
                             </vue-good-table>
                         </div>
                     </div>
@@ -81,7 +91,7 @@
 import { mapState, mapGetters } from 'vuex'
 export default {
     name:'documentos',
-    mounted() {
+    created() {
         this.$store.dispatch('LOAD_DOCUMENTOS_LIST')            
     },        
     data() {
@@ -92,19 +102,20 @@ export default {
             ShowIcon : false,
             labelButton: 'Grabar Datos',             
 
-            textpage: 'Registros por pagina',
-            textnext:'Sig',
-            textprev:'Ant',
-            textof:'de',
             columns: [
                 {
                 label: 'Nombre de Documento',
                 field: 'nombre_documento',
-                filterable: true,
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'90%',
                 },                                                                                                           
                 {
                 label: 'Acción',
+                field: 'btn',
+                tdClass: 'center',
                 html: true  ,
                 width:'10%',  
                 }                               
@@ -119,9 +130,6 @@ export default {
         ...mapState(['documentos']),
     },     
     methods: {
-        onClickFn: function(row, index){
-            console.log(row)
-        },
         LoadForm: function(){  
             this.ShowIcon = false
             this.IconClass = 'fa fa-cloud-upload'          
@@ -161,7 +169,6 @@ export default {
                 this.labelButton = 'Grabar Datos'                  
                 return;
             }
-            //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
             this.$store.dispatch('LOAD_DOCUMENTOS_LIST')    
             this.errors = [];
             this.ShowIcon = false
@@ -172,7 +179,6 @@ export default {
             }).catch(error => {
             this.errors = error.response.data.status;
             toastr.error("Hubo un error en el proceso: "+this.errors);
-            console.log(error.response.status);
             });
         },
         updateDocumento: function(){
@@ -194,7 +200,6 @@ export default {
                     toastr.error(resultado);
                     return;
                 }
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
                 this.$store.dispatch('LOAD_DOCUMENTOS_LIST')                  
                 this.errors = [];
                 this.ShowIcon = false
@@ -208,13 +213,13 @@ export default {
                 this.ShowIcon = false
                 this.IconClass = 'fa fa-cloud-upload'          
                 this.labelButton = 'Grabar Datos'                 
-                console.log(error.response.status);
+
             });
         },
-        processEdit(tip){
+        processEdit(params){
             var datatip = []
-            datatip = _.clone(tip)
-            //dataempr.access = dataempr.access == 1 ? true : false
+            datatip = _.clone(params.row)
+
             this.dataDocumento = {
                 id:datatip.id,
                 nombre_documento:datatip.nombre_documento           
@@ -237,7 +242,6 @@ export default {
                 toastr.options.closeButton = true;
                 toastr.options.progressBar = true;
                 axios.delete(url).then(response=> {
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
                 this.$store.dispatch('LOAD_DOCUMENTOS_LIST')                    
                 toastr.success('Documento Eliminado correctamente');
                 dialog.close();
@@ -246,66 +250,14 @@ export default {
             .catch(() => {
                 console.log('Delete aborted');
             });
-        },                                                
-    },
-       
-  
+        }                                               
+    } 
 }
 </script>
-<style scoped>
-    .title-form {
-        background-color: #CF120B;
-        color: white;
-    }
-
-    .h3-title {
-        margin:10px 0 10px 20px;
-        color: white;
-    }
-
-    .close-form {
-        margin:15px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .enlace:hover {
-        cursor:pointer; cursor: hand	      
-    } 
-
-    .bootstro-prev-btn {
-        float: left;
-    } 
-
-    .separator {
-        border-top: 1px solid #CF120B;
-    }
-
-    input.mayusculas, textarea.mayusculas{
-        text-transform:uppercase;
-    }     
-
-    input.minusculas{
-        text-transform:lowercase;
-    }    
-
-    .center {
-        text-align: center;
-    }   
-      
+<style scoped>      
     .v--modal-overlay {
         z-index:9000;
     }    
-
-    .modal-main {
-        background-color: #F6E0A6 !important;
-        color:rgb(41, 2, 1);
-    } 
-
-    .modal-item {
-        border-bottom: 1px solid rgb(255, 81, 81);
-        border-left: 1px solid rgb(255, 81, 81);
-        border-right: 1px solid rgb(255, 81, 81);
-    }
     .label-grupo {
         text-align: left;
         border: 1px solid gray;

@@ -10,11 +10,12 @@ window.Vue = require('vue');
 
 import VueRouter from 'vue-router'
 import VModal from 'vue-js-modal'
-import VuejsDialog from 'vuejs-dialog';
+import VuejsDialog from 'vuejs-dialog'
 import './interceptors'
-import VueGoodTable from 'vue-good-table';
-import ToggleButton from 'vue-js-toggle-button';
-import underscore from 'vue-underscore';
+import VueGoodTable from 'vue-good-table'
+import 'vue-good-table/dist/vue-good-table.css'
+import ToggleButton from 'vue-js-toggle-button'
+import underscore from 'vue-underscore'
 
 window.axios = require('axios');
 

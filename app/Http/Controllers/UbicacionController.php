@@ -29,7 +29,7 @@ class UbicacionController extends Controller
      */
     public function index()
     {
-        $ubicaciones = Ubicacion::with('area','area.empresa')->orderBy('id','ASC')->where('activo',true)->get();
+        $ubicaciones = Ubicacion::with('area.empresa','area.sede')->orderBy('id','ASC')->where('activo',true)->get();
         return $ubicaciones;
     }
 

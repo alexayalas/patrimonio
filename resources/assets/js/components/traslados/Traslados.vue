@@ -24,25 +24,27 @@
                         <vue-good-table
                         :columns="columns"
                         :rows="TrasladosByEmpresa"
-                        :paginate="true"
+                        :paginationOptions="{
+                            enabled: true,
+                            dropdownAllowAll: false,
+                            nextLabel: 'Sig',
+                            prevLabel: 'Ant',
+                            rowsPerPageLabel: 'Registros por Pagina',
+                            ofLabel: 'de',
+                            allLabel: 'Todos',
+                        }"
+                        @on-row-dblclick="processEdit"
+                        :rowStyleClass="'enlace'"
                         :lineNumbers="true"
-                        :rowsPerPageText="textpage"
-                        :nextText="textnext"
-                        :prevText="textprev"
-                        :ofText="textof"
-                        :rowStyleClass = "'text-default'"
-                        styleClass="table condensed table-bordered table-striped">
+                        styleClass="vgt-table condensed bordered striped">
                             <template slot="table-row" slot-scope="props">
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.id }}</td>
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.formattedRow.fecha_movimiento | reversefecha}}</td>                                
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.bien.codigo_barra }}</td>
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.bien.descripcion }}</td>
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.ubicacion_anterior.nombre_ubicacion }}</td>
-                                <td>{{ props.row.ubicacion_actual.nombre_ubicacion }}</td>
-                                <td class="center">
+                                <span v-if="props.column.field == 'btn'">
                                     <button type="button" class="btn btn-danger btn-xs" title="ELIMINAR TRASLADO" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
-                                </td>
-                            </template>                              
+                                </span>
+                                <span v-else>
+                                    {{props.formattedRow[props.column.field]}}
+                                </span>
+                            </template>                                                    
                         </vue-good-table>
                     </div>
                 </div>
@@ -50,37 +52,29 @@
             </div> 
         </section>
         <!-- form para seleccionar el bien a trasladar -->
-        <modal name="bien" width="90%" height="auto" :scrollable="true" :clickToClose="false">
+        <modal name="bien" width="80%" height="auto" :scrollable="true" :clickToClose="false">
             <div class="col-md-12 modal-main pl-0 pr-0">
                 <div class="row title-form">
                     <h3 class="pull-left h3-title pl-10">Lista de Bienes</h3>
                     <div class="pull-right close-form pr-20" @click="$modal.hide('bien')"><i class="fa fa-close"></i></div>                
                 </div>
-                <div class="row col-md-12 p-0 m-0">
+                <div class="row col-md-12 ml-10 pl-0 mr-0 mt-10 mb-10">
                     <!-- START DEFAULT DATATABLE -->
                     <vue-good-table
                     :columns="columns_biens"
                     :rows="BienesByEmpresa"
-                    :paginate="true"
-                    :lineNumbers="true"
-                    :rowsPerPageText="textpage"
-                    :nextText="textnext"
-                    :prevText="textprev"
-                    :ofText="textof"
-                    :rowStyleClass = "'text-default'"
-                    styleClass="table condensed table-bordered table-striped">
-                        <template slot="table-row" slot-scope="props">
-                            <td class="center">
-                                <button type="button" class="btn btn-primary btn-xs" title="SELECCIONAR BIEN" @click.prevent="processSelect(props.row)"><i class="fa fa-arrow-right"></i></button>
-                            </td>                        
-                            <td>{{ props.row.codigo_barra }}</td>
-                            <td>{{ props.row.descripcion }}</td>
-                            <td>{{ props.row.marca}}</td>
-                            <td>{{ props.row.modelo }}</td>
-                            <td>{{ props.row.numero_serie }}</td>
-                            <td>{{ props.formattedRow.fecha_registro | reversefecha }}</td>
-                            <td>{{ props.row.ubicacion.nombre_ubicacion }}</td>
-                        </template>                              
+                    :paginationOptions="{
+                        enabled: true,
+                        dropdownAllowAll: false,
+                        nextLabel: 'Sig',
+                        prevLabel: 'Ant',
+                        rowsPerPageLabel: 'Registros por Pagina',
+                        ofLabel: 'de',
+                        allLabel: 'Todos',
+                    }"
+                    @on-row-click="onRowClick"
+                    max-height="400px"
+                    styleClass="vgt-table condensed bordered striped">                           
                     </vue-good-table>
                     <!-- END DEFAULT DATATABLE -->  
                 </div>
@@ -309,8 +303,7 @@
                 </form>
             </div>
         <!-- /. form de registro de traslados -->
-        </modal> 
-           
+        </modal>            
     </div>
  
 </template>
@@ -327,7 +320,6 @@ export default {
     },
     data() {
         return {
-            Bien:'',
             edition: false,
             searchText: '', // If value is falsy, reset searchText & searchItem
 
@@ -348,87 +340,85 @@ export default {
             ShowIcon : false,
             labelButton: 'Grabar Datos',   
 
-            textpage: 'Registros por pagina',
-            textnext:'Sig',
-            textprev:'Ant',
-            textof:'de',
             columns: [
                 {
-                label: 'ID',
-                field: 'id',
-                filterable: true,
-                placeholder: 'Buscar',
+                label: 'Codigo',
+                field: 'bien.codigo_barra',
                 width:'10%',
                 },
                 {
                 label: 'Bien',
-                field: 'descripcion',
-                filterable: true,
-                placeholder: 'Buscar',
+                field: 'bien.descripcion',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'20%',
                 },  
                 {
                 label: 'fecha',
                 field: 'fecha_movimiento',
                 type: 'date',
-                inputFormat : 'YYYY-MM-DD',
-                outputFormat: 'DD/MM/YYYY',                
+                dateInputFormat : 'YYYY-MM-DD',
+                dateOutputFormat: 'DD/MM/YYYY',                
                 width:'10%',                
                 },                                  
                 {
-                label: 'Ubicacion Anterior',
-                field: 'nombre_ubicacion',
-                filterable: true,
-                placeholder: 'Buscar',
-                width:'10%',                
+                label: 'Origen',
+                field: 'ubicacion_anterior.nombre_ubicacion',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
+                width:'20%',                
                 },
                 {
-                label: 'Ubicacion Actual',
-                field: 'nombre_ubicacion',
-                width:'10%',                
+                label: 'Destino',
+                field: 'ubicacion_actual.nombre_ubicacion',
+                filterOptions: {
+                    enabled: true,
+                    placeholder: 'Buscar', 
+                },                
+                width:'20%',                
                 },
-                {
-                label: 'Encargado',
-                field: 'nombre_completo',
-                width:'10%',                
-                },
-
                 {
                 label: 'Autorizado',
-                field: 'nombre_completo',
-                width:'20%',                
+                field: 'autorizado.nombre_completo',
+                width:'15%',                
                 },                                        
                 {
                 label: 'Acción',
+                field: 'btn',
                 html: true  ,
-                width:'10%',  
+                width:'5%',  
                 }                               
             ], 
             columns_biens: [
-                {
-                label: 'Acción',
-                html: true  ,
-                width:'5%',  
-                },  
                 {                    
                 label: 'Codigo',
                 field: 'codigo_barra',
-                filterable: true,
-                placeholder: 'Buscar',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'10%',
                 },
                 {
                 label: 'Descripcion',
                 field: 'descripcion',
-                filterable: true,
-                placeholder: 'Buscar',
+                filterOptions: {
+                    enabled: true,
+                    placeholder: 'Buscar',
+                },
                 width:'20%',
                 },                    
                 {
                 label: 'Marca',
                 field: 'marca',
-                filterable: true,
-                placeholder: 'Buscar',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar',
+                },
                 width:'10%',                
                 },
                 {
@@ -445,13 +435,13 @@ export default {
                 label: 'fecha_registro',
                 field: 'fecha_registro',
                 type: 'date',
-                inputFormat : 'YYYY-MM-DD',
-                outputFormat: 'DD/MM/YYYY',                
+                dateInputFormat : 'YYYY-MM-DD',
+                dateOutputFormat: 'DD/MM/YYYY',                
                 width:'10%',                
                 },
                 {
                 label: 'Ubicacion',
-                field: 'ubicacion',
+                field: 'ubicacion.nombre_ubicacion',
                 width:'20%',                
                 }                             
             ],  
@@ -492,7 +482,7 @@ export default {
         ...mapState(['empresas','combo_empresas','combo_sedes','combo_areas','combo_ubicaciones','combo_responsables']),
         ...mapGetters(['getTrasladosByEmpresaId','getBienesByEmpresaId']),
         areasBy: function(){
-            return this.combo_areas.filter((are) => are.empresa_id == this.codEmp).filter((are) => are.sede_id == this.codsed)
+            return this.combo_areas.filter((are) => are.empresa_id == this.codemp).filter((are) => are.sede_id == this.codsed)
         }, 
         ubicacionesBy: function(){
             return this.combo_ubicaciones.filter((ubi) => ubi.area_id == this.codare)
@@ -512,6 +502,28 @@ export default {
       BasicSelect 
     }, 
     methods: {
+        onRowClick(params) {
+            var datatra = []
+            datatra = _.clone(params.row)
+
+            this.dataShow = {
+                id : datatra.id,
+                codigo_barra: datatra.codigo_barra,
+                descripcion : datatra.descripcion,
+                marca : datatra.marca,
+                modelo : datatra.modelo,
+                numero_serie : datatra.numero_serie,
+                area : datatra.ubicacion.area.nombre_area,
+                sede : datatra.ubicacion.area.sede.nombre_sede,
+                ubicacion : datatra.ubicacion.nombre_ubicacion,
+                ubicacion_id:datatra.ubicacion_id,              
+                encargado_id:datatra.encargado_id,              
+                conservacion: datatra.conservacion,             
+                en_uso: datatra.en_uso,                             
+            }
+            this.$modal.hide('bien')  
+            this.LoadForm()            
+        },        
         LoadForm: function(){   
             this.edition = false 
             this.codemp = ''
@@ -531,7 +543,7 @@ export default {
             this.labelButton = 'Grabar Datos'             
 
             this.dataTraslado = {
-                bien_id:'',
+                bien_id:this.dataShow.id,
                 tipomovimiento:'Traslado',
                 ubicacion_id_anterior:this.dataShow.ubicacion_id,
                 ubicacion_id_actual:'',                
@@ -541,8 +553,8 @@ export default {
                 conservacion_anterior:this.dataShow.conservacion,
                 conservacion_actual:'',                
                 en_uso_anterior: this.dataShow.en_uso,
-                en_uso_actual: '',                
-                tipo_traslado:''               
+                en_uso_actual: 'Si',                
+                tipo_traslado:'Temporal'               
             } 
             this.$store.dispatch('LOAD_DATA_INIT_LIST')                    
             this.$modal.show('traslado')
@@ -555,7 +567,7 @@ export default {
             }
         },
         createTraslado: function(){
-            var url = '/api/traslados';
+            var url = '/api/movimientos';
             toastr.options.closeButton = true;
             toastr.options.progressBar = true;
             this.ShowIcon = true
@@ -576,7 +588,7 @@ export default {
                     this.labelButton = 'Grabar Datos'                  
                     return;
                 }
-
+                this.$store.dispatch('LOAD_BIENES_LIST')
                 this.$store.dispatch('LOAD_MOVIMIENTOS_LIST')    
                 this.errors = [];
                 this.ShowIcon = false
@@ -587,11 +599,11 @@ export default {
             }).catch(error => {
                 this.errors = error.response.data.status;
                 toastr.error("Hubo un error en el proceso: "+this.errors);
-                console.log(error.response.status);
+
             });
         },
         updateTraslado: function(){
-            var url = '/api/traslados/'+this.dataTraslado.id;
+            var url = '/api/movimientos/'+this.dataTraslado.id;
             toastr.options.closeButton = true;
             toastr.options.progressBar = true;
             this.ShowIcon = true
@@ -609,7 +621,6 @@ export default {
                     toastr.error(resultado);
                     return;
                 }
-
                 this.$store.dispatch('LOAD_MOVIMIENTOS_LIST')                  
                 this.errors = [];
                 this.ShowIcon = false
@@ -625,19 +636,22 @@ export default {
                 this.labelButton = 'Grabar Datos'                 
             });
         },
-        processEdit(tra){
+        processEdit(params){
             this.edition = true
 
             var datatra = []
-            datatra = _.clone(tra)
-           
-            this.item_sed = this.combo_sedes.find(sed => sed.value == datatra.ubicacion.area.sede_id) 
+            datatra = _.clone(params.row)
+
+            this.item_emp = this.combo_empresas.find(emp => emp.value == datatra.ubicacion_actual.area.empresa_id)
+            this.item_sed = this.combo_sedes.find(sed => sed.value == datatra.ubicacion_actual.area.sede_id) 
+            this.codemp = datatra.ubicacion_actual.area.empresa_id
             this.codsed = datatra.ubicacion_actual.area.sede_id
             this.codare = datatra.ubicacion_actual.area_id 
             this.item_are = this.areasBy.find(are => are.value == this.codare)  
             this.item_ubi = this.ubicacionesBy.find(ubi => ubi.value == datatra.ubicacion_id_actual) 
 
             this.item_res = this.combo_responsables.find(res => res.value == datatra.encargado_id_actual)
+            this.item_aut = this.combo_responsables.find(aut => aut.value == datatra.autorizado_id)
             this.item_est = this.combo_estados.find(est => est.text == datatra.conservacion_actual)
    
             this.dataTraslado = {
@@ -654,7 +668,23 @@ export default {
                 en_uso_anterior: datatra.en_uso_anterior,
                 en_uso_actual: datatra.en_uso_actual,                
                 tipo_traslado:datatra.tipo_traslado
-            }, 
+            }
+
+            this.dataShow = {
+                id : datatra.bien_id,
+                codigo_barra: datatra.bien.codigo_barra,
+                descripcion : datatra.bien.descripcion,
+                marca : datatra.bien.marca,
+                modelo : datatra.bien.modelo,
+                numero_serie : datatra.bien.numero_serie,
+                area : datatra.ubicacion_anterior.area.nombre_area,
+                sede : datatra.ubicacion_anterior.area.sede.nombre_sede,
+                ubicacion : datatra.ubicacion_anterior.nombre_ubicacion,
+                ubicacion_id:datatra.ubicacion_anterior.ubicacion_id,              
+                encargado_id:datatra.encargado_anterior.encargado_id,              
+                conservacion: datatra.conservacion_anterior,             
+                en_uso: datatra.en_uso_anterior,                             
+            }             
             this.$modal.show('traslado')        
         },
         processDelete(id){
@@ -668,11 +698,11 @@ export default {
                 type: 'basic',
             })
                 .then((dialog) => {
-                var url = '/api/traslados/' + id;
+                var url = '/api/movimientos/' + id;
                 toastr.options.closeButton = true;
                 toastr.options.progressBar = true;
                 axios.delete(url).then(response=> {
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
+                this.$store.dispatch('LOAD_BIENES_LIST')                    
                 this.$store.dispatch('LOAD_MOVIMIENTOS_LIST')                    
                 toastr.success('Registro Eliminado correctamente');
                 dialog.close();
@@ -681,29 +711,7 @@ export default {
             .catch(() => {
                 console.log('Delete aborted');
             });
-        }, 
-        processSelect(tra){   
-            var datatra = []
-            datatra = _.clone(tra)
-
-            this.dataShow = {
-                id : datatra.id,
-                codigo_barra: datatra.codigo_barra,
-                descripcion : datatra.descripcion,
-                marca : datatra.marca,
-                modelo : datatra.modelo,
-                numero_serie : datatra.numero_serie,
-                area : datatra.ubicacion.area.nombre_area,
-                sede : datatra.ubicacion.area.sede.nombre_sede,
-                ubicacion : datatra.ubicacion.nombre_ubicacion,
-                ubicacion_id:datatra.ubicacion_id,              
-                encargado_id:datatra.encargado_id,              
-                conservacion: datatra.conservacion,             
-                en_uso: datatra.en_uso,                             
-            }
-            this.$modal.hide('bien')  
-            this.LoadForm()
-        },                                  
+        },                                
         onSelectUbi (item_ubi) {
             this.item_ubi = item_ubi
             this.dataTraslado.ubicacion_id_actual = item_ubi.value
@@ -773,79 +781,17 @@ export default {
             var newf = f[2]+'-'+f[1]+'-'+f[0]
             return newf
         }      
-    },
-    filters:{
-        reversefecha: function(value){
-            if(!value) return ''
-            value = value.toString()
-            return value.split('-').reverse().join('-')
-        }
-    }          
+    }        
 }
 </script>
-<style scoped>
-    .title-form {
-        background-color: #CF120B;
-        color: white;
-    }
-
-    .h3-title {
-        margin:10px 0 10px 20px;
-        color: white;
-    }
-
-    .close-form {
-        margin:15px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .enlace:hover {
-        cursor:pointer; cursor: hand	      
-    } 
-
-    .bootstro-prev-btn {
-        float: left;
-    } 
-
-    .separator {
-        border-top: 1px solid #CF120B;
-    }
-
-    input.mayusculas, textarea.mayusculas{
-        text-transform:uppercase;
-    }     
-
-    input.minusculas{
-        text-transform:lowercase;
-    }    
-
-    .center {
-        text-align: center;
-    }   
-      
+<style scoped>     
     .v--modal-overlay {
         z-index:9000;
-    }    
+    }   
 
-    .modal-main {
-        background-color: #F6E0A6 !important;
-        color:rgb(41, 2, 1);
-    } 
-
-    .modal-item {
-        border-bottom: 1px solid rgb(255, 81, 81);
-        border-left: 1px solid rgb(255, 81, 81);
-        border-right: 1px solid rgb(255, 81, 81);
-    }
     .label-grupo {
         text-align: left;
         border: 1px solid gray;
-    }
-    .hand-up {
-        cursor: pointer;
-        cursor: hand;
-        font-size:17px !important;
-        color:red !important;
     }
 
 </style>

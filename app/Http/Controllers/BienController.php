@@ -155,11 +155,13 @@ class BienController extends Controller
             if(isset($fileName)){
                 $bien->foto = $fileName;
             }          
-            $fecr = explode("/", $bien->fecha_registro);          
-            $bien->fecha_registro = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+            //$fecr = explode("/", $bien->fecha_registro);          
+            //$bien->fecha_registro = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+            //dd(FormatFecDMY($bien->fecha_registro));
+            $bien->fecha_registro = FormatFecDMY($bien->fecha_registro);
 
-            $fecc = explode("/", $bien->fecha_compra);          
-            $bien->fecha_compra = empty($bien->fecha_compra) ? null : Carbon::create($fecc[2],$fecc[1],$fecc[0]);
+            //$fecc = explode("/", $bien->fecha_compra);          
+            $bien->fecha_compra = FormatFecDMY($bien->fecha_compra);
 
             $bien->descripcion = Str::upper($bien->descripcion);
             $bien->marca = Str::upper($bien->marca);
@@ -180,7 +182,7 @@ class BienController extends Controller
             $movimiento = new Movimiento();
             $movimiento->bien_id = $bien->id;
             $movimiento->tipomovimiento = 'Registro';
-            $movimiento->fecha_movimiento = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+            $movimiento->fecha_movimiento = $bien->fecha_registro;
             $movimiento->ubicacion_id_anterior = null;
             $movimiento->ubicacion_id_actual = $bien->ubicacion_id;            
             $movimiento->encargado_id_anterior = null;
@@ -287,11 +289,11 @@ class BienController extends Controller
             if(isset($fileName)){
                 $bien->foto = $fileName;
             }          
-            $fecr = explode("/", $bien->fecha_registro);          
-            $bien->fecha_registro = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+            //$fecr = explode("/", $bien->fecha_registro);          
+            $bien->fecha_registro = FormatFecDMY($bien->fecha_registro);
 
-            $fecc = explode("/", $bien->fecha_compra);          
-            $bien->fecha_compra = empty($bien->fecha_compra) ? null : Carbon::create($fecc[2],$fecc[1],$fecc[0]);
+            //$fecc = explode("/", $bien->fecha_compra);          
+            $bien->fecha_compra =  FormatFecDMY($bien->fecha_compra);
 
             $bien->descripcion = Str::upper($bien->descripcion);
             $bien->marca = Str::upper($bien->marca);
@@ -302,7 +304,7 @@ class BienController extends Controller
             /** Actualizacion en la tabla movimientos **/
             if($bien->editable){
                 $movimiento = Movimiento::where('bien_id',$bien->id)->first();
-                $movimiento->fecha_movimiento = empty($bien->fecha_registro) ? null : Carbon::create($fecr[2],$fecr[1],$fecr[0]);
+                $movimiento->fecha_movimiento = $bien->fecha_registro;
                 $movimiento->ubicacion_id_actual = $bien->ubicacion_id;
                 $movimiento->encargado_id_actual = $bien->encargado_id;
                 $movimiento->conservacion_actual = $bien->conservacion;

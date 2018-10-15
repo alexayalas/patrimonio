@@ -96,6 +96,5 @@ export default {
     },  
     SET_MOVIMIENTOS_LIST: (state, { list }) => {      // MOVIMIENTOS
         state.movimientos = list
-        console.log("movimientos: ",list)
     },                                                                                                    
 }

@@ -26,19 +26,27 @@
                             title="Listado de Ubicaciones"
                             :columns="columns"
                             :rows="ubicaciones"
-                            :paginate="true"
+                            :paginationOptions="{
+                                enabled: true,
+                                dropdownAllowAll: false,
+                                nextLabel: 'Sig',
+                                prevLabel: 'Ant',
+                                rowsPerPageLabel: 'Registros por Pagina',
+                                ofLabel: 'de',
+                                allLabel: 'Todos',
+                            }"
+                            @on-row-dblclick="processEdit"
+                            :rowStyleClass="'enlace'"
                             :lineNumbers="true"
-                            :rowsPerPageText="textpage"
-                            :nextText="textnext"
-                            :prevText="textprev"
-                            :ofText="textof"
-                            styleClass="table condensed table-bordered table-striped">
+                            styleClass="vgt-table condensed bordered striped">
                                 <template slot="table-row" slot-scope="props">
-                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.area.empresa.nombre_empresa }}</td>
-                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.area.nombre_area }}</td>
-                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.nombre_ubicacion }}</td>
-                                    <td class="center"><button title="Eliminar Area" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button></td>
-                                </template>                              
+                                    <span v-if="props.column.field == 'btn'" class="center">
+                                        <button title="Eliminar Ubicacion" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
+                                    </span>
+                                    <span v-else>
+                                        {{props.formattedRow[props.column.field]}}
+                                    </span>
+                                </template>                                                            
                             </vue-good-table>
                         </div>
                     </div>
@@ -73,6 +81,20 @@
                                 </div>
                             </div>       
                             <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-4">Sede </label>
+                                <div class="col-md-7 col-sm-7 col-xs-7">
+                                    <basic-select :options="combo_sedes"
+                                    :selected-option="item_sed"
+                                    placeholder="seleccione una opción"
+                                    @select="onSelectSed">
+                                    </basic-select>
+                                </div>
+                                <span class="glyphicon glyphicon-folder-open mt-5" style="font-size:20px" aria-hidden="true" v-if="!item_sed.text"></span>
+                                <div class="col-md-1 col-sm-1" v-if="item_sed.text">
+                                    <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm pull-right" @click.prevent="resetAre"><i class="glyphicon glyphicon-remove mt-5"></i> </button>
+                                </div>
+                            </div>  
+                            <div class="form-group">
                                 <label class="control-label col-md-4 col-sm-4 col-xs-4">Area </label>
                                 <div class="col-md-7 col-sm-7 col-xs-7">
                                     <basic-select :options="areasBy"
@@ -85,7 +107,7 @@
                                 <div class="col-md-1 col-sm-1" v-if="item_are.text">
                                     <button type="button" title="Borrar Opción" class="btn btn-danger btn-sm pull-right" @click.prevent="resetAre"><i class="glyphicon glyphicon-remove mt-5"></i> </button>
                                 </div>
-                            </div>                                                    
+                            </div>                                                                                
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Nombre <span class="asterisk">*</span></label>
                                 <div class="col-sm-8">
@@ -116,46 +138,64 @@ export default {
     mounted() {
         this.$store.dispatch('LOAD_UBICACIONES_LIST')  
         this.$store.dispatch('LOAD_COMBO_EMPRESAS_LIST') 
-        this.$store.dispatch('LOAD_COMBO_AREAS_LIST')                  
+        this.$store.dispatch('LOAD_COMBO_AREAS_LIST')                         
     },        
     data() {
         return {
             searchText: '', // If value is falsy, reset searchText & searchItem
             item_emp: { value: '', text: ''},  
+            item_sed: { value: '', text: ''},             
             item_are: { value: '', text: ''},   
                 
             codemp:'',
+            codsed:'',
             codare:'',
           
             IconClass : 'fa fa-cloud-upload',
             ShowIcon : false,
             labelButton: 'Grabar Datos',              
 
-            textpage: 'Registros por pagina',
-            textnext:'Sig',
-            textprev:'Ant',
-            textof:'de',
             columns: [
                 {
                 label: 'Empresa',
-                field: 'nombre_empresa',
-                filterable: true,
-                width:'30%',
+                field: 'area.empresa.nombre_empresa',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
+                width:'25%',
                 },
                 {
+                label: 'Sede',
+                field: 'area.sede.nombre_sede',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
+                width:'25%',
+                },                  
+                {
                 label: 'Area',
-                field: 'nombre_area',
-                filterable: true,
-                width:'30%',
-                },                
+                field: 'area.nombre_area',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
+                width:'20%',
+                },                               
                 {
                 label: 'Ubicación',
                 field: 'nombre_ubicacion',
-                filterable: true,
-                width:'30%',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
+                width:'20%',
                 },                                                           
                 {
                 label: 'Acción',
+                field: 'btn',
+                tdClass: 'center',
                 html: true  ,
                 width:'10%',  
                 }                               
@@ -168,25 +208,26 @@ export default {
         }
     },
     computed: {
-        ...mapState(['ubicaciones','combo_empresas','combo_areas']),
+        ...mapState(['ubicaciones','combo_empresas','combo_sedes','combo_areas']),
         ...mapGetters(['getareas']),
 /*         empresasBy: function(){
             return this.getubigeos.filter((ubigeo) => ubigeo.codprov == '0').filter((ubigeo) => ubigeo.coddist == '0');
         }, */
         areasBy: function(){
-            return this.getareas.filter((are) => are.empresa_id == this.codemp);
+            return this.getareas.filter((are) => are.empresa_id == this.codemp).filter((are) => are.sede_id == this.codsed)
         }       
     },
     components: {
       BasicSelect
     },            
     methods: {
-        onClickFn: function(row, index){
-            console.log(row)
-        },
-        LoadForm: function(){  
-            //this.item_emp = {}    
-            this.codemp = ''          
+        LoadForm: function(){   
+            this.item_emp = {}
+            this.item_sed = {}
+            this.item_are = {}
+            this.codemp = ''  
+            this.codsed = ''
+            this.codare = ''        
             this.ShowIcon = false
             this.IconClass = 'fa fa-cloud-upload'          
             this.labelButton = 'Grabar Datos'             
@@ -207,7 +248,6 @@ export default {
             }
         },
         createUbicacion: function(){
-            console.log("data ",this.dataUbicacion)
             var url = '/api/ubicaciones';
             toastr.options.closeButton = true;
             toastr.options.progressBar = true;
@@ -229,7 +269,6 @@ export default {
                     this.labelButton = 'Grabar Datos'                  
                     return;
                 }
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
                 this.$store.dispatch('LOAD_UBICACIONES_LIST')    
                 this.errors = [];
                 this.ShowIcon = false
@@ -240,7 +279,6 @@ export default {
             }).catch(error => {
                 this.errors = error.response.data.status;
                 toastr.error("Hubo un error en el proceso: "+this.errors);
-                console.log(error.response.status);
             });
         },
         updateUbicacion: function(){
@@ -261,8 +299,7 @@ export default {
                     }
                     toastr.error(resultado);
                     return;
-                }
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
+                } 
                 this.$store.dispatch('LOAD_UBICACIONES_LIST')                  
                 this.errors = [];
                 this.ShowIcon = false
@@ -276,17 +313,16 @@ export default {
                 this.ShowIcon = false
                 this.IconClass = 'fa fa-cloud-upload'          
                 this.labelButton = 'Grabar Datos'                 
-                console.log(error.response.status);
             });
         },
-        processEdit(ubi){
+        processEdit(params){
             var dataubic = []
-            dataubic = _.clone(ubi)
-            //dataempr.access = dataempr.access == 1 ? true : false
-            //-->this.item_emp = this.combo_empresas.find((cemp) => cemp.value == dataarea.empresa_id)
-            this.item_emp = this.combo_empresas.find(emp => emp.value == ubi.area.empresa_id)
-            this.codemp = ubi.area.empresa_id
-            this.item_are = this.areasBy.find(are => are.value == ubi.area_id)
+            dataubic = _.clone(params.row)
+            this.item_emp = this.combo_empresas.find(emp => emp.value == dataubic.area.empresa_id)
+            this.item_sed = this.combo_sedes.find(sed => sed.value == dataubic.area.sede_id)
+            this.codemp = dataubic.area.empresa_id
+            this.codsed = dataubic.area.sede_id
+            this.item_are = this.areasBy.find(are => are.value == dataubic.area_id)
             this.dataUbicacion = {
                 id:dataubic.id,
                 nombre_ubicacion:dataubic.nombre_ubicacion,
@@ -310,7 +346,6 @@ export default {
                 toastr.options.closeButton = true;
                 toastr.options.progressBar = true;
                 axios.delete(url).then(response=> {
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
                 this.$store.dispatch('LOAD_UBICACIONES_LIST')                    
                 toastr.success('Ubicación Eliminada correctamente');
                 dialog.close();
@@ -328,75 +363,34 @@ export default {
             this.item_are = {}
             this.dataUbicacion.area_id = ''   
         }, 
+        onSelectSed (item_sed) {
+            this.item_sed = item_sed
+            this.codsed = item_sed.value
+            this.resetAre()     
+        },
+        resetSed () {
+            this.item_sed = {}
+            this.codsed = '0'     
+            this.resetAre()        
+        },          
         onSelectEmp (item_emp) {
             this.item_emp = item_emp
             this.codemp = item_emp.value
-            this.resetAre()     
+            this.resetSed()     
         },
         resetEmp () {
             this.item_emp = {}
-            this.codemp = ''     
-            this.resetAre()        
+            this.codemp = '0'     
+            this.resetSed()        
         }                                                  
-    },
-       
-  
+    } 
 }
 </script>
 <style scoped>
-    .title-form {
-        background-color: #CF120B;
-        color: white;
-    }
-
-    .h3-title {
-        margin:10px 0 10px 20px;
-        color: white;
-    }
-
-    .close-form {
-        margin:15px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .enlace:hover {
-        cursor:pointer; cursor: hand	      
-    } 
-
-    .bootstro-prev-btn {
-        float: left;
-    } 
-
-    .separator {
-        border-top: 1px solid #CF120B;
-    }
-
-    input.mayusculas, textarea.mayusculas{
-        text-transform:uppercase;
-    }     
-
-    input.minusculas{
-        text-transform:lowercase;
-    }    
-
-    .center {
-        text-align: center;
-    }   
       
     .v--modal-overlay {
         z-index:9000;
     }    
-
-    .modal-main {
-        background-color: #F6E0A6 !important;
-        color:rgb(41, 2, 1);
-    } 
-
-    .modal-item {
-        border-bottom: 1px solid rgb(255, 81, 81);
-        border-left: 1px solid rgb(255, 81, 81);
-        border-right: 1px solid rgb(255, 81, 81);
-    }
     .label-grupo {
         text-align: left;
         border: 1px solid gray;

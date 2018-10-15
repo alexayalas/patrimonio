@@ -3,6 +3,7 @@ import TemplateMain from './components/main/TemplateMain.vue'
 import Dashboard from './components/dashboard/Dashboard.vue'
 
 import Bajas from './components/bajas/Bajas.vue'
+import EmpresasBajas from './components/bajas/EmpresasBajas.vue'
 import Bienes from './components/bienes/Bienes.vue'
 import EmpresasBienes from './components/bienes/EmpresasBienes.vue'
 import Clases from './components/clasificaciones/Clases.vue'
@@ -40,11 +41,18 @@ export default [
                 meta: { requiresAuth: true }
             },
             {
-                path: '/bajas',
-                name: 'Bajas',
-                component: Bajas,
+                path: '/empresas-bajas',
+                name: 'EmpresasBajas',
+                component: EmpresasBajas,
                 meta: { requiresAuth: true }
             },
+            {
+                path: '/bajas/:empresa',
+                name: 'Bajas',
+                component: Bajas,
+                meta: { requiresAuth: true },
+                props: true
+            }, 
             {
                 path: '/empresas-bienes',
                 name: 'EmpresasBienes',

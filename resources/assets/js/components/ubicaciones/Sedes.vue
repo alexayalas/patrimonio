@@ -26,18 +26,27 @@
                             title="Listado de Sedes"
                             :columns="columns"
                             :rows="sedes"
-                            :paginate="true"
+                            :paginationOptions="{
+                                enabled: true,
+                                dropdownAllowAll: false,
+                                nextLabel: 'Sig',
+                                prevLabel: 'Ant',
+                                rowsPerPageLabel: 'Registros por Pagina',
+                                ofLabel: 'de',
+                                allLabel: 'Todos',
+                            }"
+                            @on-row-dblclick="processEdit"
+                            :rowStyleClass="'enlace'"
                             :lineNumbers="true"
-                            :rowsPerPageText="textpage"
-                            :nextText="textnext"
-                            :prevText="textprev"
-                            :ofText="textof"
-                            styleClass="table condensed table-bordered table-striped">
+                            styleClass="vgt-table condensed bordered striped">
                                 <template slot="table-row" slot-scope="props">
-                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.nombre_sede }}</td>
-                                    <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.direccion }}</td>
-                                    <td class="center"><button title="Eliminar Sede" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button></td>
-                                </template>                              
+                                    <span v-if="props.column.field == 'btn'" class="center">
+                                        <button title="Eliminar Sede" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
+                                    </span>
+                                    <span v-else>
+                                        {{props.formattedRow[props.column.field]}}
+                                    </span>
+                                </template>                                                         
                             </vue-good-table>
                         </div>
                     </div>
@@ -99,25 +108,29 @@ export default {
             ShowIcon : false,
             labelButton: 'Grabar Datos',             
 
-            textpage: 'Registros por pagina',
-            textnext:'Sig',
-            textprev:'Ant',
-            textof:'de',
             columns: [
                 {
                 label: 'Nombre de Sede',
                 field: 'nombre_sede',
-                filterable: true,
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'50%',
                 },
                 { 
                 label: 'Direccion',
                 field: 'direccion',
-                filterable: true,
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'40%',
                 },                                                                                                                            
                 {
                 label: 'Acción',
+                field: 'btn',
+                tdClass: 'center',
                 html: true  ,
                 width:'10%',  
                 }                               
@@ -133,9 +146,6 @@ export default {
         ...mapState(['sedes']),
     },     
     methods: {
-        onClickFn: function(row, index){
-            console.log(row)
-        },
         LoadForm: function(){  
             this.ShowIcon = false
             this.IconClass = 'fa fa-cloud-upload'          
@@ -224,9 +234,9 @@ export default {
                 console.log(error.response.status);
             });
         },
-        processEdit(sed){
+        processEdit(params){
             var datased = []
-            datased = _.clone(sed)
+            datased = _.clone(params.row)
             this.dataSede = {
                 id:datased.id,
                 nombre_sede:datased.nombre_sede,
@@ -258,66 +268,14 @@ export default {
             .catch(() => {
                 console.log('Delete aborted');
             });
-        },                                                
-    },
-       
-  
+        }                                               
+    } 
 }
 </script>
 <style scoped>
-    .title-form {
-        background-color: #CF120B;
-        color: white;
-    }
-
-    .h3-title {
-        margin:10px 0 10px 20px;
-        color: white;
-    }
-
-    .close-form {
-        margin:15px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .enlace:hover {
-        cursor:pointer; cursor: hand	      
-    } 
-
-    .bootstro-prev-btn {
-        float: left;
-    } 
-
-    .separator {
-        border-top: 1px solid #CF120B;
-    }
-
-    input.mayusculas, textarea.mayusculas{
-        text-transform:uppercase;
-    }     
-
-    input.minusculas{
-        text-transform:lowercase;
-    }    
-
-    .center {
-        text-align: center;
-    }   
-      
     .v--modal-overlay {
         z-index:9000;
     }    
-
-    .modal-main {
-        background-color: #F6E0A6 !important;
-        color:rgb(41, 2, 1);
-    } 
-
-    .modal-item {
-        border-bottom: 1px solid rgb(255, 81, 81);
-        border-left: 1px solid rgb(255, 81, 81);
-        border-right: 1px solid rgb(255, 81, 81);
-    }
     .label-grupo {
         text-align: left;
         border: 1px solid gray;

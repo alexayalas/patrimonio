@@ -56,7 +56,7 @@ export default {
         }, (err) => {
             console.log(err)
         });
-    },
+    }, 
     LOAD_COMBO_AREAS_LIST: function ({ commit }) {
         var urlType = '/api/ubicaciones/create';
         return axios.get(urlType).then((response) => {

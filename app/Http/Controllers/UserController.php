@@ -151,7 +151,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+            $user->activo = false;
+            $user->save();            
+        } catch (Exception $e) {
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
     }
 
     public function changePassword(Request $request)

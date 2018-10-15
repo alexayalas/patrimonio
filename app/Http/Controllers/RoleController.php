@@ -23,7 +23,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::with('permissions','modules')->orderBy('id','ASC')->get();
+        $roles = Role::with('permissions','modules')->orderBy('id','ASC')->where('activo',true)->get();
         return $roles;        
     }
 
@@ -61,7 +61,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        $combo_roles = Role::orderBy('id','ASC')->get(['id as value','name as text']); 
+        $combo_roles = Role::orderBy('id','ASC')->where('activo',1)->get(['id as value','name as text']); 
         return $combo_roles;   
 
     }
@@ -103,7 +103,15 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $rol = Role::findOrFail($id);
+            $rol->activo = false;
+            $rol->save();            
+        } catch (Exception $e) {
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
     }
 
     public function updateModules(Request $request, $id)

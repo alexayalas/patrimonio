@@ -13,6 +13,7 @@ use Image;
 use DateTime;
 use Carbon\Carbon;
 use App\Movimiento;
+use App\Bien;
 
 class MovimientoController extends Controller
 {
@@ -27,7 +28,7 @@ class MovimientoController extends Controller
 
     public function index()
     {
-        $movimientos = Movimiento::with(['bien','ubicacion_actual.area.empresa','ubicacion_actual.area.sede'])->orderBy('id','ASC')->where('activo',1)->get();
+        $movimientos = Movimiento::with(['bien','ubicacion_actual.area.empresa','ubicacion_actual.area.sede','ubicacion_anterior.area.sede','autorizado','encargado_anterior'])->orderBy('id','ASC')->where('activo',1)->get();
         return $movimientos;
     }
 
@@ -49,7 +50,60 @@ class MovimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();    
+
+        try {
+            if($request->get('tipomovimiento') == 'Traslado'){
+                $rules = ['bien_id'                 => 'required',
+                        'ubicacion_id_actual'       => 'required',
+                        'autorizado_id'             => 'required',
+                        'encargado_id_actual'       => 'required'
+                        ];
+            }elseif ($request->get('tipomovimiento') == 'Baja') {
+                $rules = ['bien_id'                 => 'required',
+                        'fecha_movimiento'          => 'required',
+                        'numero_resolucion'         => 'required',
+                        'motivo_baja'               => 'required',
+                        'autorizado_id'             => 'required'
+                        ];
+            }      
+
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return response()->json(['errors'=>$validator->errors()]);
+            }       
+
+            $movimiento = new Movimiento($request->all());
+      
+            //$fecm = explode("/", $movimiento->fecha_movimiento);          
+            $movimiento->fecha_movimiento = FormatFecDMY($movimiento->fecha_movimiento);
+            $movimiento->user_id = Auth::id();
+            $movimiento->save();
+
+            /***  actualizacion en la tabla biens ****/
+            $bien = Bien::find($movimiento->bien_id);            
+            if($request->get('tipomovimiento') == 'Traslado'){
+                $bien->ubicacion_id = $movimiento->ubicacion_id_actual;
+                $bien->conservacion = $movimiento->conservacion_actual;
+                $bien->en_uso = $movimiento->en_uso_actual;
+                $bien->encargado_id = $movimiento->encargado_id_actual;
+                $bien->editable = false;
+            }elseif ($request->get('tipomovimiento') == 'Baja') {
+                $bien->baja = true;
+            }
+            $bien->save();
+            /***  Fin de actualizacion ***/
+
+            DB::commit();        
+            return;
+        }
+        catch(Exception $e){
+            DB::rollback();
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
+
     }
 
     /**

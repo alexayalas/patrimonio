@@ -41,7 +41,7 @@ class AreaController extends Controller
     public function create()
     {
         $combo_empresas = Empresa::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_empresa as text']); 
-        $combo_sedes = Sede::orderBy('id','ASC')->get(['id as value','nombre_sede as text']); 
+        $combo_sedes = Sede::orderBy('id','ASC')->where('activo',true)->get(['id as value','nombre_sede as text']); 
 
         return [
               'combo_empresas'        => $combo_empresas,

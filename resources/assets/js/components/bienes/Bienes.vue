@@ -24,27 +24,28 @@
                         <vue-good-table
                         :columns="columns"
                         :rows="BienesByEmpresa"
-                        :paginate="true"
+                        :paginationOptions="{
+                            enabled: true,
+                            dropdownAllowAll: false,
+                            nextLabel: 'Sig',
+                            prevLabel: 'Ant',
+                            rowsPerPageLabel: 'Registros por Pagina',
+                            ofLabel: 'de',
+                            allLabel: 'Todos',
+                        }"
+                        @on-row-dblclick="processEdit"
+                        :rowStyleClass="'enlace'"
                         :lineNumbers="true"
-                        :rowsPerPageText="textpage"
-                        :nextText="textnext"
-                        :prevText="textprev"
-                        :ofText="textof"
-                        :rowStyleClass = "'text-default'"
-                        styleClass="table condensed table-bordered table-striped">
+                        styleClass="vgt-table condensed bordered striped">
                             <template slot="table-row" slot-scope="props">
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.codigo_barra }}</td>
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.descripcion }}</td>
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.marca}}</td>
-                                <td class="enlace" @click.prevent="processEdit(props.row)">{{ props.row.modelo }}</td>
-                                <td>{{ props.row.numero_serie }}</td>
-                                <td>{{ props.formattedRow.fecha_registro | reversefecha }}</td>
-                                <td>{{ props.row.ubicacion.nombre_ubicacion }}</td>
-                                <td class="center">
+                                <span v-if="props.column.field == 'btn'" class="center">
                                     <button type="button" class="btn btn-danger btn-xs" title="ELIMINAR BIEN" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
                                     <button type="button" class="btn btn-success btn-xs" title="IMPRIMIR CODIGO DE BARRAS" @click.prevent="processImprimir(props.row)"><i class="material-icons md-18">print</i></button>
-                                </td>
-                            </template>                              
+                                </span>
+                                <span v-else>
+                                    {{props.formattedRow[props.column.field]}}
+                                </span>
+                            </template>                                                      
                         </vue-good-table>
                     </div>
                 </div>
@@ -55,8 +56,9 @@
         <!-- form de registro de bienes -->
             <div class="col-md-12 modal-main pl-0 pr-0">
                 <div class="row title-form">
-                    <h3 class="pull-left h3-title pl-10">Registro de Bienes</h3>
-                    <div class="pull-right close-form pr-20" @click="$modal.hide('bien')"><i class="fa fa-close"></i></div>                
+                    <h3 class="pull-left h3-title pl-10">Registro de Bienes <span class="label label-success reg-mas" v-if="dataConfig.Ingreso">Registro Masivo Activado</span></h3>
+                    <div class="pull-right close-form pr-20" title="Cerrar Ventana" @click="$modal.hide('bien')"><i class="fa fa-close"></i></div>                
+                    <div class="pull-right close-form pr-20" v-if="edition == false" title="Configuracion Avanzada" @click="$modal.show('configuracion')"><i class="fa fa-cog"></i></div>               
                 </div>
                 <form data-sample-validation-1 class="form-horizontal form-bordered" role="form" method="POST" v-on:submit.prevent="ActionBien">
                     <div class="col-md-4 pt-20 pr-0">
@@ -390,7 +392,7 @@
                                             <div class="col-sm-10">
                                                 <div class="checkbox mt-20">
                                                 <label>
-                                                    <input type="checkbox" v-model="dataBien.depresiable"> Depresiable
+                                                    <input type="checkbox" v-model="dataBien.depresiable" > Depresiable
                                                 </label>
                                                 </div>
                                             </div>
@@ -468,9 +470,224 @@
                     <button type="button" class="btn btn-primary active"  @click="Imprimir"><i class="fa fa-print"></i> Imprimir</button>
                 </div>
             </div><!-- /.form-footer -->                          
-        </modal>             
-    </div>
- 
+        </modal> 
+        <modal name="configuracion" width="60%" height="auto" :scrollable="false" :clickToClose="false">
+            <div class="col-md-12 modal-main pl-0 pr-0">
+                <div class="row title-form">
+                    <h3 class="pull-left h3-title pl-10">Configuracion Avanzada</h3>
+                    <div class="pull-right close-form pr-20" @click="$modal.hide('configuracion')"><i class="fa fa-close"></i></div> 
+                </div>
+                <div class="col-md-12 pl-0 pr-0">
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" v-model="dataConfig.Ingreso"> Activar Ingreso Masivo
+                            </label>
+                        </div>                          
+                    </div>
+                    <div class="col-md-12">
+                        <h5 class="mt-0">Seleccione los campos que se mantendran fijos durante la apertura del formulario de registro de bienes</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.sede" :disabled="!dataConfig.Ingreso"> Sede
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.area" :disabled="!dataConfig.Ingreso"> Area
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.ubicacion" :disabled="!dataConfig.Ingreso"> Ubicación
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.responsable_area" :disabled="!dataConfig.Ingreso"> Responsable de Area
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group --> 
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.clase" :disabled="!dataConfig.Ingreso"> Clase
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.responsable_bien" :disabled="!dataConfig.Ingreso"> Responsable del Bien
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->                                                                                                                       
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataBien.descripcion" :disabled="!dataConfig.Ingreso"> Descripción
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataBien.marca" :disabled="!dataConfig.Ingreso"> Marca
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataBien.modelo" :disabled="!dataConfig.Ingreso"> Modelo
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataBien.numero_serie" :disabled="!dataConfig.Ingreso"> Número de serie
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataBien.medidas" :disabled="!dataConfig.Ingreso"> Medidas
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataBien.caracteristicas" :disabled="!dataConfig.Ingreso"> Caracteristicas
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->                                                                                                                                                  
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.tipo_ingreso" :disabled="!dataConfig.Ingreso"> Tipo Ingreso
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.documento_compra" :disabled="!dataConfig.Ingreso"> Documento de Compra
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.serie_documento" :disabled="!dataConfig.Ingreso"> Serie Documento
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.numero_documento" :disabled="!dataConfig.Ingreso"> Número de Documento
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.proveedor" :disabled="!dataConfig.Ingreso"> Proveedor
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.garantia" :disabled="!dataConfig.Ingreso"> Garantia
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.dias_garantia" :disabled="!dataConfig.Ingreso"> Dias Garantia
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->                                                                                                                                                                                                                                                                                                                         
+                    </div>
+                    <div class="col-md-3"> 
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.fecha_compra" :disabled="!dataConfig.Ingreso"> Fecha Compra
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.dias_mantenimiento" :disabled="!dataConfig.Ingreso"> Dias Mantto.
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.conservacion" :disabled="!dataConfig.Ingreso"> Estado de Conservación
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.cuenta" :disabled="!dataConfig.Ingreso"> Cuenta
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.costo" :disabled="!dataConfig.Ingreso"> Costo
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.depresiable" :disabled="!dataConfig.Ingreso"> Depresiable
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->  
+                        <div class="form-group ml-5 mb-0">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" v-model="dataConfig.condicion" :disabled="!dataConfig.Ingreso"> Condición
+                                </label>
+                            </div>                          
+                        </div><!-- /.form-group -->                                                                                                                                                                                                                                                                                                                          
+                    </div>                    
+                    <div class="col-md-12 pt-20 mb-10 mt-0 pr-20 separator">
+                        <div class="pull-right pr-10">
+                            <button type="button" class="btn btn-warning active" @click="$modal.hide('configuracion')"><i class="fa fa-reply-all"></i> Cerrar</button>
+                        </div>
+                    </div><!-- /.form-footer -->                      
+                </div>
+            </div>  
+        </modal>                            
+    </div> 
 </template>
 <script>
 import { BasicSelect } from 'vue-search-select'
@@ -516,30 +733,32 @@ export default {
             ShowIcon : false,
             labelButton: 'Grabar Datos',   
 
-            textpage: 'Registros por pagina',
-            textnext:'Sig',
-            textprev:'Ant',
-            textof:'de',
             columns: [
                 {
                 label: 'Codigo',
                 field: 'codigo_barra',
-                filterable: true,
-                placeholder: 'Buscar',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'10%',
                 },
                 {
                 label: 'Descripcion',
                 field: 'descripcion',
-                filterable: true,
-                placeholder: 'Buscar',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'20%',
                 },                    
                 {
                 label: 'Marca',
                 field: 'marca',
-                filterable: true,
-                placeholder: 'Buscar',
+                filterOptions: {
+                    enabled: true, 
+                    placeholder: 'Buscar', 
+                },
                 width:'10%',                
                 },
                 {
@@ -556,17 +775,19 @@ export default {
                 label: 'fecha_registro',
                 field: 'fecha_registro',
                 type: 'date',
-                inputFormat : 'YYYY-MM-DD',
-                outputFormat: 'DD/MM/YYYY',                
+                dateInputFormat : 'YYYY-MM-DD',
+                dateOutputFormat: 'DD/MM/YYYY',                
                 width:'10%',                
                 },
                 {
                 label: 'Ubicacion',
-                field: 'ubicacion',
+                field: 'ubicacion.nombre_ubicacion',
                 width:'20%',                
                 },                                        
                 {
                 label: 'Acción',
+                field: 'btn',
+                tdClass: 'center',
                 html: true  ,
                 width:'10%',  
                 }                               
@@ -615,6 +836,34 @@ export default {
                 nombre_ubicacion:'',
                 codigo_barra:'',
                 codBar39:''
+            },
+            dataConfig: {
+                Ingreso: false,
+                sede:false,
+                area:false,
+                ubicacion:false,
+                responsable_area: false,
+                clase: false,
+                responsable_bien: false,
+                descripcion:false,
+                modelo:false,
+                marca:false,
+                numero_serie:false,
+                medidas:false,
+                caracteristicas:false,
+                tipo_ingreso: false,
+                tipo_documento: false,
+                serie_documento:false,
+                numero_documento:false,
+                proveedor: false,
+                garantia: false,
+                dias_garantia: false,
+                fecha_compra: false,
+                dias_mantenimiento: false,
+                depresiable: false,
+                cuenta: false,
+                costo: false,
+                condicion: false                
             }
         }
     },
@@ -649,9 +898,6 @@ export default {
       'barcode': VueBarcode
     },          
     methods: {
-        onClickFn: function(row, index){
-            console.log(row)
-        }, 
         Imprimir: function(){
             const cssText = `
             .titulo {
@@ -705,14 +951,12 @@ export default {
             }
          
             `
-
             const d = new Printd()
-
             // opens the "print dialog" of your browser to print the element
             d.print( document.getElementById('printMe'), cssText )        
         },
         LoadForm: function(){  
-            //this.item_emp = {}   
+            this.dataConfig.Ingreso = false
             this.edition = false 
             this.codsed = '' 
             this.codare = ''
@@ -780,11 +1024,7 @@ export default {
         },
         createBien: function(){
             var url = '/api/bienes';
-            toastr.options.closeButton = true;
-            toastr.options.progressBar = true;
-            this.ShowIcon = true
-            this.IconClass = 'fa fa-circle-o-notch fa-spin'
-            this.labelButton = 'Procesando'        
+            this.LoadButton()  
             axios.post(url, this.dataBien).then(response => {
                 if(typeof(response.data.errors) != "undefined"){
                     this.errors = response.data.errors;
@@ -795,33 +1035,29 @@ export default {
                         }
                     }
                     toastr.error(resultado);
-                    this.ShowIcon = false
-                    this.IconClass = 'fa fa-cloud-upload'
-                    this.labelButton = 'Grabar Datos'                  
+                    this.ResetButton()                
                     return;
                 }
-
                 this.$store.dispatch('LOAD_BIENES_LIST')    
                 this.errors = [];
-                this.ShowIcon = false
-                this.IconClass = 'fa fa-cloud-upload'
-                this.labelButton = 'Grabar Datos'              
-                this.$modal.hide('bien');
+                this.ResetButton()  
+                if(this.dataConfig.Ingreso){
+                    this.processCreateMasive()
+                }else{
+                    this.$modal.hide('bien');
+                }           
+
                 this.processImprimir(response.data[0])
                 toastr.success('Nuevo Registro creado con exito');
             }).catch(error => {
                 this.errors = error.response.data.status;
                 toastr.error("Hubo un error en el proceso: "+this.errors);
-                console.log(error.response.status);
+                this.ResetButton()  
             });
         },
         updateBien: function(){
             var url = '/api/bienes/'+this.dataBien.id;
-            toastr.options.closeButton = true;
-            toastr.options.progressBar = true;
-            this.ShowIcon = true
-            this.IconClass = 'fa fa-circle-o-notch fa-spin'        
-            this.labelButton = 'Procesando'          
+            this.LoadButton()     
             axios.put(url, this.dataBien).then(response => {
                 if(typeof(response.data.errors) != "undefined"){
                     this.errors = response.data.errors;
@@ -832,30 +1068,26 @@ export default {
                         }
                     }
                     toastr.error(resultado);
+                    this.ResetButton()    
                     return;
                 }
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
                 this.$store.dispatch('LOAD_BIENES_LIST')                  
                 this.errors = [];
-                this.ShowIcon = false
-                this.IconClass = 'fa fa-cloud-upload'          
-                this.labelButton = 'Grabar Datos'             
+                this.ResetButton()
                 this.$modal.hide('bien');
                 toastr.success('El registro fue actualizado con exito');          
             }).catch(error => {
                 this.errors = error.response.data.status;
                 toastr.error("Hubo un error en el proceso: "+this.errors);
-                this.ShowIcon = false
-                this.IconClass = 'fa fa-cloud-upload'          
-                this.labelButton = 'Grabar Datos'                 
+                this.ResetButton()               
             });
         },
-        processEdit(bie){
+        processEdit(params){
             this.edition = true
             this.$emit('getClear') 
 
             var databie = []
-            databie = _.clone(bie)
+            databie = _.clone(params.row)
            
             this.item_sed = this.combo_sedes.find(sed => sed.value == databie.ubicacion.area.sede_id) 
             this.codsed = databie.ubicacion.area.sede_id
@@ -913,6 +1145,38 @@ export default {
             }, 
             this.$modal.show('bien')        
         },
+        processCreateMasive(){
+                this.dataBien.codigo_barra = ''
+                this.dataBien.codBar39 = ''
+                if(!this.dataConfig.clase) this.resetCla()
+                if(!this.dataConfig.descripcion) this.dataBien.descripcion = ''
+                if(!this.dataConfig.ubicacion) this.resetUbi()
+                if(!this.dataConfig.responsable_area) this.resetResAre()
+                if(!this.dataConfig.responsable_bien) this.resetResBie()
+                if(!this.dataConfig.modelo) this.dataBien.modelo =''
+                if(!this.dataConfig.marca) this.dataBien.marca = ''
+                if(!this.dataConfig.numero_serie) this.dataBien.numero_serie = ''
+                if(!this.dataConfig.medidas) this.dataBien.medidas = ''
+                if(!this.dataConfig.caracteristicas) this.dataBien.caracteristicas = ''
+                if(!this.dataConfig.conservacion) this.resetEst()
+                if(!this.dataConfig.condicion) this.dataBien.en_uso = 'SI'
+                if(!this.dataConfig.fecha_compra) this.dataBien.fecha_compra = ''
+                if(!this.dataConfig.tipo_ingreso) this.resetTipIng()
+                if(!this.dataConfig.tipo_documento) this.resetTipDoc()
+                if(!this.dataConfig.numero_documento) this.dataBien.numero_documento = ''
+                if(!this.dataConfig.costo) this.dataBien.costo = ''
+                if(!this.dataConfig.proveedor) this.resetPro()
+                if(!this.dataConfig.depresiable) this.dataBien.depresiable = false
+                if(!this.dataConfig.cuenta) this.resetCue()
+                if(!this.dataConfig.dias_mantenimiento) this.dataBien.dias_mantenimiento = ''
+                this.dataBien.fecha_registro = moment().format('DD/MM/YYYY')
+                if(!this.dataConfig.serie_documento) this.dataBien.serie_documento = ''
+                if(!this.dataConfig.garantia) this.resetGar()
+                if(!this.dataConfig.dias_garantia) this.dataBien.dias_garantia = ''
+                this.dataBien.foto = 'no-image.png'
+                if(!this.dataConfig.area) this.resetAre()
+                if(!this.dataConfig.sede) this.resetSed()            
+        },
         processDelete(id){
             this.$dialog.confirm("<span style='color:red'><strong>¿ Desea Eliminar este Registro ?</strong></span>", {
                 html: true, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
@@ -928,7 +1192,6 @@ export default {
                 toastr.options.closeButton = true;
                 toastr.options.progressBar = true;
                 axios.delete(url).then(response=> {
-                //this.getEmployee(this.pagination.current_page,this.employeeSearch); 
                 this.$store.dispatch('LOAD_BIENES_LIST')                    
                 toastr.success('Registro Eliminado correctamente');
                 dialog.close();
@@ -950,10 +1213,48 @@ export default {
                 codigo_barra:databie.codigo_barra,
                 codBar39:databie.codBar39
             } 
-
             this.$modal.show('imprimir')                          
 
         }, 
+        ResetButton: function() {
+            this.ShowIcon = false
+            this.IconClass = 'fa fa-cloud-upload'
+            this.labelButton = 'Grabar Datos'  
+        },
+        LoadButton: function() {
+            toastr.options.closeButton = true;
+            toastr.options.progressBar = true;
+            this.ShowIcon = true
+            this.IconClass = 'fa fa-circle-o-notch fa-spin'        
+            this.labelButton = 'Procesando'  
+        },
+        IngresoMasivo: function() {
+            if(!this.dataConfig.ubicacion){ this.resetUbi }
+            if(!this.dataConfig.area) { this.resetAre }
+            if(!this.dataConfig.sede) { this.resetSed } 
+            if(!this.dataConfig.responsable_area) { this.resetResAre }
+            if(!this.dataConfig.clase) { this.resetCla }
+            if(!this.dataConfig.responsable_bien) {this.resetResBie }
+            if(!this.dataConfig.descripcion ) { this.dataBien.descripcion = ''}
+            if(!this.dataConfig.marca ) { this.dataBien.marca = ''}    
+            if(!this.dataConfig.modelo ) { this.dataBien.modelo = ''}    
+            if(!this.dataConfig.medidas ) { this.dataBien.medidas = ''}  
+            if(!this.dataConfig.caracteristicas ) { this.dataBien.caracteristicas = ''}  
+            if(!this.dataConfig.tipo_ingreso){ this.resetTipIng }
+            if(!this.dataConfig.tipo_documento){ this.resetTipDoc }    
+            if(!this.dataConfig.serie_documento ) { this.dataBien.serie_documento = ''}    
+            if(!this.dataConfig.numero_documento ) { this.dataBien.numero_documento = ''}                  
+            if(!this.dataConfig.proveedor){ this.resetPro}
+            if(!this.dataConfig.garantia){ this.resetGar }  
+            if(!this.dataConfig.dias_garantia ) { this.dataBien.dias_garantia = ''}              
+            if(!this.dataConfig.fecha_compra ) { this.dataBien.fecha_compra = ''}
+            if(!this.dataConfig.dias_mantenimiento ) { this.dataBien.dias_mantenimiento = ''}            
+            if(!this.dataConfig.conservacion){ this.resetEst }  
+            if(!this.dataConfig.cuenta){ this.resetCue }  
+            if(!this.dataConfig.costo ) { this.dataBien.costo = ''}          
+            if(!this.dataConfig.depresiable ) { this.dataBien.depresiable = false}  
+            if(!this.dataConfig.condicion ) { this.dataBien.en_uso = 'SI'}                                
+        },
         getImagen: function(imagen){
             this.dataBien.image = imagen;
         },
@@ -1085,59 +1386,11 @@ export default {
 }
 </script>
 <style scoped>
-    .title-form {
-        background-color: #CF120B;
-        color: white;
-    }
-
-    .h3-title {
-        margin:10px 0 10px 20px;
-        color: white;
-    }
-
-    .close-form {
-        margin:15px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .enlace:hover {
-        cursor:pointer; cursor: hand	      
-    } 
-
-    .bootstro-prev-btn {
-        float: left;
-    } 
-
-    .separator {
-        border-top: 1px solid #CF120B;
-    }
-
-    input.mayusculas, textarea.mayusculas{
-        text-transform:uppercase;
-    }     
-
-    input.minusculas{
-        text-transform:lowercase;
-    }    
-
-    .center {
-        text-align: center;
-    }   
       
     .v--modal-overlay {
         z-index:9000;
     }    
 
-    .modal-main {
-        background-color: #F6E0A6 !important;
-        color:rgb(41, 2, 1);
-    } 
-
-    .modal-item {
-        border-bottom: 1px solid rgb(255, 81, 81);
-        border-left: 1px solid rgb(255, 81, 81);
-        border-right: 1px solid rgb(255, 81, 81);
-    }
     .label-grupo {
         text-align: left;
         border: 1px solid gray;
@@ -1191,11 +1444,10 @@ export default {
     }
     /** fin estilos de la impresion**/
 
-    .hand-up {
-        cursor: pointer;
-        cursor: hand;
-        font-size:17px !important;
-        color:red !important;
+    .reg-mas {
+        font-size: 60% !important;
+        font-weight: 300 !important;
     }
+
 
 </style>
