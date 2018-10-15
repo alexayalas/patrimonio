@@ -19,7 +19,7 @@
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>{{ getBajasByEmpresaId(empresa.id).length }}</h3>
-                            <p>Traslados</p>
+                            <p>Bajas</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-home"></i>
