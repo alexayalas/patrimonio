@@ -52067,7 +52067,7 @@ var render = function() {
                       _vm._v(_vm._s(_vm.getBajasByEmpresaId(empresa.id).length))
                     ]),
                     _vm._v(" "),
-                    _c("p", [_vm._v("Traslados")])
+                    _c("p", [_vm._v("Bajas")])
                   ]),
                   _vm._v(" "),
                   _vm._m(1, true),
@@ -70723,7 +70723,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                     _this4.labelButton = 'Grabar Datos';
                     return;
                 }
-
+                _this4.$store.dispatch('LOAD_BIENES_LIST');
                 _this4.$store.dispatch('LOAD_MOVIMIENTOS_LIST');
                 _this4.errors = [];
                 _this4.ShowIcon = false;
@@ -70757,7 +70757,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                     toastr.error(resultado);
                     return;
                 }
-
                 _this5.$store.dispatch('LOAD_MOVIMIENTOS_LIST');
                 _this5.errors = [];
                 _this5.ShowIcon = false;
@@ -70852,10 +70851,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 animation: 'fade', // Available: "zoom", "bounce", "fade"
                 type: 'basic'
             }).then(function (dialog) {
-                var url = '/api/traslados/' + id;
+                var url = '/api/movimientos/' + id;
                 toastr.options.closeButton = true;
                 toastr.options.progressBar = true;
                 axios.delete(url).then(function (response) {
+                    _this7.$store.dispatch('LOAD_BIENES_LIST');
                     _this7.$store.dispatch('LOAD_MOVIMIENTOS_LIST');
                     toastr.success('Registro Eliminado correctamente');
                     dialog.close();
