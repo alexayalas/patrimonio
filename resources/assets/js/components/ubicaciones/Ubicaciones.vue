@@ -47,7 +47,7 @@
                             styleClass="vgt-table condensed bordered striped">
                                 <template slot="table-row" slot-scope="props">
                                     <span v-if="props.column.field == 'btn'" class="center">
-                                        <button title="Eliminar Ubicacion" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
+                                        <button title="Eliminar Ubicacion" class="btn btn-danger btn-xs" @click.prevent="processPrueba(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
                                     </span>
                                     <span v-else>
                                         {{props.formattedRow[props.column.field]}}
@@ -365,7 +365,32 @@ export default {
             .catch(() => {
                 console.log('Delete aborted');
             });
-        },               
+        }, 
+        processPrueba(id){
+            this.$swal({
+                title: 'Desea eliminar este registro?',
+                text: "No podras revertir esto!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Si, eliminar!'
+                }).then((result) => {
+                    if (result.value) {
+                        var url = '/api/ubicaciones/' + id;
+                        axios.delete(url).then(response=> {
+                            this.$store.dispatch('LOAD_UBICACIONES_LIST').then(() => {
+                                this.$swal(
+                                'Eliminado!',
+                                'Este registro fue eliminado.',
+                                'success'
+                                )
+                            })                    
+                        });
+                    }
+                });
+        },              
         onSelectAre (item_are) {
             this.item_are = item_are
             this.dataUbicacion.area_id = item_are.value

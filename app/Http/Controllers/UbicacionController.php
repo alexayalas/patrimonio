@@ -153,6 +153,14 @@ class UbicacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $ubicacion= Ubicacion::findOrFail($id);
+            $ubicacion->activo = false;
+            $ubicacion->save();            
+        } catch (Exception $e) {
+            return response()->json(
+                ['status' => $e->getMessage()], 422
+            );
+        }
     }
 }

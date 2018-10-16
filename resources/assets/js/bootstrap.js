@@ -18,6 +18,7 @@ import ToggleButton from 'vue-js-toggle-button'
 import underscore from 'vue-underscore'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
+import VueSweetalert2 from 'vue-sweetalert2'
 
 window.axios = require('axios');
 
@@ -31,3 +32,4 @@ Vue.use(ToggleButton)
 Vue.use(underscore)
 Vue.use(Loading);
 Vue.component('loading', Loading)
+Vue.use(VueSweetalert2)
