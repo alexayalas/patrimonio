@@ -1,8 +1,14 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>          
         <section class="content-header">
         <h1>
-            Empresas
+            Traslados por Empresa
             <small>Lista de Empresas</small>
         </h1>
         <ol class="breadcrumb">
@@ -41,11 +47,14 @@ export default {
     name:'empresastraslados',
     mounted() {
         this.$store.dispatch('LOAD_EMPRESAS_LIST')     
-        this.$store.dispatch('LOAD_MOVIMIENTOS_LIST')           
+        this.$store.dispatch('LOAD_MOVIMIENTOS_LIST').then(() => {
+            this.isLoading = false
+        })            
     },     
     data() {
         return {
-
+            isLoading: true,
+            fullPage: true
         }
     },
     computed: {

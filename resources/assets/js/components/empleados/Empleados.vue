@@ -1,5 +1,11 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>         
         <section class="content-header">
         <h1>
             Empleados
@@ -104,10 +110,15 @@ import { mapState, mapGetters } from 'vuex'
 export default {
     name:'empleados',
     mounted() {
-        this.$store.dispatch('LOAD_EMPLEADOS_LIST')            
+        this.$store.dispatch('LOAD_EMPLEADOS_LIST').then(() => {
+            this.isLoading = false
+        })            
     },        
     data() {
         return {
+            isLoading: true,
+            fullPage: true,
+                        
             searchText: '', // If value is falsy, reset searchText & searchItem
 
             IconClass : 'fa fa-cloud-upload',

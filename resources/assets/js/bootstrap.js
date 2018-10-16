@@ -16,6 +16,8 @@ import VueGoodTable from 'vue-good-table'
 import 'vue-good-table/dist/vue-good-table.css'
 import ToggleButton from 'vue-js-toggle-button'
 import underscore from 'vue-underscore'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 
 window.axios = require('axios');
 
@@ -24,6 +26,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 Vue.use(VueRouter)
 Vue.use(VueGoodTable)
 Vue.use(VModal)
-Vue.use(VuejsDialog);
-Vue.use(ToggleButton);
-Vue.use(underscore);
+Vue.use(VuejsDialog)
+Vue.use(ToggleButton)
+Vue.use(underscore)
+Vue.use(Loading);
+Vue.component('loading', Loading)

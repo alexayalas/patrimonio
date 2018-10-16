@@ -1,5 +1,11 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>        
         <section class="content-header">
         <h1>
             Ubicación Fisica
@@ -136,12 +142,17 @@ import { mapState, mapGetters } from 'vuex'
 export default {
     name:'ubicaciones',
     mounted() {
-        this.$store.dispatch('LOAD_UBICACIONES_LIST')  
+        this.$store.dispatch('LOAD_UBICACIONES_LIST').then(() => {
+            this.isLoading = false
+        })  
         this.$store.dispatch('LOAD_COMBO_EMPRESAS_LIST') 
         this.$store.dispatch('LOAD_COMBO_AREAS_LIST')                         
     },        
     data() {
         return {
+            isLoading: true,
+            fullPage: true,
+                        
             searchText: '', // If value is falsy, reset searchText & searchItem
             item_emp: { value: '', text: ''},  
             item_sed: { value: '', text: ''},             

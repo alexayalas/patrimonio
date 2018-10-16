@@ -1,5 +1,11 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>         
         <section class="content-header">
             <h1>
                 {{ NombreEmpresa.nombre_empresa}}
@@ -700,7 +706,9 @@ export default {
     created() {
         this.$store.dispatch('LOAD_EMPRESAS_LIST') 
         this.$store.dispatch('LOAD_AREAS_LIST')           
-        this.$store.dispatch('LOAD_BIENES_LIST')               
+        this.$store.dispatch('LOAD_BIENES_LIST').then(() => {
+            this.isLoading = false
+        })               
         this.$store.dispatch('LOAD_DATA_INIT_LIST') 
     },
     mounted() {     
@@ -708,6 +716,9 @@ export default {
     },        
     data() {
         return {
+            isLoading: true,
+            fullPage: true,
+                        
             edition: false,
             searchText: '', // If value is falsy, reset searchText & searchItem
 

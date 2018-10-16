@@ -1,5 +1,11 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>         
         <section class="content-header">
         <h1>
             Usuarios
@@ -122,11 +128,16 @@ import { mapState, mapGetters } from 'vuex'
 export default {
     name:'usuarios',
     mounted() {
-        this.$store.dispatch('LOAD_USERS_LIST')
+        this.$store.dispatch('LOAD_USERS_LIST').then(() => {
+            this.isLoading = false
+        })
         this.$store.dispatch('LOAD_COMBO_ROLES_LIST')                            
     },        
     data() {
         return {
+            isLoading: true,
+            fullPage: true,
+                        
             searchText: '', // If value is falsy, reset searchText & searchItem
             item_rol: { value: '', text: ''},                         
 

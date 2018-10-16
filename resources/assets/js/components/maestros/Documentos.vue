@@ -1,5 +1,11 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>         
         <section class="content-header">
         <h1>
             Documentos
@@ -92,10 +98,15 @@ import { mapState, mapGetters } from 'vuex'
 export default {
     name:'documentos',
     created() {
-        this.$store.dispatch('LOAD_DOCUMENTOS_LIST')            
+        this.$store.dispatch('LOAD_DOCUMENTOS_LIST').then(() => {
+            this.isLoading = false
+        })            
     },        
     data() {
         return {
+            isLoading: true,
+            fullPage: true,
+                        
             searchText: '', // If value is falsy, reset searchText & searchItem
 
             IconClass : 'fa fa-cloud-upload',

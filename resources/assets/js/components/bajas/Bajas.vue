@@ -1,5 +1,11 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"
+            :background-color="'#000'" 
+            :color="'red'"
+            :can-cancel="false" 
+            :is-full-page="fullPage">
+        </loading>         
         <section class="content-header">
             <h1>
                 {{ NombreEmpresa.nombre_empresa}}
@@ -225,11 +231,16 @@ export default {
     name:'bajas',
     created() {
         this.$store.dispatch('LOAD_BIENES_LIST')          
-        this.$store.dispatch('LOAD_MOVIMIENTOS_LIST')               
+        this.$store.dispatch('LOAD_MOVIMIENTOS_LIST').then(() => {
+            this.isLoading = false
+        })               
         this.$store.dispatch('LOAD_DATA_INIT_LIST') 
     },
     data() {
         return {
+            isLoading: true,
+            fullPage: true,
+                        
             edition: false,
             searchText: '', // If value is falsy, reset searchText & searchItem
 
