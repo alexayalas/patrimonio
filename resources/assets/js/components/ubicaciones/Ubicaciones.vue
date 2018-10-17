@@ -47,7 +47,7 @@
                             styleClass="vgt-table condensed bordered striped">
                                 <template slot="table-row" slot-scope="props">
                                     <span v-if="props.column.field == 'btn'" class="center">
-                                        <button title="Eliminar Ubicacion" class="btn btn-danger btn-xs" @click.prevent="processPrueba(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
+                                        <button title="Eliminar Ubicacion" class="btn btn-danger btn-xs" @click.prevent="processDelete(props.row.id)"><i class="material-icons md-18">delete_forever</i></button>
                                     </span>
                                     <span v-else>
                                         {{props.formattedRow[props.column.field]}}
@@ -342,7 +342,7 @@ export default {
             this.$modal.show('ubicacion')
         
         },
-        processDelete(id){
+/*         processDelete(id){
             this.$dialog.confirm("<span style='color:red'><strong>¿ Desea Eliminar esta Ubicación ?</strong></span>", {
                 html: true, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
                 loader: true, // set to true if you want the dailog to show a loader after click on "proceed"
@@ -365,8 +365,8 @@ export default {
             .catch(() => {
                 console.log('Delete aborted');
             });
-        }, 
-        processPrueba(id){
+        },  */
+        processDelete(id){
             this.$swal({
                 title: 'Desea eliminar este registro?',
                 text: "No podras revertir esto!",
@@ -378,9 +378,11 @@ export default {
                 confirmButtonText: 'Si, eliminar!'
                 }).then((result) => {
                     if (result.value) {
+                        this.isLoading = true
                         var url = '/api/ubicaciones/' + id;
                         axios.delete(url).then(response=> {
                             this.$store.dispatch('LOAD_UBICACIONES_LIST').then(() => {
+                                this.isLoading = false
                                 this.$swal(
                                 'Eliminado!',
                                 'Este registro fue eliminado.',

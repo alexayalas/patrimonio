@@ -76076,9 +76076,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 confirmButtonText: 'Si, eliminar!'
             }).then(function (result) {
                 if (result.value) {
+                    _this6.isLoading = true;
                     var url = '/api/ubicaciones/' + id;
                     axios.delete(url).then(function (response) {
                         _this6.$store.dispatch('LOAD_UBICACIONES_LIST').then(function () {
+                            _this6.isLoading = false;
                             _this6.$swal('Eliminado!', 'Este registro fue eliminado.', 'success');
                         });
                     });
