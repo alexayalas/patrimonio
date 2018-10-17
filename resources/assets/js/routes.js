@@ -47,7 +47,7 @@ export default [
                 meta: { requiresAuth: true }
             },
             {
-                path: '/bajas/:empresa',
+                path: '/bajas',
                 name: 'Bajas',
                 component: Bajas,
                 meta: { requiresAuth: true },
@@ -60,7 +60,7 @@ export default [
                 meta: { requiresAuth: true }
             },
             {
-                path: '/bienes/:empresa',
+                path: '/bienes',
                 name: 'Bienes',
                 component: Bienes,
                 meta: { requiresAuth: true },
@@ -127,7 +127,7 @@ export default [
                 meta: { requiresAuth: true }
             },
             {
-                path: '/traslados/:empresa',
+                path: '/traslados',
                 name: 'Traslados',
                 component: Traslados,
                 meta: { requiresAuth: true },

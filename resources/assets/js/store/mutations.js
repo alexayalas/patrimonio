@@ -96,5 +96,8 @@ export default {
     },  
     SET_MOVIMIENTOS_LIST: (state, { list }) => {      // MOVIMIENTOS
         state.movimientos = list
-    },                                                                                                    
+    },  
+    CHANGE_COMPANY: (state, { id }) => {
+        state.company_id = id
+    },                                                                                                      
 }

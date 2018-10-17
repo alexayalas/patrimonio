@@ -490,7 +490,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['empresas','combo_empresas','combo_sedes','combo_areas','combo_ubicaciones','combo_responsables']),
+        ...mapState(['empresas','combo_empresas','combo_sedes','combo_areas','combo_ubicaciones','combo_responsables','company_id']),
         ...mapGetters(['getTrasladosByEmpresaId','getBienesByEmpresaId']),
         areasBy: function(){
             return this.combo_areas.filter((are) => are.empresa_id == this.codemp).filter((are) => are.sede_id == this.codsed)
@@ -499,13 +499,13 @@ export default {
             return this.combo_ubicaciones.filter((ubi) => ubi.area_id == this.codare)
         },               
         TrasladosByEmpresa: function(){
-            return this.getTrasladosByEmpresaId(this.$route.params.empresa)
+            return this.getTrasladosByEmpresaId(this.company_id)
         },
         BienesByEmpresa: function(){
-            return this.getBienesByEmpresaId(this.$route.params.empresa)
+            return this.getBienesByEmpresaId(this.company_id)
         },        
         NombreEmpresa: function(){
-            return this.empresas.find(emp => emp.id == this.$route.params.empresa)
+            return this.empresas.find(emp => emp.id == this.company_id)
         }              
     },  
     components: {

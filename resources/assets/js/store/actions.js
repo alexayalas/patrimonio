@@ -211,5 +211,9 @@ export default {
         }, (err) => {
             console.log(err)
         });
-    },                                                                                                              
+    }, 
+    CHANGE_COMPANY: function({ commit }, payload) {
+        console.log("payload:::", payload)
+        commit('CHANGE_COMPANY', { id: payload.id })
+    },                                                                                                            
 }

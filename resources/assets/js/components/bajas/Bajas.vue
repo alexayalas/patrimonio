@@ -384,16 +384,16 @@ export default {
         }
     },
     computed: {
-        ...mapState(['empresas','combo_responsables']),
+        ...mapState(['empresas','combo_responsables','company_id']),
         ...mapGetters(['getBajasByEmpresaId','getBienesByEmpresaId']),             
         BajasByEmpresa: function(){
-            return this.getBajasByEmpresaId(this.$route.params.empresa)
+            return this.getBajasByEmpresaId(this.company_id)
         },
         BienesByEmpresa: function(){
-            return this.getBienesByEmpresaId(this.$route.params.empresa)
+            return this.getBienesByEmpresaId(this.company_id)
         },        
         NombreEmpresa: function(){
-            return this.empresas.find(emp => emp.id == this.$route.params.empresa)
+            return this.empresas.find(emp => emp.id == this.company_id)
         }              
     },  
     components: {

@@ -48722,7 +48722,8 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
     combo_proveedores: [],
     combo_cuentas: [],
     combo_roles: [],
-    role_user: []
+    role_user: [],
+    company_id: ''
 });
 
 /***/ }),
@@ -48879,6 +48880,11 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         var list = _ref25.list;
         // MOVIMIENTOS
         state.movimientos = list;
+    },
+    CHANGE_COMPANY: function CHANGE_COMPANY(state, _ref26) {
+        var id = _ref26.id;
+
+        state.company_id = id;
     }
 });
 
@@ -49156,6 +49162,12 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         }, function (err) {
             console.log(err);
         });
+    },
+    CHANGE_COMPANY: function CHANGE_COMPANY(_ref28, payload) {
+        var commit = _ref28.commit;
+
+        console.log("payload:::", payload);
+        commit('CHANGE_COMPANY', { id: payload.id });
     }
 });
 
@@ -49301,7 +49313,7 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         component: __WEBPACK_IMPORTED_MODULE_4__components_bajas_EmpresasBajas_vue___default.a,
         meta: { requiresAuth: true }
     }, {
-        path: '/bajas/:empresa',
+        path: '/bajas',
         name: 'Bajas',
         component: __WEBPACK_IMPORTED_MODULE_3__components_bajas_Bajas_vue___default.a,
         meta: { requiresAuth: true },
@@ -49312,7 +49324,7 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         component: __WEBPACK_IMPORTED_MODULE_6__components_bienes_EmpresasBienes_vue___default.a,
         meta: { requiresAuth: true }
     }, {
-        path: '/bienes/:empresa',
+        path: '/bienes',
         name: 'Bienes',
         component: __WEBPACK_IMPORTED_MODULE_5__components_bienes_Bienes_vue___default.a,
         meta: { requiresAuth: true },
@@ -49368,7 +49380,7 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
         component: __WEBPACK_IMPORTED_MODULE_19__components_traslados_EmpresasTraslados_vue___default.a,
         meta: { requiresAuth: true }
     }, {
-        path: '/traslados/:empresa',
+        path: '/traslados',
         name: 'Traslados',
         component: __WEBPACK_IMPORTED_MODULE_18__components_traslados_Traslados_vue___default.a,
         meta: { requiresAuth: true },
@@ -50762,18 +50774,18 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['empresas', 'combo_responsables']), Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapGetters */])(['getBajasByEmpresaId', 'getBienesByEmpresaId']), {
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['empresas', 'combo_responsables', 'company_id']), Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapGetters */])(['getBajasByEmpresaId', 'getBienesByEmpresaId']), {
         BajasByEmpresa: function BajasByEmpresa() {
-            return this.getBajasByEmpresaId(this.$route.params.empresa);
+            return this.getBajasByEmpresaId(this.company_id);
         },
         BienesByEmpresa: function BienesByEmpresa() {
-            return this.getBienesByEmpresaId(this.$route.params.empresa);
+            return this.getBienesByEmpresaId(this.company_id);
         },
         NombreEmpresa: function NombreEmpresa() {
             var _this2 = this;
 
             return this.empresas.find(function (emp) {
-                return emp.id == _this2.$route.params.empresa;
+                return emp.id == _this2.company_id;
             });
         }
     }),
@@ -53551,12 +53563,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['empresas', 'bienes', 'grupos', 'combo_areas', 'combo_ubicaciones', 'combo_clases', 'combo_responsables', 'combo_tipoingresos', 'combo_proveedores', 'combo_cuentas', 'combo_documentos', 'combo_sedes', 'combo_garantias']), Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapGetters */])(['getBienesByEmpresaId']), {
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['empresas', 'bienes', 'grupos', 'combo_areas', 'combo_ubicaciones', 'combo_clases', 'combo_responsables', 'combo_tipoingresos', 'combo_proveedores', 'combo_cuentas', 'combo_documentos', 'combo_sedes', 'combo_garantias', 'company_id']), Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapGetters */])(['getBienesByEmpresaId']), {
         areasBy: function areasBy() {
             var _this2 = this;
 
             return this.combo_areas.filter(function (are) {
-                return are.empresa_id == _this2.$route.params.empresa;
+                return are.empresa_id == _this2.company_id;
             }).filter(function (are) {
                 return are.sede_id == _this2.codsed;
             });
@@ -53569,13 +53581,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             });
         },
         BienesByEmpresa: function BienesByEmpresa() {
-            return this.getBienesByEmpresaId(this.$route.params.empresa);
+            return this.getBienesByEmpresaId(this.company_id);
         },
         NombreEmpresa: function NombreEmpresa() {
             var _this4 = this;
 
             return this.empresas.find(function (emp) {
-                return emp.id == _this4.$route.params.empresa;
+                return emp.id == _this4.company_id;
             });
         },
         NombreGrupo: function NombreGrupo() {
@@ -71400,7 +71412,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         };
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['empresas', 'combo_empresas', 'combo_sedes', 'combo_areas', 'combo_ubicaciones', 'combo_responsables']), Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapGetters */])(['getTrasladosByEmpresaId', 'getBienesByEmpresaId']), {
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['empresas', 'combo_empresas', 'combo_sedes', 'combo_areas', 'combo_ubicaciones', 'combo_responsables', 'company_id']), Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapGetters */])(['getTrasladosByEmpresaId', 'getBienesByEmpresaId']), {
         areasBy: function areasBy() {
             var _this2 = this;
 
@@ -71418,16 +71430,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             });
         },
         TrasladosByEmpresa: function TrasladosByEmpresa() {
-            return this.getTrasladosByEmpresaId(this.$route.params.empresa);
+            return this.getTrasladosByEmpresaId(this.company_id);
         },
         BienesByEmpresa: function BienesByEmpresa() {
-            return this.getBienesByEmpresaId(this.$route.params.empresa);
+            return this.getBienesByEmpresaId(this.company_id);
         },
         NombreEmpresa: function NombreEmpresa() {
             var _this4 = this;
 
             return this.empresas.find(function (emp) {
-                return emp.id == _this4.$route.params.empresa;
+                return emp.id == _this4.company_id;
             });
         }
     }),
@@ -76038,32 +76050,33 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             };
             this.$modal.show('ubicacion');
         },
+
+        /*         processDelete(id){
+                    this.$dialog.confirm("<span style='color:red'><strong>¿ Desea Eliminar esta Ubicación ?</strong></span>", {
+                        html: true, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
+                        loader: true, // set to true if you want the dailog to show a loader after click on "proceed"
+                        reverse: false, // switch the button positions (left to right, and vise versa)
+                        okText: 'Aceptar',
+                        cancelText: 'Cancelar',
+                        animation: 'fade', // Available: "zoom", "bounce", "fade"
+                        type: 'basic',
+                    })
+                        .then((dialog) => {
+                        var url = '/api/ubicaciones/' + id;
+                        toastr.options.closeButton = true;
+                        toastr.options.progressBar = true;
+                        axios.delete(url).then(response=> {
+                        this.$store.dispatch('LOAD_UBICACIONES_LIST')                    
+                        toastr.success('Ubicación Eliminada correctamente');
+                        dialog.close();
+                        });
+                        })
+                    .catch(() => {
+                        console.log('Delete aborted');
+                    });
+                },  */
         processDelete: function processDelete(id) {
             var _this5 = this;
-
-            this.$dialog.confirm("<span style='color:red'><strong>¿ Desea Eliminar esta Ubicación ?</strong></span>", {
-                html: true, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
-                loader: true, // set to true if you want the dailog to show a loader after click on "proceed"
-                reverse: false, // switch the button positions (left to right, and vise versa)
-                okText: 'Aceptar',
-                cancelText: 'Cancelar',
-                animation: 'fade', // Available: "zoom", "bounce", "fade"
-                type: 'basic'
-            }).then(function (dialog) {
-                var url = '/api/ubicaciones/' + id;
-                toastr.options.closeButton = true;
-                toastr.options.progressBar = true;
-                axios.delete(url).then(function (response) {
-                    _this5.$store.dispatch('LOAD_UBICACIONES_LIST');
-                    toastr.success('Ubicación Eliminada correctamente');
-                    dialog.close();
-                });
-            }).catch(function () {
-                console.log('Delete aborted');
-            });
-        },
-        processPrueba: function processPrueba(id) {
-            var _this6 = this;
 
             this.$swal({
                 title: 'Desea eliminar este registro?',
@@ -76076,12 +76089,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 confirmButtonText: 'Si, eliminar!'
             }).then(function (result) {
                 if (result.value) {
-                    _this6.isLoading = true;
+                    _this5.isLoading = true;
                     var url = '/api/ubicaciones/' + id;
                     axios.delete(url).then(function (response) {
-                        _this6.$store.dispatch('LOAD_UBICACIONES_LIST').then(function () {
-                            _this6.isLoading = false;
-                            _this6.$swal('Eliminado!', 'Este registro fue eliminado.', 'success');
+                        _this5.$store.dispatch('LOAD_UBICACIONES_LIST').then(function () {
+                            _this5.isLoading = false;
+                            _this5.$swal('Eliminado!', 'Este registro fue eliminado.', 'success');
                         });
                     });
                 }
@@ -76216,7 +76229,7 @@ var render = function() {
                                       on: {
                                         click: function($event) {
                                           $event.preventDefault()
-                                          _vm.processPrueba(props.row.id)
+                                          _vm.processDelete(props.row.id)
                                         }
                                       }
                                     },
@@ -94777,6 +94790,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -94785,25 +94807,24 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     data: function data() {
         return {
             ruta1: 'user.index',
-            listMenu: []
+            listMenu: [],
+            companyId: ''
 
         };
     },
     beforeCreate: function beforeCreate() {
+        this.$store.dispatch('LOAD_EMPRESAS_LIST');
         this.$store.dispatch('LOAD_PERMISOS_LIST');
         this.$store.dispatch('LOAD_ROLE_USER');
     },
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* mapState */])(['permisos_user', 'user_system', 'isAdmin', 'role_user']), {
-        rutaActual: function rutaActual() {
-            return this.$route.path + "#";
-        }
-
-    }),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* mapState */])(['permisos_user', 'user_system', 'isAdmin', 'role_user', 'empresas'])),
     watch: {
         role_user: function role_user(newVal) {
             if (newVal != 'undefined' && newVal != null) {
                 this.listMenu = this.role_user;
+                this.companyId = this.empresas[0].id;
+                this.changeCompany();
             }
             if (newVal == null) {
                 this.listMenu = [];
@@ -94823,6 +94844,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             } else {
                 return true;
             }
+        },
+        changeCompany: function changeCompany() {
+            console.log("id:", this.companyId);
+            this.$store.dispatch('CHANGE_COMPANY', { id: this.companyId });
         }
     }
 
@@ -94848,6 +94873,58 @@ var render = function() {
             _c("i", { staticClass: "fa fa-circle text-success" }),
             _vm._v(_vm._s(_vm.user_system.roles[0].name))
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "clearfix" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "pl-5 pr-5 pt-10 company" }, [
+          _c("p", { staticClass: "text-muted" }, [_vm._v("EMPRESA")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.companyId,
+                  expression: "companyId"
+                }
+              ],
+              staticClass: "col-md-12 p-0",
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.companyId = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  _vm.changeCompany
+                ]
+              }
+            },
+            _vm._l(_vm.empresas, function(empresa) {
+              return _c(
+                "option",
+                { key: empresa.id, domProps: { value: empresa.id } },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(empresa.nombre_empresa) +
+                      "\n                "
+                  )
+                ]
+              )
+            })
+          )
         ])
       ]),
       _vm._v(" "),

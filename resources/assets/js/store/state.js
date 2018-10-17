@@ -32,4 +32,5 @@ export default {
     combo_cuentas:[],
     combo_roles:[],
     role_user:[],
+    company_id:'',
 }

@@ -12,6 +12,15 @@
                 <p>{{ user_system.name_complete}}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i>{{ user_system.roles[0].name}}</a>
             </div>
+            <div class="clearfix"></div>
+            <div class="pl-5 pr-5 pt-10 company">
+                <p class="text-muted">EMPRESA</p> 
+                <select class="col-md-12 p-0" v-model="companyId" @change="changeCompany">
+                    <option v-for="empresa in empresas" :value="empresa.id" :key="empresa.id">
+                        {{ empresa.nombre_empresa }}
+                    </option>
+                </select>                             
+            </div>
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" v-if="listMenu">
@@ -51,25 +60,30 @@ export default {
     data () {
       return {
             ruta1 : 'user.index',
-            listMenu : []
+            listMenu : [],
+            companyId: ''
         
       }
     },
     beforeCreate() {
+        this.$store.dispatch('LOAD_EMPRESAS_LIST')             
         this.$store.dispatch('LOAD_PERMISOS_LIST')   
         this.$store.dispatch('LOAD_ROLE_USER')    
     },          
     computed: {
-        ...mapState(['permisos_user','user_system','isAdmin','role_user']),
-        rutaActual: function () {
+        ...mapState(['permisos_user','user_system','isAdmin','role_user','empresas']),
+/*         rutaActual: function () {
             return this.$route.path + "#"
-        }
+        } */
 
     }, 
     watch:{
       role_user: function(newVal){
         if(newVal != 'undefined' && newVal != null){
           this.listMenu = this.role_user
+          this.companyId = this.empresas[0].id
+          this.changeCompany()
+          
         }
         if(newVal == null){
           this.listMenu = []
@@ -87,9 +101,13 @@ export default {
             }else{
                 return true
             }       
-        }       
+        },
+        changeCompany: function(){
+            console.log("id:",this.companyId)
+            this.$store.dispatch('CHANGE_COMPANY', { id: this.companyId } )
+        }      
     }          
-   
+
         
 }
 </script>

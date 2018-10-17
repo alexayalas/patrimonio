@@ -879,19 +879,19 @@ export default {
         }
     },
     computed: {
-        ...mapState(['empresas','bienes','grupos','combo_areas','combo_ubicaciones','combo_clases','combo_responsables','combo_tipoingresos','combo_proveedores','combo_cuentas','combo_documentos','combo_sedes','combo_garantias']),
+        ...mapState(['empresas','bienes','grupos','combo_areas','combo_ubicaciones','combo_clases','combo_responsables','combo_tipoingresos','combo_proveedores','combo_cuentas','combo_documentos','combo_sedes','combo_garantias','company_id']),
         ...mapGetters(['getBienesByEmpresaId']),
         areasBy: function(){
-            return this.combo_areas.filter((are) => are.empresa_id == this.$route.params.empresa).filter((are) => are.sede_id == this.codsed)
+            return this.combo_areas.filter((are) => are.empresa_id == this.company_id).filter((are) => are.sede_id == this.codsed)
         }, 
         ubicacionesBy: function(){
             return this.combo_ubicaciones.filter((ubi) => ubi.area_id == this.codare)
         },               
         BienesByEmpresa: function(){
-            return this.getBienesByEmpresaId(this.$route.params.empresa)
+            return this.getBienesByEmpresaId(this.company_id)
         },
         NombreEmpresa: function(){
-            return this.empresas.find(emp => emp.id == this.$route.params.empresa)
+            return this.empresas.find(emp => emp.id == this.company_id)
         },
         NombreGrupo: function(){
             var nombregrupo =  ''
